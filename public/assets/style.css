@@ -511,3 +511,36 @@ textarea,
  */
 [aria-disabled] {
   cursor: default; }
+
+header {
+  height: 40px; }
+
+nav {
+  display: inline;
+  padding: 20px 20px; }
+
+.logo, #global_nav {
+  display: inline; }
+
+#wrapper {
+  width: 960px;
+  margin: auto; }
+
+#stage {
+  width: auto;
+  height: auto;
+  z-index: 0;
+  position: absolute;
+  opacity: 0.3; }
+
+.topic_char_gl {
+  width: 960px;
+  height: 160px; }
+
+.topic {
+  font-size: 54px;
+  position: relative;
+  top: 50px;
+  margin-left: 30px;
+  margin-top: 0px;
+  z-index: 1; }

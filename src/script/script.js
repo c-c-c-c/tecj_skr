@@ -43,8 +43,8 @@ function renderHandSpinner () {
   let gridHelper;
 	let axisHelper;
   let lightHelp;
-  let width = 1200;
-  let height = 1200;
+  let width = 960;
+  let height = 160;
 	let modelPath ;
 
    //light
@@ -55,7 +55,7 @@ function renderHandSpinner () {
   scene.add(ambient);
 
 	//camera
-  camera = new THREE.PerspectiveCamera(45, width /　height, 1 , 1000);
+  camera = new THREE.PerspectiveCamera(45, 4, 1, 1000);
   camera.position.set(0, 400, 300);
   camera.lookAt(scene.position);
 
@@ -68,15 +68,16 @@ function renderHandSpinner () {
   //scene.add(lightHelper);
 
   //controls
-  controls = new THREE.OrbitControls(camera);
+	//controls = new THREE.OrbitControls(camera);
   //cameraの自動回転
-  controls.autoRotate = true;
-  controls.autoRotateSpeed = 1.5;
+  //controls.autoRotate = true;
+ // controls.autoRotateSpeed = 1.5;
 
   // renderer
   renderer = new THREE.WebGLRenderer({ antialias: true });
   renderer.setSize(width, height);
-  renderer.setClearColor(0xefefef);
+  //renderer.setClearColor(0xefefef);
+  renderer.setClearColor(0xffffff);
   renderer.setPixelRatio(window.devicePixelRatio);
   document.getElementById('stage').appendChild(renderer.domElement);
 
@@ -90,7 +91,7 @@ function renderHandSpinner () {
   loader.load(modelPath, function(geo, mat) {　　　
     //let phongMat = new THREE.MeshPhongMaterial(mat);
     //let phongMat2 = new THREE.MeshPhongMaterial(mat);
-    //let phongMat3 = new THREE.MeshPhongMaterial(mat);
+    //let phongMat3 = new canvasE.MeshPhongMaterial(mat);
     //for (let mt of faceMat.materials) {
     //  mt.color = new THREE.Color(0xffcc88);
   	//}
@@ -101,8 +102,8 @@ function renderHandSpinner () {
       let phongMat = new THREE.MeshPhongMaterial(mat);
       model[i] = new THREE.Mesh(geo, phongMat);
 
-			let randX = 600 * Math.random()-300;
-			let randY = 600 * Math.random()-300;
+			let randX = 1800 * Math.random()-900;
+			let randY = 700 * Math.random()-150;
 			let randZ = 400 * Math.random()-200;
 		  
       if (i==0) { 
@@ -152,7 +153,7 @@ function render () {
  // let cameraZ = 0; 
 	camera.position.set(0, 600, cameraZ);
 
-  controls.update();
+  //controls.update();
   renderer.render(scene, camera);
 }
 
@@ -171,5 +172,6 @@ function Speed_0 () {
  	//addSpinner();
 }
 
-renderHandSpinner();
-
+$(document).ready(function() {
+	renderHandSpinner();
+});
