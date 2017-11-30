@@ -81,7 +81,6 @@ function renderHandSpinner () {
   for (let i= 0 ; i < 2; i++ ) {
   	renderer[i] = new THREE.WebGLRenderer({ antialias: true });
   	renderer[i].setSize(width, height);
-  	//renderer.setClearColor(0xefefef);
   	renderer[i].setClearColor(0xffffff);
   	renderer[i].setPixelRatio(window.devicePixelRatio);
 	
