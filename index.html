@@ -12,6 +12,7 @@
 <body>
   <script src="./public/assets/jquery-3.2.1.min.js"></script>
   <script src="./public/assets/vue.js"></script>
+	<script src="./public/assets/jquery.smoothScroll.js"></script>
   <script src='./public/assets/three.min.js'></script>
   <script src='./public/assets/OrbitControls.js'></script>
   <script src='./public/assets/script.js'></script>
@@ -21,27 +22,28 @@
       <img class="header_logo" src="public/img/2_Flat_logo_on_transparent_256x67.png">
 
       <nav>
-        <a href="">SCENE</a>
-        <a href="">LINE UP</a>
-        <a href="">SCIENCE</a>
-        <a href="">SPECIALS</a>
+        <a href="#scenes_pagelink">SCENE</a>
+        <a href="#line_up_pagelink">LINE UP</a>
+        <a href="#science_pagelink">SCIENCE</a>
+        <a href="#specials_pagelink">SPECIALS</a>
       </nav>
 
     </header>
     <!-- ヒーローイメージ -->
-    <img src="public/img/hero_02.jpg" />
+    <img src="public/img/hero_04.jpg" />
 
     <!-- スクロール数値の表記-->
 <!--      <p id="sc">test</p>
       <p id="dsc">test</p> -->
 
    <!-- トピック -->
-    <div class="topic_char_gl">
-      <div class="stage"></div>
-      <span class="topic">SCENES</span>
-    </div>
+		<div id="scenes_pagelink"></div>
+  	<div class="topic_char_gl">
+  		<div class="stage"></div>
+  		<span class="topic">SCENES</span>
+  	</div>
+		<div id="scenes_area">
 
-    <div id="scenes_area">
       <div class="relaxation">
 				<div class="relaxation_image">
         	<img src="public/img/relaxation.jpg">
@@ -56,6 +58,7 @@
 無になれる時間<br>静かな回転が時間感覚を忘れる一助に</span>
         </div>
       </div>
+
 
       <div class="style">
     		<div class="style_image">
@@ -72,25 +75,25 @@
         </div>
       </div>
 
-      <div class="creativity">
+	    <div class="creativity">
 				<div class="creativity_image">
 					<img src="public/img/creativity.jpg">
 				</div>
-        <!--<img src="public/img/Relaxation.svg">-->
+	      <!--<img src="public/img/Relaxation.svg">-->
 
-        <div class="creativity_text">
-          <span class="scene_topic"><span class="blue">C</span>reativity</span><br>
-          <span>ビジネスの場面で今求められるのは、<br>
-ロジックよりクリエイティビティ、創造性<br>
-長い会議の後や企画書作成に煮詰まった時<br>
-心を沈め、あなたが本来持つ創造力を<br>
-蘇らせます</span>
-        </div>
-      </div>
-    </div>
+	      <div class="creativity_text">
+	        <span class="scene_topic"><span class="blue">C</span>reativity</span><br>
+	        <span>ビジネスの場面で今求められるのは、<br>
+	ロジックよりクリエイティビティ、創造性<br>
+	長い会議の後や企画書作成に煮詰まった時<br>
+	心を沈め、あなたが本来持つ創造力を<br>
+	蘇らせます</span>
+	      </div>
+	    </div>
+		</div>
     <!--  LINE UPエリア-->
 
-
+		<div id="line_up_pagelink"></div>
     <div class="topic_char_gl">
       <div class="stage"></div>
       <span class="topic">LINE UP</span>
@@ -99,8 +102,8 @@
 		<div id="line_up_area">
 			<div class="item_box_wrapper">
 	      <div class="item_box">
-	        <img class="not_spin" src="public/img/hs1.jpg">
-	        <img class="spin" src="public/img/hs1_spin.jpg">
+	        	<img class="not_spin" src="public/img/hs1.jpg">
+	        	<img class="spin" src="public/img/hs1_spin.jpg">
 	        <div class="item_text">
 	          <span class="item_title">真鍮3翼</span><br>
 	          <span class="item_description">定番のスタイル 洗練されたスタイルと玉虫色に変わる色彩は長い間楽しめます</span>
@@ -160,6 +163,7 @@
     </div>
 
     <!--  SCIENCEエリア-->
+		<div id="science_pagelink"></div>
 		<div class="topic_char_gl">
 			<div class="stage"></div>
 			<span class="topic">SCIENCE</span>
@@ -193,14 +197,14 @@
 
     </div>
 
+		<!-- specials -->
+		<div id="specials_pagelink"></div>
 		<div class="topic_char_gl">
 			<div class="stage"></div>
 			<span class="topic">SPECIALS</span>
 		</div>
 
-
     <div id="specials_area">
-
 
       <div class="specials_img">
         <img src="public/img/clover.jpg">
@@ -219,12 +223,16 @@
     </div>
     <div style="clear: both;"></div>
 -->
-</div>
+	</div>
 <footer>
 	<div id= footer_wrapper>
-		あああ
+		footer area
 	</div>
 </footer>
+
+<script>
+  $('a').smoothScroll();
+</script>
 
 </body>
 </html>

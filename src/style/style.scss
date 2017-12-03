@@ -26,7 +26,7 @@ header {
 }
 
 nav {
-	margin: 20px 0 20px 280px;
+	margin: 10px 0 10px 280px;
 }
 
 nav a {
@@ -119,7 +119,9 @@ nav a {
 
 .scene_topic {
 	font-size: 42px;
-	letter-spacing: 6px;
+	// font-feature-settings : "palt";
+
+	letter-spacing: 4px;
 }
 
 .green {	color: #87d96a;}
@@ -138,8 +140,8 @@ nav a {
 }
 
 .item_box img {
-	width : 236px;
-	height: 236px;
+	width : 238px;
+	height: 238px;
 }
 
 .item_box {

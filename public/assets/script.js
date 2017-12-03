@@ -1,27 +1,5 @@
 'use strict';
 
-var vm = new Vue({
-  el: '#mycounter',
-  data: {
-    count: 0
-  },
-  methods: {
-    countUp: function countUp() {
-      this.count++;
-      changeRotateSpeed();
-    }
-  }
-});
-
-var vm_stop = new Vue({
-  el: '#mystop',
-  methods: {
-    hsStop: function hsStop() {
-      Speed_0();
-    }
-  }
-});
-
 var howManySpinners = 200;
 var scene = new THREE.Scene();
 var box = void 0;
@@ -43,172 +21,180 @@ var sum_delta_scroll_px = 0.05;
 var $window = $(window);
 
 function renderHandSpinner() {
-  'use strict';
+	'use strict';
 
-  var light = void 0;
-  var ambient = void 0;
-  var gridHelper = void 0;
-  var axisHelper = void 0;
-  var lightHelp = void 0;
-  var width = 960;
-  var height = 160;
-  var modelPath = void 0;
+	var light = void 0;
+	var ambient = void 0;
+	var gridHelper = void 0;
+	var axisHelper = void 0;
+	var lightHelp = void 0;
+	var width = 960;
+	var height = 160;
+	var modelPath = void 0;
 
-  //light
-  light = new THREE.DirectionalLight(0xffffff, 1);
-  light.position.set(0, 200, 80);
-  scene.add(light);
-  ambient = new THREE.AmbientLight(0x404040);
-  scene.add(ambient);
+	//light
+	light = new THREE.DirectionalLight(0xffffff, 1);
+	light.position.set(0, 200, 80);
+	scene.add(light);
+	ambient = new THREE.AmbientLight(0x404040);
+	scene.add(ambient);
 
-  //camera
-  camera = new THREE.PerspectiveCamera(45, 4, 1, 1000);
-  camera.position.set(0, 400, 300);
-  camera.lookAt(scene.position);
+	//camera
+	camera = new THREE.PerspectiveCamera(45, 4, 1, 1000);
+	camera.position.set(0, 400, 300);
+	camera.lookAt(scene.position);
 
-  // helper 現在は非表示
-  //gridHelper = new THREE.GridHelper(200, 50);
-  //scene.add(gridHelper);
-  //axisHelper = new THREE.AxisHelper(1000);
-  //scene.add(axisHelper);
-  //lightHelper = new THREE.DirectionalLightHelper(light , 20)
-  //scene.add(lightHelper);
+	// helper 現在は非表示
+	//gridHelper = new THREE.GridHelper(200, 50);
+	//scene.add(gridHelper);
+	//axisHelper = new THREE.AxisHelper(1000);
+	//scene.add(axisHelper);
+	//lightHelper = new THREE.DirectionalLightHelper(light , 20)
+	//scene.add(lightHelper);
 
-  //controls
-  //controls = new THREE.OrbitControls(camera);
-  //cameraの自動回転
-  //controls.autoRotate = true;
-  // controls.autoRotateSpeed = 1.5;
+	//controls
+	//controls = new THREE.OrbitControls(camera);
+	//cameraの自動回転
+	//controls.autoRotate = true;
+	// controls.autoRotateSpeed = 1.5;
 
-  // renderer
-  for (var i = 0; i < 4; i++) {
-    renderer[i] = new THREE.WebGLRenderer({ antialias: true });
-    renderer[i].setSize(width, height);
-    renderer[i].setClearColor(0xffffff);
-    renderer[i].setPixelRatio(window.devicePixelRatio);
+	// renderer
+	for (var i = 0; i < 4; i++) {
+		renderer[i] = new THREE.WebGLRenderer({ antialias: true });
+		renderer[i].setSize(width, height);
+		renderer[i].setClearColor(0xffffff);
+		renderer[i].setPixelRatio(window.devicePixelRatio);
 
-    document.getElementsByClassName('stage')[i].appendChild(renderer[i].domElement);
-  }
-  //modelPath = 'src/bear.json';
-  //modelPath = 'src/handspiner_3d.json';
-  //modelPath = '../src/data/handspiner_3d_geo.json';
-  modelPath = './src/data/handspiner_3d_geo.json';
-  //modelPath = '/Users/yoshimurahiroyuki/workspace/threejs/src/handspiner.json';
+		document.getElementsByClassName('stage')[i].appendChild(renderer[i].domElement);
+	}
 
-  var loader = new THREE.JSONLoader();
-  loader.load(modelPath, function (geo, mat) {
-    //let phongMat = new THREE.MeshPhongMaterial(mat);
-    //let phongMat2 = new THREE.MeshPhongMaterial(mat);
-    //let phongMat3 = new canvasE.MeshPhongMaterial(mat);
-    //for (let mt of faceMat.materials) {
-    //  mt.color = new THREE.Color(0xffcc88);
-    //}
-    geometry = geo;
-    material = mat;
+	//modelPath = '../src/data/handspiner_3d_geo.json';
+	modelPath = './src/data/handspiner_3d_geo.json';
+	//modelPath = '/Users/yoshimurahiroyuki/workspace/threejs/src/handspiner.json';
 
-    for (var _i = 0; _i < howManySpinners; _i++) {
-      var phongMat = new THREE.MeshPhongMaterial(mat);
-      model[_i] = new THREE.Mesh(geo, phongMat);
+	var loader = new THREE.JSONLoader();
+	loader.load(modelPath, function (geo, mat) {
 
-      var randX = 1800 * Math.random() - 900;
-      var randY = 700 * Math.random() - 150;
-      var randZ = 400 * Math.random() - 200;
+		geometry = geo;
+		material = mat;
 
-      if (_i == 0) {
-        model[_i].position.set(0, 20, 0);
-      } else {
-        model[_i].position.set(randX, randY, randZ);
-      }
+		for (var _i = 0; _i < howManySpinners; _i++) {
+			var phongMat = new THREE.MeshPhongMaterial(mat);
+			model[_i] = new THREE.Mesh(geo, phongMat);
 
-      model[_i].scale.set(0.5, 0.5, 0.5);
-      var randColor = Math.random() * 0xffffff;
-      model[_i].material.color = new THREE.Color(randColor);
-      model[_i].material.opacity = 0.3;
-      model[_i].material.transparent = true;
-      scene.add(model[_i]);
-    }
-    render();
-  });
+			var randX = 1800 * Math.random() - 900;
+			var randY = 700 * Math.random() - 150;
+			var randZ = 400 * Math.random() - 200;
+
+			if (_i == 0) {
+				model[_i].position.set(0, 20, 0);
+			} else {
+				model[_i].position.set(randX, randY, randZ);
+			}
+
+			model[_i].scale.set(0.5, 0.5, 0.5);
+			var randColor = Math.random() * 0xffffff;
+			model[_i].material.color = new THREE.Color(randColor);
+			model[_i].material.opacity = 0.3;
+			model[_i].material.transparent = true;
+			scene.add(model[_i]);
+		}
+		render();
+	});
 }
 
-function addSpinner() {
-  var phongMat = new THREE.MeshPhongMaterial(material);
+/*
+function addSpinner () {
+  let phongMat = new THREE.MeshPhongMaterial(material);
   model = new THREE.Mesh(geometry, phongMat);
-  var randX = 800 * Math.random();
-  var randY = 800 * Math.random();
-  var randZ = 800 * Math.random();
+	let randX = 800 * Math.random();
+	let randY = 800 * Math.random();
+	let randZ = 800 * Math.random();
 
-  var size = Math.random();
-  model.scale.set(size, size, size);
+  let size = Math.random();
+	model.scale.set(size, size, size);　　　
   model.position.set(randX, randY, randZ);
-  var randColor = Math.random() * 0xffffff;
-  model.material.color = new THREE.Color(randColor);
-  scene.add(model);
+	let randColor = Math.random() * 0xffffff;　　　
+	model.material.color = new THREE.Color(randColor);
+	scene.add(model);　
 }
+*/
 
 function render() {
 
-  requestAnimationFrame(render);
-  r_radian += 0.01;
+	requestAnimationFrame(render);
+	r_radian += 0.01;
 
-  for (var i = 0; i < howManySpinners; i++) {
-    if (delta_scroll_px < 0) {
-      rotate_speed = 0;
-      sum_delta_scroll_px = 0;
-    } else {
-      rotate_speed = sum_delta_scroll_px / 6000 + 0.05;
-    }
+	for (var i = 0; i < howManySpinners; i++) {
+		if (delta_scroll_px < 0) {
+			rotate_speed = 0;
+			sum_delta_scroll_px = 0;
+		} else {
+			rotate_speed = sum_delta_scroll_px / 6000 + 0.05;
+		}
 
-    model[i].rotation.y += rotate_speed;
-    model[i].position.y += (Math.sin(r_radian) - Math.sin(r_radian - 0.01)) * 150;
-  }
+		model[i].rotation.y += rotate_speed;
+		model[i].position.y += (Math.sin(r_radian) - Math.sin(r_radian - 0.01)) * 150;
+	}
 
-  c_radian += 0.007;
-  var cameraZ = 150 * Math.sin(c_radian) + 150;
-  // let cameraZ = 0;
-  camera.position.set(0, 600, cameraZ);
+	c_radian += 0.007;
+	var cameraZ = 150 * Math.sin(c_radian) + 150;
+	camera.position.set(0, 600, cameraZ);
 
-  //controls.update();
-  for (var _i2 = 0; _i2 < 4; _i2++) {
-    renderer[_i2].render(scene, camera);
-  }
-}
-
-function changeRotateSpeed() {
-  //controls.autoRotateSpeed = vm.count*10;
-  rotate_speed += vm.count * 0.01;
-  for (var i = 0; i < howManySpinners; i++) {
-
-    model[i].rotation.y = 1.8 * vm.count;
-  }
-}
-
-function Speed_0() {
-  vm.count = 0;
-  rotate_speed = 0;
-  //addSpinner();
+	for (var _i2 = 0; _i2 < 4; _i2++) {
+		renderer[_i2].render(scene, camera);
+		//controls.update();
+	}
 }
 
 function countScroll() {
-  // スクロールしたら発動
-  $window.scroll(function () {
-    var before_scroll_px = scroll_px;
-    console.log(sum_delta_scroll_px);
-    // スクロール量を変数に格納
-    scroll_px = $(this).scrollTop();
-    delta_scroll_px = scroll_px - before_scroll_px;
-    sum_delta_scroll_px += delta_scroll_px;
-    //		console.log("scroll:"+scroll_px);
-    //		console.log("before" + before_scroll_px);
-    //		console.log("delta" + delta_scroll_px);
-    // HTMLにスクロール量を表示
-    $('#sc').text(sum_delta_scroll_px);
-    $('#dsc').text(delta_scroll_px);
-  });
+	// スクロールしたら発動
+	$window.scroll(function () {
+		var before_scroll_px = scroll_px;
+		console.log(sum_delta_scroll_px);
+		// スクロール量を変数に格納
+		scroll_px = $(this).scrollTop();
+		delta_scroll_px = scroll_px - before_scroll_px;
+		sum_delta_scroll_px += delta_scroll_px;
+	});
 }
 
+function addHoverImgChange() {
+	var _this = this;
+
+	$('.item_box').hover(function () {
+		console.log("hoge");
+		console.log($(_this).children("img"));
+		console.log($(_this).each());
+		$(_this).each(function () {
+			//			$(this).children("img").each(()=>{
+			if ($(_this).attr("class") === "not_spin") {
+				$(_this).attr({ "display": "none" });
+				console.log("come1");
+			} else {
+				$(_this).attr({ "display": "inherit" });
+				console.log("come2");
+			}
+			console.log("come3");
+		});
+	}, function () {
+		console.log("fuga");
+	});
+}
+
+/*
+function addHoverImgChange() {
+	let notSpinImages = document.getElementsByClassName("not_spin")
+	const ImageN = 6;
+	for (i=0 ;i<6; i++ ){
+		notSpinImages[i].addEve
+
+	}
+*/
+
 $(document).ready(function () {
-  $(countScroll());
-  renderHandSpinner();
+	$(countScroll());
+	$(addHoverImgChange());
+	renderHandSpinner();
 });
 //# sourceMappingURL=script.js.map

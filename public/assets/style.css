@@ -533,7 +533,7 @@ header {
   position: relative; }
 
 nav {
-  margin: 20px 0 20px 280px; }
+  margin: 10px 0 10px 280px; }
 
 nav a {
   padding: 20px 20px; }
@@ -612,7 +612,7 @@ nav a {
 
 .scene_topic {
   font-size: 42px;
-  letter-spacing: 6px; }
+  letter-spacing: 4px; }
 
 .green {
   color: #87d96a; }
@@ -633,8 +633,8 @@ nav a {
   margin-bottom: 20px; }
 
 .item_box img {
-  width: 236px;
-  height: 236px; }
+  width: 238px;
+  height: 238px; }
 
 .item_box {
   width: 240px;
