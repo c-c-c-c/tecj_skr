@@ -81,10 +81,9 @@ function renderHandSpinner() {
   // controls.autoRotateSpeed = 1.5;
 
   // renderer
-  for (var i = 0; i < 2; i++) {
+  for (var i = 0; i < 4; i++) {
     renderer[i] = new THREE.WebGLRenderer({ antialias: true });
     renderer[i].setSize(width, height);
-    //renderer.setClearColor(0xefefef);
     renderer[i].setClearColor(0xffffff);
     renderer[i].setPixelRatio(window.devicePixelRatio);
 
@@ -124,6 +123,8 @@ function renderHandSpinner() {
       model[_i].scale.set(0.5, 0.5, 0.5);
       var randColor = Math.random() * 0xffffff;
       model[_i].material.color = new THREE.Color(randColor);
+      model[_i].material.opacity = 0.3;
+      model[_i].material.transparent = true;
       scene.add(model[_i]);
     }
     render();
@@ -155,7 +156,7 @@ function render() {
       rotate_speed = 0;
       sum_delta_scroll_px = 0;
     } else {
-      rotate_speed = sum_delta_scroll_px / 1500 + 0.05;
+      rotate_speed = sum_delta_scroll_px / 6000 + 0.05;
     }
 
     model[i].rotation.y += rotate_speed;
@@ -164,12 +165,13 @@ function render() {
 
   c_radian += 0.007;
   var cameraZ = 150 * Math.sin(c_radian) + 150;
-  // let cameraZ = 0; 
+  // let cameraZ = 0;
   camera.position.set(0, 600, cameraZ);
 
   //controls.update();
-  renderer[0].render(scene, camera);
-  renderer[1].render(scene, camera);
+  for (var _i2 = 0; _i2 < 4; _i2++) {
+    renderer[_i2].render(scene, camera);
+  }
 }
 
 function changeRotateSpeed() {
@@ -196,9 +198,9 @@ function countScroll() {
     scroll_px = $(this).scrollTop();
     delta_scroll_px = scroll_px - before_scroll_px;
     sum_delta_scroll_px += delta_scroll_px;
-    //		console.log("scroll:"+scroll_px);													 
-    //		console.log("before" + before_scroll_px);													 
-    //		console.log("delta" + delta_scroll_px);													 
+    //		console.log("scroll:"+scroll_px);
+    //		console.log("before" + before_scroll_px);
+    //		console.log("delta" + delta_scroll_px);
     // HTMLにスクロール量を表示
     $('#sc').text(sum_delta_scroll_px);
     $('#dsc').text(delta_scroll_px);

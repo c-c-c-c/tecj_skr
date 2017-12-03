@@ -5,17 +5,17 @@ var vm = new Vue({
   },
   methods: {
     countUp: function() {
-            this.count++; 
-            changeRotateSpeed (); 
+            this.count++;
+            changeRotateSpeed ();
       }
   }
 });
-  
+
 var vm_stop = new Vue({
   el: '#mystop',
   methods: {
     hsStop: function() {
-            Speed_0(); 
+            Speed_0();
     }
   }
 });
@@ -78,12 +78,12 @@ function renderHandSpinner () {
  // controls.autoRotateSpeed = 1.5;
 
   // renderer
-  for (let i= 0 ; i < 2; i++ ) {
+  for (let i= 0 ; i < 4; i++ ) {
   	renderer[i] = new THREE.WebGLRenderer({ antialias: true });
   	renderer[i].setSize(width, height);
   	renderer[i].setClearColor(0xffffff);
   	renderer[i].setPixelRatio(window.devicePixelRatio);
-	
+
 		document.getElementsByClassName('stage')[i].appendChild(renderer[i].domElement);
 	}
 	//modelPath = 'src/bear.json';
@@ -110,8 +110,8 @@ function renderHandSpinner () {
 			let randX = 1800 * Math.random()-900;
 			let randY = 700 * Math.random()-150;
 			let randZ = 400 * Math.random()-200;
-		  
-      if (i==0) { 
+
+      if (i==0) {
 				model[i].position.set(0, 20, 0);
 			} else {
 				model[i].position.set(randX, randY, randZ);
@@ -120,8 +120,10 @@ function renderHandSpinner () {
     	model[i].scale.set(0.5, 0.5, 0.5);　
     	let randColor = Math.random() * 0xffffff ;　　　
     	model[i].material.color = new THREE.Color(randColor);
-    	scene.add(model[i]);　　　
-		} 
+    	model[i].material.opacity = 0.3;
+			model[i].material.transparent = true;
+			scene.add(model[i]);　　　
+		}
     render();
   });　
 }
@@ -132,7 +134,7 @@ function addSpinner () {
 	let randX = 800 * Math.random();
 	let randY = 800 * Math.random();
 	let randZ = 800 * Math.random();
-	
+
   let size = Math.random();
 	model.scale.set(size, size, size);　　　
   model.position.set(randX, randY, randZ);
@@ -147,11 +149,11 @@ function render () {
   r_radian += 0.01;
 
 	for (let i=0; i < howManySpinners; i++ ) {
-  	if( delta_scroll_px < 0 )  { 
+  	if( delta_scroll_px < 0 )  {
 			rotate_speed = 0;
 			sum_delta_scroll_px = 0;
 		} else {
-			rotate_speed =  sum_delta_scroll_px/1500 + 0.05;
+			rotate_speed =  sum_delta_scroll_px/6000 + 0.05;
 		}
 
 		model[i].rotation.y += rotate_speed;
@@ -160,23 +162,24 @@ function render () {
 
 	c_radian += 0.007;
   let cameraZ = 150 * (Math.sin(c_radian)) +150;
- // let cameraZ = 0; 
+ // let cameraZ = 0;
 	camera.position.set(0, 600, cameraZ);
 
   //controls.update();
-  renderer[0].render(scene, camera);
-  renderer[1].render(scene, camera);
+	for (let i=0; i<4; i++) {
+  	renderer[i].render(scene, camera);
+	}
 }
 
 function changeRotateSpeed () {
   //controls.autoRotateSpeed = vm.count*10;
  	rotate_speed += vm.count*0.01;
   for (let i=0 ; i < howManySpinners; i++) {
-					
+
 		model[i].rotation.y = 1.8*vm.count;
   }
 }
-        
+
 function Speed_0 () {
   vm.count = 0;
   rotate_speed = 0;
@@ -187,15 +190,15 @@ function Speed_0 () {
 function countScroll () {
 	// スクロールしたら発動
 	$window.scroll(function() {
-		let before_scroll_px = scroll_px;			 
-		console.log(sum_delta_scroll_px);	
+		let before_scroll_px = scroll_px;
+		console.log(sum_delta_scroll_px);
 		// スクロール量を変数に格納
 		scroll_px = $(this).scrollTop();
 		delta_scroll_px = (scroll_px) - (before_scroll_px);
 		sum_delta_scroll_px +=delta_scroll_px;
-//		console.log("scroll:"+scroll_px);													 
-//		console.log("before" + before_scroll_px);													 
-//		console.log("delta" + delta_scroll_px);													 
+//		console.log("scroll:"+scroll_px);
+//		console.log("before" + before_scroll_px);
+//		console.log("delta" + delta_scroll_px);
 		// HTMLにスクロール量を表示
 		$('#sc').text(sum_delta_scroll_px);
 		$('#dsc').text(delta_scroll_px);
