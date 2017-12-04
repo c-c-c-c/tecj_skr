@@ -178,31 +178,42 @@ function countScroll() {
 
 function addHoverImgChange() {
 	$('.item_box').hover(function (e) {
-		console.log("hoge");
-		console.log(JSON.stringify($(e.currentTarget)));
-		console.log(JSON.stringify($(e.currentTarget).children('img')));
-		console.log(JSON.stringify($(e.currentTarget).find('img')));
-		console.log(JSON.stringify($(e.currentTarget).children()));
+		//console.log("hoge");
+		//console.log(JSON.stringify($(e.currentTarget)));
+		//console.log(JSON.stringify($(e.currentTarget).children('img')));
+		//console.log(JSON.stringify($(e.currentTarget).find('img')));
+		//console.log(JSON.stringify($(e.currentTarget).children()));
 
 		//console.log($(this).children("img"));
 		//console.log($(this).each());
-		$(e.currentTarget).children("img").each(function (ev) {
+		$(e.currentTarget).children("img").each(function (i, ev) {
 			//			$(this).children("img").each(()=>{
-			console.log(JSON.stringify($(ev.currentTarget).attr("class")));
-			console.log(JSON.stringify($(ev.currentTarget)));
-			console.log(JSON.stringify(ev));
+			//console.log(JSON.stringify($(ev).attr("class")));
+			//console.log(JSON.stringify($(ev.currentTarget).attr("class")));
+			// console.log(JSON.stringify($(ev.currentTarget)));
+			//console.log(JSON.stringify((ev)));
 
-			if ($(ev.currentTarget).attr("class") == "not_spin") {
-				$(ev.currentTarget).attr({ "display": "none" });
+			if ($(ev).attr("class") == "not_spin") {
+				$(ev).css("display", "none");
 				console.log("come1");
 			} else {
-				$(ev.currentTarget).attr({ "display": "inherit" });
+				$(ev).css("display", "inherit");
 				console.log("come2");
 			}
 			console.log("come3");
 		});
-	}, function () {
-		console.log("fuga");
+	}, function (e) {
+
+		$(e.currentTarget).children("img").each(function (i, ev) {
+			console.log("hoge");
+			console.log(JSON.stringify($(ev.currentTarget).attr("class")));
+
+			if ($(ev).attr("class") == "not_spin") {
+				$(ev).css("display", "inherit");
+			} else {
+				$(ev).css("display", "none");
+			}
+		});
 	});
 }
 
