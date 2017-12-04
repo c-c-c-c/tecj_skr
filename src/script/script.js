@@ -11,6 +11,10 @@ let model3 = {};
 let rotate_speed = 0.05;
 let r_radian = 0;
 let c_radian = 0;
+let r_radian_speed =0.01;
+let c_radian_speed =0.007;
+let count = 0;
+
 let geometry;
 let material;
 let scroll_px = 0;
@@ -121,21 +125,40 @@ function addSpinner () {
 function render () {
 
   requestAnimationFrame(render);
-  r_radian += 0.01;
+  r_radian += r_radian_speed;
+  count++;
 
 	for (let i=0; i < howManySpinners; i++ ) {
   	if( delta_scroll_px < 0 )  {
 			rotate_speed = 0;
 			sum_delta_scroll_px = 0;
+			r_radian_speed=0;
+			c_radian_speed=0;
 		} else {
 			rotate_speed =  sum_delta_scroll_px/6000 + 0.05;
+			r_radian_speed=0.01;
+			c_radian_speed=0.007;
 		}
 
 		model[i].rotation.y += rotate_speed;
-    model[i].position.y += (Math.sin(r_radian) - Math.sin(r_radian-0.01))*150 ;
+    model[i].position.y += (Math.sin(r_radian) - Math.sin(r_radian-r_radian_speed))*150 ;
+
+
+		console.log(count);
+		if (rotate_speed == 0 ) {
+
+			if (count%16 < 8 ) {
+				console.log("fuga");
+				model[i].rotation.y += 0.02;
+
+			} else {
+				model[i].rotation.y -= 0.02;
+			}
+
+		}
 	}
 
-	c_radian += 0.007;
+	c_radian += c_radian_speed;
   let cameraZ = 150 * (Math.sin(c_radian)) +150;
 	camera.position.set(0, 600, cameraZ);
 
