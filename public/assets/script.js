@@ -99,7 +99,7 @@ function renderHandSpinner() {
 			model[_i].scale.set(0.5, 0.5, 0.5);
 			var randColor = Math.random() * 0xffffff;
 			model[_i].material.color = new THREE.Color(randColor);
-			model[_i].material.opacity = 0.3;
+			model[_i].material.opacity = 0.4;
 			model[_i].material.transparent = true;
 			scene.add(model[_i]);
 		}
@@ -145,11 +145,8 @@ function render() {
 		model[i].rotation.y += rotate_speed;
 		model[i].position.y += (Math.sin(r_radian) - Math.sin(r_radian - r_radian_speed)) * 150;
 
-		console.log(count);
 		if (rotate_speed == 0) {
-
-			if (count % 16 < 8) {
-				console.log("fuga");
+			if (count % 50 < 25) {
 				model[i].rotation.y += 0.02;
 			} else {
 				model[i].rotation.y -= 0.02;
@@ -180,19 +177,26 @@ function countScroll() {
 }
 
 function addHoverImgChange() {
-	var _this = this;
-
-	$('.item_box').hover(function () {
+	$('.item_box').hover(function (e) {
 		console.log("hoge");
-		console.log($(_this).children("img"));
-		console.log($(_this).each());
-		$(_this).each(function () {
+		console.log(JSON.stringify($(e.currentTarget)));
+		console.log(JSON.stringify($(e.currentTarget).children('img')));
+		console.log(JSON.stringify($(e.currentTarget).find('img')));
+		console.log(JSON.stringify($(e.currentTarget).children()));
+
+		//console.log($(this).children("img"));
+		//console.log($(this).each());
+		$(e.currentTarget).children("img").each(function (ev) {
 			//			$(this).children("img").each(()=>{
-			if ($(_this).attr("class") === "not_spin") {
-				$(_this).attr({ "display": "none" });
+			console.log(JSON.stringify($(ev.currentTarget).attr("class")));
+			console.log(JSON.stringify($(ev.currentTarget)));
+			console.log(JSON.stringify(ev));
+
+			if ($(ev.currentTarget).attr("class") == "not_spin") {
+				$(ev.currentTarget).attr({ "display": "none" });
 				console.log("come1");
 			} else {
-				$(_this).attr({ "display": "inherit" });
+				$(ev.currentTarget).attr({ "display": "inherit" });
 				console.log("come2");
 			}
 			console.log("come3");
