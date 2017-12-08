@@ -180,21 +180,21 @@ function countScroll () {
 function addHoverImgChange () {
 	$( '.item_box' ).hover((e)=>{
 
-			$(e.currentTarget).children("img").each((i, ev)=>{
+			$(e.currentTarget).find("img").each((i, ev)=>{
 				if ($(ev).attr("class") == "not_spin"  ){
-					$(ev).css("display","none");
+					$(ev).animate({opacity: 0});//
 				} else {
-					$(ev).css("display","inherit");
+					$(ev).animate({opacity: 1});
 				}
 			});
 
 	},(e)=>{
 
-		$(e.currentTarget).children("img").each((i, ev)=>{
+		$(e.currentTarget).find("img").each((i, ev)=>{
 			if ($(ev).attr("class") == "not_spin"  ){
-				$(ev).css("display","inherit");
+				$(ev).animate({opacity:1});
 			} else {
-				$(ev).css("display","none");
+				$(ev).animate({opacity:0});
 			}
 		});
 	});

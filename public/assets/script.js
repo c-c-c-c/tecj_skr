@@ -179,20 +179,20 @@ function countScroll() {
 function addHoverImgChange() {
 	$('.item_box').hover(function (e) {
 
-		$(e.currentTarget).children("img").each(function (i, ev) {
+		$(e.currentTarget).find("img").each(function (i, ev) {
 			if ($(ev).attr("class") == "not_spin") {
-				$(ev).css("display", "none");
+				$(ev).animate({ opacity: 0 }); //
 			} else {
-				$(ev).css("display", "inherit");
+				$(ev).animate({ opacity: 1 });
 			}
 		});
 	}, function (e) {
 
-		$(e.currentTarget).children("img").each(function (i, ev) {
+		$(e.currentTarget).find("img").each(function (i, ev) {
 			if ($(ev).attr("class") == "not_spin") {
-				$(ev).css("display", "inherit");
+				$(ev).animate({ opacity: 1 });
 			} else {
-				$(ev).css("display", "none");
+				$(ev).animate({ opacity: 0 });
 			}
 		});
 	});
