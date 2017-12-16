@@ -527,15 +527,25 @@ body {
 header {
   height: auto; }
 
+.header_hr {
+  display: inline-block;
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 8px;
+  border-top: solid 2px #87d96a;
+  border-bottom: solid 4px #87d96a; }
+
 #scenes_area, #line_up_area, #science_area, #specials_area {
   margin: 0 70px 20px 70px; }
 
 .header_logo, nav {
   display: inline-block;
-  position: relative; }
+  position: relative;
+  margin: 20px 0 10px 0; }
 
 nav {
-  margin: 10px 0 10px 280px; }
+  margin: 0 0 0 280px; }
 
 nav a {
   padding: 20px 20px; }
@@ -564,7 +574,8 @@ nav a {
   z-index: 1;
   letter-spacing: 10px;
   font-weight: normal;
-  color: 000; }
+  color: 000;
+  text-shadow: 2px 2px 1px #87d96a; }
 
 .relaxation, .style, .creativity {
   margin-top: 60px; }
@@ -649,13 +660,15 @@ nav a {
   border: solid 1px #87d96a; }
 
 .item_title {
-  font-size: 34px; }
+  font-size: 24px;
+  font-weight: 400;
+  letter-spacing: 1.4; }
 
 .item_text {
   width: auto;
   height: 140px;
   background-color: #efefef;
-  padding: 0 10px 10px 10px;
+  padding: 0 16px 16px 16px;
   line-height: 1.7; }
 
 #science_image {
@@ -689,31 +702,87 @@ nav a {
 
 .science_index {
   font-size: 26px;
+  font-weight: 400;
   width: 530px;
   padding: 2px 20px;
   border-left: solid 2px #87d96a;
-  border-bottom: solid 2px #87d96a; }
+  border-bottom: solid 2px #87d96a;
+  line-height: 1.5; }
 
 .science_description {
   margin-top: 26px;
   padding: 0 10px; }
 
-.specials_img img {
+#specials_area img {
   width: 270px;
-  height: 180px; }
+  height: auto; }
+
+#kanransha_main {
+  width: 270px;
+  height: 2000px; }
 
 .specials_img {
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: row;
   justify-content: space-between;
   align-content: space-between; }
+
+.clover_area, .husha_area, .kanransha_area {
+  width: 270px;
+  height: 220px;
+  margin: auto;
+  user-select: none; }
+
+#clover_main {
+  animation-name: spin;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  position: absolute;
+  z-index: 1;
+  transform-origin: 30.74% 55.5%; }
+
+#husha_main {
+  animation-name: spin;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  position: absolute;
+  z-index: 1;
+  transform-origin: 45.5% 39.7%; }
+
+#kanransha_main {
+  animation-name: spin;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  position: absolute;
+  z-index: 1;
+  transform-origin: 49.3% 49.1%; }
+
+#clover_bg, #husha_bg, #kanransha_bg {
+  position: absolute;
+  z-index: -2; }
+
+#white_space {
+  position: relative;
+  z-index: 2;
+  top: 180px;
+  width: 270px;
+  height: 30px;
+  background-color: white; }
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg); }
+  100% {
+    transform: rotate(360deg); } }
 
 footer {
   margin-top: 80px;
   width: auto;
   height: 400px;
   background-color: #F2F2F2;
-  border: solid 1px #ccc; }
+  border: solid 1px #ccc;
+  font-weight: 400;
+  line-height: 2.2; }
 
 #footer_wrapper {
   text-align: center;
@@ -723,7 +792,27 @@ footer {
   font-size: 26px; }
 
 .footer_attention_message {
-  font-size: 8px; }
+  font-size: 8px;
+  margin-bottom: 40px; }
+
+.footer_hr {
+  display: inline-block;
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  border-top: dotted 1px #cdcdcd; }
+
+#footer_hr_area {
+  margin: 20px 0 20px 0; }
+
+.footer_logo {
+  margin-top: 20px; }
+
+.copyright {
+  margin-top: 20px;
+  display: block;
+  font-size: 9px; }
 
 #img_hs1 {
   background-image: url("../img/hs1_spin.jpg");

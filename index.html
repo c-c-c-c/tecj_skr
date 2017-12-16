@@ -11,9 +11,9 @@
 
 <body>
   <script src="./public/assets/jquery-3.2.1.min.js"></script>
-  <script src="./public/assets/vue.js"></script>
 	<script src="./public/assets/jquery.smoothScroll.js"></script>
   <script src='./public/assets/three.min.js'></script>
+	<script src="./public/assets/vue.js"></script>
   <script src='./public/assets/OrbitControls.js'></script>
   <script src='./public/assets/script.js'></script>
 
@@ -30,6 +30,9 @@
 
     </header>
     <!-- ヒーローイメージ -->
+
+		<div id=header_hr_area><span class="header_hr"></span></div>
+				<div id=header_hr_area><span class="header_hr2"></span></div>
     <img src="public/img/hero_04.jpg" />
 
     <!-- スクロール数値の表記-->
@@ -210,9 +213,20 @@
     <div id="specials_area">
 
       <div class="specials_img">
-        <img src="public/img/clover.jpg">
-        <img src="public/img/husha.jpg">
-        <img src="public/img/kanransha.jpg">
+				<div class="clover_area">
+	      	<img src="public/img/clover_bg.jpg" id=clover_bg>
+					<img src="public/img/clover_main.png" id=clover_main>
+				</div>
+
+				<div class="husha_area">
+	      	<img src="public/img/husha_bg.jpg" id=husha_bg>
+					<img src="public/img/husha_main.png" id=husha_main>
+				</div>
+				<div class="kanransha_area">
+	      	<img src="public/img/kanransha_bg.jpg" id=kanransha_bg>
+					<img src="public/img/kanransha_main.png" id=kanransha_main>
+					<div id=white_space></div>
+				</div>
       </div>
     </div>
 
@@ -233,11 +247,13 @@
 [fb いいね]　[twitter follow] [インスタ]<br>
 <span class="footer_attention_message">このウェブサイトについておよび
 	プライバシーポリシーにご同意の上ご登録ください。</span><br>
-<hr>
-<img src="public/img/2_Flat_logo_on_transparent_256x67.png"><br>
-サポート プライバシーポリシー このウェブサイトについて <br>
-法人様・メディア関係のお問い合わせ 公式Facebook 公式Twitter 公式Instagram<br>
-Copyright 2017 NewToy Corporation. All rights reserved.
+<div id=footer_hr_area><span class="footer_hr"></span></div>
+
+
+<img src="public/img/2_Flat_logo_on_transparent_256x67.png" class="footer_logo"><br>
+<a href="">サポート</a>　<a href="">プライバシーポリシー</a>　<a href="">法人様•メディア関係のお問い合わせ</a><br>
+<a href="">公式Facebook</a>　<a href="">公式Twitter</a>　<a href="">公式Instagram</a><br>
+<span class="copyright">Copyright 2017 NewToy Corporation. All rights reserved.</span>
 	</div>
 </footer>
 

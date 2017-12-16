@@ -164,6 +164,7 @@ function render() {
 	}
 }
 
+//スクロールアクション//
 function countScroll() {
 	// スクロールしたら発動
 	$window.scroll(function () {
@@ -176,6 +177,7 @@ function countScroll() {
 	});
 }
 
+//ホバー時の挙動//
 function addHoverImgChange() {
 	$('.item_box').hover(function (e) {
 
@@ -198,6 +200,36 @@ function addHoverImgChange() {
 	});
 }
 
+// SPECIALSの挙動 //
+function specialImageRotate() {
+	//まとめたい・・
+
+	$(".clover_area").click(function () {
+
+		if ($("#clover_main").css("animation-duration") == "0s") {
+			$("#clover_main").css("animation-duration", "2.5s");
+		} else {
+			$("#clover_main").css("animation-duration", "-=0.1s");
+		}
+	});
+
+	$(".husha_area").click(function () {
+
+		if ($("#husha_main").css("animation-duration") == "0s") {
+			$("#husha_main").css("animation-duration", "1s");
+		} else {
+			$("#husha_main").css("animation-duration", "-=0.05s");
+		}
+	});
+	$(".kanransha_area").click(function () {
+
+		if ($("#kanransha_main").css("animation-duration") == "0s") {
+			$("#kanransha_main").css("animation-duration", "0.7s");
+		} else {
+			$("#kanransha_main").css("animation-duration", "-=0.1s");
+		}
+	});
+}
 /*
 function addHoverImgChange() {
 	let notSpinImages = document.getElementsByClassName("not_spin")
@@ -211,6 +243,7 @@ function addHoverImgChange() {
 $(document).ready(function () {
 	$(countScroll());
 	$(addHoverImgChange());
+	$(specialImageRotate());
 	renderHandSpinner();
 });
 //# sourceMappingURL=script.js.map
