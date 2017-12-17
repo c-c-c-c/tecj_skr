@@ -245,7 +245,7 @@ function addHoverImgChange() {
 */
 
 $(document).ready(function () {
-	$(window).fadeThis({ speed: 1000, distance: 10 });
+	$(window).fadeThis({ speed: 600, distance: 6 });
 	$(countScroll());
 	$(addHoverImgChange());
 	$(specialImageRotate());
