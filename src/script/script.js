@@ -22,6 +22,7 @@ let delta_scroll_px = 0;
 let sum_delta_scroll_px = 0.05;
 const $window = $(window);
 
+
 function renderHandSpinner () {
   'use strict';
   let light;
@@ -151,11 +152,13 @@ function render () {
 				model[i].rotation.y -= 0.02;
 			}
 		}
+
 	}
 
 	c_radian += c_radian_speed;
   let cameraZ = 150 * (Math.sin(c_radian)) +150;
 	camera.position.set(0, 600, cameraZ);
+
 
 	for (let i=0; i<4; i++) {
   	renderer[i].render(scene, camera);
@@ -169,11 +172,18 @@ function countScroll () {
 	// スクロールしたら発動
 	$window.scroll(function() {
 		let before_scroll_px = scroll_px;
-		console.log(sum_delta_scroll_px);
 		// スクロール量を変数に格納
 		scroll_px = $(this).scrollTop();
 		delta_scroll_px = (scroll_px) - (before_scroll_px);
 		sum_delta_scroll_px +=delta_scroll_px;
+
+		//specialsをとめる
+		if ( delta_scroll_px < 0 ) {
+			$("#clover_main").css("animation-duration", "0s");
+			$("#husha_main").css("animation-duration", "0s");
+			$("#kanransha_main").css("animation-duration", "0s");
+
+		}
 
 	});
 }
@@ -255,5 +265,5 @@ $(document).ready(function() {
 	$(countScroll());
 	$(addHoverImgChange());
 	$(specialImageRotate());
-	renderHandSpinner();
+	$(renderHandSpinner());
 });
