@@ -162,8 +162,9 @@ function render () {
   	//controls.update();
 	}
 }
-
+/////////////////////
 //スクロールアクション//
+////////////////////
 function countScroll () {
 	// スクロールしたら発動
 	$window.scroll(function() {
@@ -176,8 +177,9 @@ function countScroll () {
 
 	});
 }
-
+////////////////
 //ホバー時の挙動//
+///////////////
 function addHoverImgChange () {
 	$( '.item_box' ).hover((e)=>{
 
@@ -201,7 +203,9 @@ function addHoverImgChange () {
 	});
 }
 
+////////////////////
 // SPECIALSの挙動 //
+//////////////////
 function specialImageRotate () {
 	//まとめたい・・
 
@@ -247,6 +251,7 @@ function addHoverImgChange() {
 
 
 $(document).ready(function() {
+	$(window).fadeThis({speed: 1000, distance: 10});
 	$(countScroll());
 	$(addHoverImgChange());
 	$(specialImageRotate());
