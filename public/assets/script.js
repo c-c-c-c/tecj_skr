@@ -99,7 +99,7 @@ function renderHandSpinner() {
 			model[_i].scale.set(0.5, 0.5, 0.5);
 			var randColor = Math.random() * 0xffffff;
 			model[_i].material.color = new THREE.Color(randColor);
-			model[_i].material.opacity = 0.4;
+			model[_i].material.opacity = 0.25;
 			model[_i].material.transparent = true;
 			scene.add(model[_i]);
 		}
