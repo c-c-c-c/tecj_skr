@@ -562,7 +562,7 @@ nav img {
 
 /* webGL */
 #stage {
-	margin : 20px 300px;
+	margin : 20px 20px 4px 0px;
 
 }
 
@@ -571,19 +571,26 @@ nav img {
 #main_wrapper {
 		background-color: #EEEEEE	;}
 
+.spinyart_talk {
+	width : 500px;
+	height: auto;
+	background-color: #EEE ;
+	padding-left: 10px;
+	-moz-border-radius: 15px 15px 15px 15px;
+	-webkit-border-radius: 15px 15px 15px 15px;
+	border-radius: 15px 15px 15px 15px;
+
+}
 
 .box_selection select {
 	 border: 0;
 	 color: #EEE;
 	 background: transparent;
-	 font-size: 20px;
-	 font-weight: bold;
-	 padding: 2px 10px;
-	 // width: 128px;
-	 // *width: 100px;
+	 font-size: 18px;
+	 font-weight: 400;
+	 padding: 0px 4px;
 	 width: 138px;
-	 *width: 130px;
-	 *background: #58B14C;
+	 background: #58B14C;
 	 -webkit-appearance: none;}
 
 .box_selection {
@@ -592,12 +599,15 @@ nav img {
 	 -moz-border-radius: 15px 15px 15px 15px;
 	 -webkit-border-radius: 15px 15px 15px 15px;
 	 border-radius: 15px 15px 15px 15px;
-	 // box-shadow: 1px 1px 11px #330033;
 	 background: #58B14C url("http://i62.tinypic.com/15xvbd5.png") no-repeat scroll 100px center;}
 
 .form_container {
 	display:flex;
-	margin-top: 10px;
+	margin-top: 4px;
+ }
+
+ #stage_explain_wrapper {
+	 display: flex;
  }
 
 #exe_btn {
