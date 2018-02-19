@@ -560,64 +560,77 @@ nav img {
 	margin-right: 20px;
   height: auto; }
 
-/* webGL */
-#stage {
-	margin : 20px 20px 4px 0px;
+
+
+/* メインビュー */
+#monitor_cloud {
+	position:relative;
+	width:1000px;
+	height:930px;
+}
+
+#background_pc_monitor {
+	margin-top:40px;
+	margin-left: -200px;
+	position:relative;
+}
+
+#main_view {
+	position:absolute;
+	top:5px;
+	left:40px;
+}
+
+#top_cloud{
+	position:absolute;
+	top:390px;
+	left:40px;
+}
+
+#logotoha {
+	position:absolute;
+	top:470px;
+	left:440px;
+}
+
+#top_explain {
+	position:absolute;
+	top:550px;
+	left:340px;
+	line-height: 1.5;
+}
+
+#mozoushi {
+	position:absolute;
+	top:650px;
+	left:340px;
+}
+
+
+#folders {
+	position:relative;
+	width:1000px;
+	height:800px;
+}
+
+#folders_img {
+	position:absolute;
+	left:80px;
 
 }
 
-/* セレクトボックス */
 
-#main_wrapper {
-		background-color: #EEEEEE	;}
+/* なぜかPCの右側がうまく表示されなかった
+ #background_pc_monitor {
+	height:900px;
+	margin-left: -200px;
+	background-image: url("../img/PC0219.png");
+	background-repeat: no-repeat;
+} */
 
-.spinyart_talk {
-	width : 500px;
-	height: auto;
-	background-color: #EEE ;
-	padding-left: 10px;
-	-moz-border-radius: 15px 15px 15px 15px;
-	-webkit-border-radius: 15px 15px 15px 15px;
-	border-radius: 15px 15px 15px 15px;
 
-}
 
-.box_selection select {
-	 border: 0;
-	 color: #EEE;
-	 background: transparent;
-	 font-size: 18px;
-	 font-weight: 400;
-	 padding: 0px 4px;
-	 width: 138px;
-	 background: #58B14C;
-	 -webkit-appearance: none;}
 
-.box_selection {
-	 overflow:hidden;
-	 width:130px;
-	 -moz-border-radius: 15px 15px 15px 15px;
-	 -webkit-border-radius: 15px 15px 15px 15px;
-	 border-radius: 15px 15px 15px 15px;
-	 background: #58B14C url("http://i62.tinypic.com/15xvbd5.png") no-repeat scroll 100px center;}
-
-.form_container {
-	display:flex;
-	margin-top: 4px;
- }
-
- #stage_explain_wrapper {
-	 display: flex;
- }
-
-#exe_btn {
-	margin:10px;
-	background-color: red;
-	width:300px;
-}
-#exe_btn a {
-	color: white;
-}
 /* フッター */
 footer {
   margin-top: 50px;
