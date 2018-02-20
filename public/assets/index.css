@@ -668,8 +668,49 @@ nav img {
 
 #content_handspinner {
 	margin-top:80px;
+	margin-left:40px;
+	height:449px;
+	position:relative;
 }
 
+#sumaho1_bg {
+	position:absolute;
+}
+
+#spinyart_m {
+	position:absolute;
+	left:100px;
+	top:240px;
+}
+
+#spinyart_chara {
+	position:absolute;
+	left:100px;
+	top:370px;
+}
+
+#handspinner_explanation {
+	position:absolute;
+	left:260px;
+	top:130px
+}
+
+#btn_kuwashiku {
+	position:absolute;
+	left:610px;
+	top:350px;
+}
+
+#content_soundwave {
+	margin-top: 115px;
+	margin-left:40px;
+}
+
+#content_circular {
+	margin-top: 115px;
+	margin-left:40px;
+	margin-bottom:140px;
+}
 
 
 /* #characters {
@@ -711,11 +752,17 @@ nav img {
 footer {
   margin-top: 50px;
   width: auto;
-  height: 400px;
-  background-color: #F2F2F2;
+  height: 420px;
+  background-color: #545454;
   border: solid 1px #ccc;
   font-weight: 400;
-  line-height: 2.2; }
+  line-height: 2.2;
+	color: #ccc;
+ }
+
+ footer a {
+	 color:#ccc;
+ }
 
 #footer_wrapper {
   text-align: center;
@@ -726,7 +773,8 @@ footer {
 
 .footer_attention_message {
   font-size: 8px;
-  margin-bottom: 40px; }
+  margin-bottom: 40px;
+ }
 
 .footer_hr {
   display: inline-block;
