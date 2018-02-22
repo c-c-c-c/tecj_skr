@@ -53,16 +53,7 @@
 		<!-- 送信ボタン(仮) -->
 		<div id="exe_btn"><a href="#">[以下の条件をLEDに反映！]</a></div>
 
-		<div id="app">
-
-			<term-component
-				@delete-term="deleteTermEmit"	v-for="(term, index ) in terms" v-bind:id="term.content" v-bind:index="index" v-bind:key="term.id" ></term-component>
-
-
-			<a href="#" @click="addTerm">[条件追加]</a>
-		</div>
-
-	 <!-- <div id="term1" class="form_container">
+		<div id="term1" class="form_container">
 			<div class="box_selection">
 				<select class="which_led" name="which_led">
 					<option value="1" selected>LED[A]</option>
@@ -307,13 +298,8 @@
 
 
 		<br>
-	</div> -->
 	</div>
-
-
-
-
-
+	</div>
 
 	<footer>
 		<div id= footer_wrapper>
@@ -333,8 +319,6 @@
 		</div>
 	</footer>
 
-
-
 <script src="./assets/jquery-3.2.1.min.js"></script>
 <script src="./assets/jquery.smoothScroll.js"></script>
 <script src='./assets/three.min.js'></script>
@@ -345,56 +329,6 @@
 <script src='./assets/jquery.fadethis.js'></script>
 <script>
   $('a').smoothScroll();
-</script>
-
-<script type="text/x-template" id="term-component">
-
-	<div class="form_container" >
-		<div class="box_selection">
-			<select class="which_led" name="which_led">
-				<option value="1" selected>LED[A]</option>
-				<option value="2">LED[B]</option>
-				<option value="3">LED[C]</option>
-				<option value="4">LED[D]</option>
-				<option value="5">LED[E]</option>
-			</select>
-		</div>
-	　は、
-		<div class="box_selection">
-			<select class="how_often_bunbo" name="how_often_bunbo">
-				<option value="1" selected>ずっと</option>
-				<option value="2">２回のうち</option>
-				<option value="3">３回のうち</option>
-				<option value="4">４回のうち</option>
-				<option value="5">５回のうち</option>
-				<option value="6">６回のうち</option>
-			</select>
-		</div>
-
-		<div class="box_selection">
-			<select class="how_often_bunshi" name="how_often_bunshi">
-				<option value="1">１回</option>
-				<option value="2">２回</option>
-				<option value="3">３回</option>
-				<option value="4">４回</option>
-				<option value="5">５回</option>
-			</select>
-		</div>
-
-		<div class="box_selection">
-			<select class="which_color" name="which_color">
-				<option value="black">オフ</option>
-				<option value="blue">青</option>
-				<option value="red" selected>赤</option>
-				<option value="yellow">黄色</option>
-				<option value="green">緑色</option>
-				<option value="skyblue" >水色</option>
-				<option value="pink">ピンク色</option>
-				<option value="white">白</option>
-			</select>
-		</div>
-		<a href="#" @click="deleteTerm">[消す]</a>
-	</div>
 </script>
 
 </body>
