@@ -25,16 +25,17 @@
 
     </header>
 
+		<section id="title_image_area">
+			<img src="./img/handspinner_title.png">
+		<section>
 
-		<div id ="stage_explain_wrapper">
-			<!-- ここに描画される -->
-			<div id="stage"></div>
-			<!-- ここまで -->
 
-		<!-- スピニャートエリア -->
-			<div class="explain_area">
-				<img class="spinyart" src="./img/spinyart.png" width="140px">
-				<div class="spinyart_talk">人気のハンドスピナーを使った自由研究<br>
+		<section id ="spinyart_talk_area">
+
+
+			<img class="spinyart" src="./img/spinyart.png">
+			<img src="./img/fukidashi_2.png" id="spinyart_fukidashi">
+			<div class="spinyart_talk">人気のハンドスピナーを使った自由研究<br>
 					(1)まずハンドスピナーを回してみよう！<br>
 					(1続き)もっと、もっともっと！
 					(2)実はこのハンドスピナー、LEDライトが着いてるのだ！(画像)[ライトオン]を押すと、明かりが暗くなってライトが着くよ！<br>
@@ -43,15 +44,17 @@
 					　　え？むずかしい。とりあえず色んな「条件」を入れてみて、
 						 面白い模様を作ってみよう！！
 
-				</div>
-
 			</div>
+		</section>
+
 		</div>
 
 
 		<div id= "main_wrapper">
 		<!-- 送信ボタン(仮) -->
-		<div id="exe_btn"><a href="#">[以下の条件をLEDに反映！]</a></div>
+		<div id="exe_btn"><a href="javascript:void(0)">[以下の条件をLEDに反映！]</a></div>
+
+		<div id="stage"></div>
 
 		<div id="app">
 
@@ -61,6 +64,8 @@
 
 			<a href="#" @click="addTerm">[条件追加]</a>
 		</div>
+
+	</div> <!--wrapper閉じる -->
 
 	 <!-- <div id="term1" class="form_container">
 			<div class="box_selection">
@@ -307,8 +312,8 @@
 
 
 		<br>
-	</div> -->
 	</div>
+	</div>-->
 
 
 
@@ -393,7 +398,7 @@
 				<option value="white">白</option>
 			</select>
 		</div>
-		<a href="#" @click="deleteTerm">[消す]</a>
+		<a href="#" @click.prevent="deleteTerm">[消す]</a>
 	</div>
 </script>
 

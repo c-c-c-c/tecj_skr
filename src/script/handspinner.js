@@ -54,7 +54,9 @@ let model_pn;
 var mesh;
 var plane = {};
 
-//色の条件
+////////////
+//初期カラー
+//////////
 let termsTree = {
 	term1 : {
 		ledNo : 1,
@@ -196,6 +198,10 @@ function main() {
 		requestAnimationFrame(main);
 	}
 
+
+}
+
+function initFormDefault () {
 	// 初期のform 表示用
 	for (let key in termsTree) {
 		let tmpTerm = termsTree[key];
@@ -207,10 +213,13 @@ function main() {
 		$('#'+key+' .which_color').val(tmpTerm["ledColor"]);
 		// $("#term1 .which_led").val(3);
 	}
+
 }
 
+////////////////////////
 //条件を反映ボタンを押すとき
-$(function () {
+////////////////////////
+function initExecBtn() {
   $('#exe_btn').click(function() {
     // 分母
 		//初期化
@@ -235,7 +244,7 @@ $(function () {
 
 		render_count = 0;
   })
-})
+}
 
 
 /////////////////////
@@ -301,13 +310,13 @@ function initVue () {
 		}
 	});
 
-	let count = 6;//本当は、初期値は下のtermsの数にした方が良い
+	let count = 5;//本当は、初期値は下のtermsの数にした方が良い
 	var vm = new Vue({
 		el: '#app',
 		data: {
 			terms:[
 				{id:1, content:"term1" },{id:2, content:"term2"},{id:3, content:"term3"},
-				{id:4, content:"term4"},{id:5, content:"term5"},{id:6, content:"term6"}
+				{id:4, content:"term4"},{id:5, content:"term5"}
 		 	]
 	 	},
 		methods: {
@@ -319,9 +328,9 @@ function initVue () {
 			},
 			// deleteTermEmit: function(index) {
 			deleteTermEmit: function(index) {
-				if(confirm("この条件をほんとうに消しますか")) {
+				// if(confirm("この条件をほんとうに消しますか")) {
 					this.terms.splice(index,1)
-				}
+				// }
 			}
 		}
 
@@ -334,7 +343,8 @@ $(document).ready(function() {
 	// $(countScroll());
 	// $(addHoverImgChange());
 	initVue();
-
-
+	initFormDefault();
+	initExecBtn();
 	$(initRender());
+
 });

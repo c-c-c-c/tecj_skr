@@ -560,6 +560,40 @@ nav img {
 	margin-right: 20px;
   height: auto; }
 
+
+#title_image_area {
+	text-align: center;
+	margin-top: -64px;
+}
+
+#spinyart_talk_area {
+	/* display:inline-block; */
+	position:relative;
+	height:340px;
+	/* float:left; */
+}
+
+.spinyart {
+	position:absolute;
+	top:20px;
+	left:100px;
+	width:220px;
+}
+
+#spinyart_fukidashi {
+	position:absolute;
+	top:20px;
+	left:340px;
+}
+
+
+.spinyart_talk {
+	position: absolute;
+	top:100px;
+	left:400px;
+	font-size:6px;
+}
+
 /* webGL */
 #stage {
 	margin : 20px 20px 4px 0px;
@@ -571,7 +605,7 @@ nav img {
 #main_wrapper {
 		background-color: #EEEEEE	;}
 
-.spinyart_talk {
+/* .spinyart_talk {
 	width : 500px;
 	height: auto;
 	background-color: #EEE ;
@@ -579,8 +613,7 @@ nav img {
 	-moz-border-radius: 15px 15px 15px 15px;
 	-webkit-border-radius: 15px 15px 15px 15px;
 	border-radius: 15px 15px 15px 15px;
-
-}
+} */
 
 .box_selection select {
 	 border: 0;
