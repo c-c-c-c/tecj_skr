@@ -29,44 +29,72 @@
 			<img src="./img/handspinner_title.png">
 		<section>
 
-
 		<section id ="spinyart_talk_area">
 
-
 			<img class="spinyart" src="./img/spinyart.png">
-			<img src="./img/fukidashi_2.png" id="spinyart_fukidashi">
-			<div class="spinyart_talk">人気のハンドスピナーを使った自由研究<br>
-					(1)まずハンドスピナーを回してみよう！<br>
-					(1続き)もっと、もっともっと！
-					(2)実はこのハンドスピナー、LEDライトが着いてるのだ！(画像)[ライトオン]を押すと、明かりが暗くなってライトが着くよ！<br>
-					(3)ほら光ったでしょ！模様みたいに見えるのは、人間の目の｢残像」効果なんだ。次に点滅を押してみて！<br>
-					(4)今度は点線みたいになったね！これは高速でLEDライトが消える→着く→消える… をしてるからなんだよ。<br>
-					　　え？むずかしい。とりあえず色んな「条件」を入れてみて、
-						 面白い模様を作ってみよう！！
+			<div class="spinyart_talk vue_phase">
 
-			</div>
+					<div v-if="v_phase === '1_lets_spin' ">
+						<img src="./img/fukidashi_reverse.png" id="spinyart_fukidashi">
+						<div id="spinyart_talk_chara">
+							ようこそ!!<br>まずハンドスピナーを回してみよう！<br>
+							<a href="javascript:void(0)" @click="changePhase('2_more_spin')">　　　[　回す　]　　　</a>
+						</div>
+					</div>
+					<div v-if="v_phase === '2_more_spin'">
+						<img src="./img/fukidashi_reverse.png" id="spinyart_fukidashi">
+						<div id="spinyart_talk_chara">
+						もっと、もっともっと！<br>
+						<a href="javascript:void(0)" @click="changePhase('3_led_explain')">　　　[　　もっと回す　　　]</a>
+						</div>
+					</div>
+					<div v-else-if="v_phase === '3_led_explain'">
+						<img src="./img/fukidashi_reverse.png" id="spinyart_fukidashi" height="300px" width="500px">
+						<div id="spinyart_talk_chara_big">
+							実はこのハンドスピナー、LEDライトが<br>付いてるんだ！<br>
+							<img src="./img/led_explain.png" width="70">
+							LEDスイッチを押すと、明かりが暗くなってライトが着くよ！
+							<a href="javascript:void(0)" @click="changePhase('4_led_light_on')">　[LEDスイッチON]　　　</a>
+						</div>
+					</div>
+					<div v-else-if="v_phase === '4_led_light_on'">
+						<img src="./img/fukidashi_reverse.png" id="spinyart_fukidashi">
+						<div id="spinyart_talk_chara">
+							ほら光った！模様みたいに見えるのは、<br>目の｢残像」効果なんだ。<br>　次に点めつを押してみて！
+							<a href="javascript:void(0)" @click="changePhase('5_teach_how_to')">[ 点めつ ]</a>
+						</div>
+					</div>
+					<div v-else-if="v_phase === '5_teach_how_to'">
+						<img src="./img/fukidashi_reverse.png" id="spinyart_fukidashi" height="200px" width="500px">
+						<div id="spinyart_talk_chara_big2">
+							今度は点線みたいになったね！<br>LEDが消える→着く→消えるを高速で…<br>
+							え？難しい？？とりあえず色んな「条件」を<br>　入れて、スゴイ模様を作ってみよう！
+						</div>
+					</div>
+				</div>
+
 		</section>
 
-		</div>
 
+	<section id="virtual_handspinner_area">
+		<div id = "window_bar"><img src="./img/tab_spinner.png" width="360"></div>
 
-		<div id= "main_wrapper">
+		<div id= "main_window">
+
 		<!-- 送信ボタン(仮) -->
-		<div id="exe_btn"><a href="javascript:void(0)">[以下の条件をLEDに反映！]</a></div>
-
-		<div id="stage"></div>
-
-		<div id="app">
-
-			<term-component
-				@delete-term="deleteTermEmit"	v-for="(term, index ) in terms" v-bind:id="term.content" v-bind:index="index" v-bind:key="term.id" ></term-component>
-
-
-			<a href="#" @click="addTerm">[条件追加]</a>
-		</div>
-
-	</div> <!--wrapper閉じる -->
-
+				<div id="stage"></div>
+				<img src="./img/hs_infographic_LED.png" id="hs_infographic_LED">
+				<!-- <div  height="300" width="100" >aaa</div> -->
+				<div id ="app_container">
+					<div id="app">
+						<div id="two_btn"> <a href="javascript:void(0)"><img src="./img/exec_btn.png" id="exe_btn" width="200"></a>
+						<a href="javascript:void(0)" @click="addTerm"><img src="./img/add_term_btn.png" width="176"></a></div>
+						<term-component
+							@delete-term="deleteTermEmit"	v-for="(term, index ) in terms" v-bind:id="term.content" v-bind:index="index" v-bind:key="term.id" ></term-component>
+					</div>
+				</div>
+		</div> <!--wrapper閉じる -->
+	</section>
 	 <!-- <div id="term1" class="form_container">
 			<div class="box_selection">
 				<select class="which_led" name="which_led">
@@ -363,8 +391,7 @@
 				<option value="4">LED[D]</option>
 				<option value="5">LED[E]</option>
 			</select>
-		</div>
-	　は、
+		</div>は
 		<div class="box_selection">
 			<select class="how_often_bunbo" name="how_often_bunbo">
 				<option value="1" selected>ずっと</option>
@@ -398,7 +425,7 @@
 				<option value="white">白</option>
 			</select>
 		</div>
-		<a href="#" @click.prevent="deleteTerm">[消す]</a>
+		<a href="#" @click.prevent="deleteTerm">消</a>
 	</div>
 </script>
 

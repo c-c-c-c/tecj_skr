@@ -543,7 +543,7 @@ header {
 .header_logo, nav  {
   display: inline-block;
   position: relative;
-	margin-top: 20px;}
+	margin-top: 10px;}
   /* margin: 20px 30px 10px 0; } */
 
 nav {
@@ -569,41 +569,107 @@ nav img {
 #spinyart_talk_area {
 	/* display:inline-block; */
 	position:relative;
-	height:340px;
+	height:20px;
+	width:auto;
+	z-index:2;
 	/* float:left; */
 }
 
+/* スピニャートのトークエリア */
 .spinyart {
 	position:absolute;
-	top:20px;
-	left:100px;
-	width:220px;
+	top:-80px;
+	right:40px;
+	width:156px;
+	transform: rotate(-30deg);
 }
-
-#spinyart_fukidashi {
-	position:absolute;
-	top:20px;
-	left:340px;
-}
-
 
 .spinyart_talk {
 	position: absolute;
-	top:100px;
-	left:400px;
-	font-size:6px;
+	right:180px;
+	top:-70px;
+	width:500px;
+	height:180px;
+	font-size:22px;
+	z-index:3;
+	text-align:left;
+
 }
 
-/* webGL */
+#spinyart_fukidashi {
+	/* position:absolute; */
+	/* right:120px; */
+}
+
+#spinyart_talk_chara {
+	margin-top: -150px;
+	margin-right: 20px;
+	margin-left: 40px;
+}
+
+#spinyart_talk_chara_big {
+	margin-top: -250px;
+	margin-right: 20px;
+	margin-left: 40px;
+	font-size: 18px;
+}
+
+#spinyart_talk_chara_big2 {
+	margin-top: -170px;
+	margin-right: 10px;
+	margin-left: 48px;
+	font-size: 18px;
+}
+
+#main_window {
+	background-color: #e9e9e9	;
+	padding: 40px;
+	height:920px;
+	position: relative;
+	border-bottom-left-radius: 10px;     /* 左下 */
+	border-bottom-right-radius: 10px;    /* 右下 */
+	/* position: relative; /*なぜかinlineブロックなどで横並びできず。 */
+	/* display:inline-block; */
+}
+
 #stage {
-	margin : 20px 20px 4px 0px;
+	position:absolute;
+	top : 40px;
+	left : 40px;
+}
+
+#hs_infographic_LED {
+	position:absolute;
+	top:460px;
+	left:40px;
+	width:400px;
+}
+
+#app_container {
+	position:absolute;
+	right:40px;
+	top:40px;
+	padding:20px;
+	height:auto;
+	background-color: white;
+}
+
+#two_btn {
+	display:inline-block;
+	margin-bottom:20px;
+}
+
+/* バーチャルハンドスピナーエリア */
+#virtual_handspinner_area {
+	width:920px;
+	margin:auto;
 
 }
+
 
 /* セレクトボックス */
 
-#main_wrapper {
-		background-color: #EEEEEE	;}
+
 
 /* .spinyart_talk {
 	width : 500px;
@@ -622,13 +688,13 @@ nav img {
 	 font-size: 18px;
 	 font-weight: 400;
 	 padding: 0px 4px;
-	 width: 138px;
+	 width: 88px;
 	 background: #58B14C;
 	 -webkit-appearance: none;}
 
 .box_selection {
 	 overflow:hidden;
-	 width:130px;
+	 width:80px;
 	 -moz-border-radius: 15px 15px 15px 15px;
 	 -webkit-border-radius: 15px 15px 15px 15px;
 	 border-radius: 15px 15px 15px 15px;
@@ -639,18 +705,21 @@ nav img {
 	margin-top: 4px;
  }
 
- #stage_explain_wrapper {
+ /* #stage_explain_wrapper {
 	 display: flex;
- }
+ } */
 
-#exe_btn {
-	margin:10px;
-	background-color: red;
-	width:300px;
+#window_bar {
+	height:50px;
+	padding:10px;
+	width:auto;
+	text-align: left;
+	border-top-left-radius: 10px;     /* 左上 */
+	border-top-right-radius: 10px;    /* 右上 */
+	background-color: #27cbce;
+
 }
-#exe_btn a {
-	color: white;
-}
+
 /* フッター */
 footer {
   margin-top: 50px;

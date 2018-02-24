@@ -7,6 +7,7 @@ var r_radian = 0;
 var light = void 0;
 var ambient = void 0;
 var hsGeoGruoup = new THREE.Group();;
+var vp = {}; //グローバルなフェイズ管理
 
 var colorConf = {
 	'red': '#ff0000',
@@ -24,9 +25,10 @@ var colorConf = {
 var renderer = new THREE.WebGLRenderer({
 	preserveDrawingBuffer: true
 });
+renderer.autoClearColor = "false";
 renderer.setSize(WIDTH, HEIGHT);
-renderer.setClearColor(0xffffff);
-renderer.autoClearColor = false;
+//renderer.setClearColor(0xffffff);
+
 
 // canvasを配置
 document.getElementById('stage').appendChild(renderer.domElement);
@@ -118,23 +120,30 @@ function initRender() {
 
 		// ハンドスピナーとLEDライト５個をグループに
 		// let hsGeoGruoup = new THREE.Group();
-		hsGeoGruoup.add(model_hs);
+		if (vp.v_phase === "1_lets_spin") {
+			hsGeoGruoup.add(model_pn);
+			renderer.preserveDrawingBuffer = "true";
+			renderer.autoClearColor = "false";
+		} else {
+			// renderer.preserveDrawingBuffer = "true";
+			// renderer.autoClearColor = "false";
+			hsGeoGruoup.add(model_hs);
+			for (var i = 1; i <= 5; i++) {
+				var p_material = new THREE.MeshBasicMaterial({ side: THREE.DoubleSide });
+				plane[i] = new THREE.Mesh(p_geometry, p_material);
+				plane[i].rotation.x = Math.PI / 2;
 
-		for (var i = 1; i <= 5; i++) {
-			var p_material = new THREE.MeshBasicMaterial({ side: THREE.DoubleSide });
-			plane[i] = new THREE.Mesh(p_geometry, p_material);
-			plane[i].rotation.x = Math.PI / 2;
+				//平面の位置を少しずつずらす。
+				plane[i].position.z = 0.14 * i + 1.5;
+				//画面に対する奥行き方向は変更なしで2
+				plane[i].position.y = 1.6;
 
-			//平面の位置を少しずつずらす。
-			plane[i].position.z = 0.14 * i + 1.5;
-			//画面に対する奥行き方向は変更なしで2
-			plane[i].position.y = 1.6;
+				plane[i].material.color = new THREE.Color(colorConf['dark']);
 
-			plane[i].material.color = new THREE.Color(colorConf['dark']);
-
-			// 先ほどのboxをグループに追加
-			hsGeoGruoup.add(plane[i]);
-			//hsGeoGruoup.add(model_pn);
+				// 先ほどのboxをグループに追加
+				hsGeoGruoup.add(plane[i]);
+				//hsGeoGruoup.add(model_pn);
+			}
 		}
 
 		scene.add(hsGeoGruoup);
@@ -176,11 +185,13 @@ function main() {
 	for (var key in termsTree) {
 		var tmpTerm = termsTree[key];
 
-		if (count % tmpTerm['oftenBunbo'] < tmpTerm['oftenBunshi']) {
-			plane[tmpTerm['ledNo']].material.color = new THREE.Color(colorConf[tmpTerm['ledColor']]);
-		} else {
-			plane[tmpTerm['ledNo']].material.color = new THREE.Color(colorConf['black']);
-		}
+		// if (count % tmpTerm['oftenBunbo'] < tmpTerm['oftenBunshi']) {
+		// 	plane[tmpTerm['ledNo']].material.color
+		// 		= new THREE.Color(colorConf[tmpTerm['ledColor']]);
+		// } else {
+		// 	plane[tmpTerm['ledNo']].material.color
+		// 		= new THREE.Color(colorConf['black']);
+		// }
 	}
 	count++;
 
@@ -288,7 +299,7 @@ function initExecBtn() {
 // VueによるHTML処理
 //////////////////
 
-function initVue() {
+function initVueTerm() {
 
 	Vue.component('termComponent', {
 		template: '#term-component',
@@ -317,15 +328,39 @@ function initVue() {
 				// }
 			}
 		}
-
 	});
+}
+
+function initVuePhase() {
+	//vpはグローバル変数
+	vp = new Vue({
+		el: '.vue_phase',
+		data: {
+			v_phase: "1_lets_spin"
+			//フェイズは以下がある。
+			//(1) : 1_lets_spin
+			//(2) : 2_more_spin
+			//(3) : 3_led_explain
+			//(4) : 4_led_light_on
+			//(5) : 5_teach_how_to
+		},
+		methods: {
+			changePhase: function changePhase(nextPhase) {
+				vp.v_phase = nextPhase;
+				console.log("phase" + nextPhase);
+			}
+		}
+	});
+
+	// vp.v_phase = "2_more_spin";
 }
 
 $(document).ready(function () {
 	// $(window).fadeThis({speed: 600, distance: 4});
 	// $(countScroll());
 	// $(addHoverImgChange());
-	initVue();
+	initVueTerm();
+	initVuePhase();
 	initFormDefault();
 	initExecBtn();
 	$(initRender());

@@ -307,6 +307,56 @@ $(function () {
 // 		});
 // 	});
 // }
+function initMovie() {
+
+	// IFrame Player API JavaScript コードの読み込み
+	var tag = document.createElement('script');
+	tag.src = "https://www YOUTUBE.com/player_api";
+	var firstScriptTag = document.getElementsByTagName('script')[0];
+	firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+}
+
+var ytPlayer;
+function onYouTubePlayerAPIReady() {
+	ytPlayer = new YT.Player(
+		'mv',// iframeに差し替えたいdivのID
+		{
+			width: '100%',// プレイヤーの高さ
+			height: '100%',// プレイヤーの幅
+			videoId: 'vpouubMXKlI',//動画のID
+			// イベントの設定
+			events: {
+				'onReady': onPlayerReady, // プレーヤー準備完了後、onPlayerReady関数を実行
+				'onStateChange': onPlayerStateChange // プレーヤー状態変更時、onPlayerStateChange関数を実行
+			},
+			// パラメータの設定
+			playerVars: {
+				autoplay: 1, // 自動再生(0:しない,1:する)
+				controls: 0, // コントロールバー(0:非表示,1:表示,2:動画再生後に表示)
+				//listType: playlist, // 再生リストを表示
+				//listType: search list, // listパラメータで指定した文字列で検索した動画を再生リストに表示
+				//listType: user_uploads, // YouTubeチャンネルを表示
+				//list: ***, // listTypeパラメータがplaylistの時、再生リストIDを指定
+				//list: ***, // istTypeパラメータがsearch listの時、検索する文字列を指定
+				//list: ***, // istTypeパラメータがuser_uploadsの時、YouTubeチャンネルを指定
+				loop: 0, // ループ再生(0:しない,1:する)※単一の動画の場合、同じ動画IDをplaylistパラメータの値に設定
+				//playlist: ***,***,***, //最初の動画再生後、IDで指定した動画を順番に再生(値は動画ID)
+				rel: 0, // 再生終了後、関連動画を表示(0:非表示,1:表示)
+				showinfo: 0, // 動画再生前にタイトルを表示(0:非表示,1:表示)
+				//start: **, //指定秒数から動画再生
+				//end: **, // 指定秒数後、動画を停止
+				wmode: 'transparent', // プレーヤーを背面に表示する
+			}
+		}
+	);
+}
+
+
+function onPlayerReady(event) {
+	// 動画再生(※自動再生ということ)
+	event.target.playVideo();
+}
 
 ////////////////////
 // SPECIALSの挙動 //
@@ -320,5 +370,7 @@ $(document).ready(function() {
 	$(window).fadeThis({speed: 600, distance: 4});
 	// $(countScroll());
 	// $(addHoverImgChange());
+	initMovie();
+	
 	$(initRender());
 });
