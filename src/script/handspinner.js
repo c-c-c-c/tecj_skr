@@ -4,30 +4,27 @@ let c_radian = 0;
 let r_radian = 0;
 let light;
 let ambient;
-var hsGeoGruoup = new THREE.Group();;
+var hsGeoGruoup = new THREE.Group();
+var model_hs;
+var model_pn;
+var mesh;
+var controls;
+var plane = {};
+
 var vp = {}; //グローバルなフェイズ管理
 
 const colorConf = {
-	'red': '#ff0000',
-	'yellow': '#f0f000',
-	'green': '#00e000',
-	'skyblue': '#00ffff',
-	'blue': '#0000ff',
-	'black': '#000000',
-	'dark' : '#335500',
-	'white': '#ffffff',
-	'pink' : '#ff99ff'
+	'red': '#ff0000', 'yellow': '#f0f000', 'green': '#00e000', 'skyblue': '#00ffff',
+	'blue': '#0000ff', 'black': '#000000', 'dark' : '#335500', 'white': '#ffffff', 'pink' : '#ff99ff'
 };
-
-
 
 // レンダラー
 let renderer = new THREE.WebGLRenderer({
-   preserveDrawingBuffer:true
+  preserveDrawingBuffer:true
 });
-renderer.autoClearColor = "false";
+// renderer.autoClearColor = false;
 renderer.setSize( WIDTH, HEIGHT );
-//renderer.setClearColor(0xffffff);
+// renderer.setClearColor(0xffffff);
 
 
 // canvasを配置
@@ -36,7 +33,6 @@ document.getElementById('stage').appendChild(renderer.domElement)
 // メイン描画用のシーンとカメラ
 var scene = new THREE.Scene();
 var camera = new THREE.PerspectiveCamera( 70, WIDTH / HEIGHT, 1, 100 );
-
 //light
 light = new THREE.DirectionalLight(0xffffff, 1);
 light.position.set(0, 200, 80);
@@ -53,15 +49,11 @@ var camera_bg = new THREE.OrthographicCamera(0, WIDTH, HEIGHT, 0, 0, 1000);
 let loader = new THREE.JSONLoader();　　
 let modelPath = '../src/data/hs300k.json'
 // modelPath = "https://s3-us-west-2.amazonaws.com/s.cdpn.io/1538236/hs300k.json";
-let model_hs;
-let model_pn;
-var mesh;
-var plane = {};
 
 ////////////
 //初期カラー
 //////////
-let termsTree = {
+var termsTree = {
 	term1 : {
 		ledNo : 1,
 		oftenBunbo : 1,
@@ -71,7 +63,7 @@ let termsTree = {
 	term2 : {
 		ledNo : 2,
 		oftenBunbo : 1,
-		oftenBunshi: 1,
+		oftenBunshi : 1,
 		ledColor : 'blue'
 	},
 	term3 : {
@@ -94,6 +86,8 @@ let termsTree = {
 	}
 }
 
+
+
 function initRender () {
 	loader.load(modelPath, (geo, mat) => {
 		let geometry = geo;
@@ -114,36 +108,32 @@ function initRender () {
 		model_hs.material.opacity =0.01;
 		model_hs.material.transparent = true;
 
-		let p_geometry = new THREE.PlaneGeometry( 0.16, 0.1);
+		let p_geometry = new THREE.PlaneGeometry( 0.2, 0.17);
 		// p_geometry.rotation.y = (Math.PI) / 4  ;
-
+		hsGeoGruoup.add(model_pn);
 
 		// ハンドスピナーとLEDライト５個をグループに
 		// let hsGeoGruoup = new THREE.Group();
-		if (vp.v_phase === "1_lets_spin") {
-			hsGeoGruoup.add(model_pn);
-			renderer.preserveDrawingBuffer = "true";
-			renderer.autoClearColor = "false";
-		} else {
+
 			// renderer.preserveDrawingBuffer = "true";
 			// renderer.autoClearColor = "false";
-			hsGeoGruoup.add(model_hs);
-			for (let i=1;i <= 5; i++) {
-				let p_material = new THREE.MeshBasicMaterial( { side: THREE.DoubleSide} );
-				plane[i] = new THREE.Mesh( p_geometry, p_material );
-			  plane[i].rotation.x = (Math.PI) / 2  ;
+		hsGeoGruoup.add(model_hs);
+		for (let i=1;i <= 5; i++) {
+			let p_material = new THREE.MeshBasicMaterial( { side: THREE.DoubleSide} );
+			plane[i] = new THREE.Mesh( p_geometry, p_material );
+		  plane[i].rotation.x = (Math.PI) / 2  ;
 
-				//平面の位置を少しずつずらす。
-				plane[i].position.z =0.14*i + 1.5;
-				//画面に対する奥行き方向は変更なしで2
-				plane[i].position.y =1.6;
+			//平面の位置を少しずつずらす。
+			plane[i].position.z =0.27*i + 1.2;
+			//画面に対する奥行き方向は変更なしで2
+			plane[i].position.y =0.39;
 
-				plane[i].material.color = new THREE.Color(colorConf['dark']);
+			plane[i].material.color = new THREE.Color(colorConf['dark']);
+			plane[i].visible = 0;
+		  // 先ほどのboxをグループに追加
+		  hsGeoGruoup.add(plane[i]);
+		  //hsGeoGruoup.add(model_pn);
 
-			  // 先ほどのboxをグループに追加
-			  hsGeoGruoup.add(plane[i]);
-			  //hsGeoGruoup.add(model_pn);
-			}
 		}
 
 		scene.add( hsGeoGruoup );
@@ -155,11 +145,16 @@ function initRender () {
 	    opacity: 0.01,
 	  });
 
-
 	  let bg = new THREE.Mesh(bg_geometry, bg_material);
 	  bg.position.x = WIDTH/2;
 	  bg.position.y = HEIGHT/2;
 	  scene_bg.add(bg);
+		//cameraの位置を設定
+		camera.position.set(0, 6, 0);
+		camera.lookAt({x:0, y:0, z:0 });
+
+		// OrbitControls対応箇所
+		// controls = new THREE.OrbitControls(camera);
 
 	  main();
 	});
@@ -171,30 +166,60 @@ let render_count = 0;
 
 function main() {
 
-	//cameraの位置を設定
-	camera.position.set(0, 6, 0);
-	camera.lookAt({x:0, y:0, z:0 });
-
+	// OrbitControls対応箇所
+	// controls.update()
   //hsGeoGruoup.rotation.y += 0.23 ;
   // hsGeoGruoup.rotation.y += (2*Math.PI /30)*19.001 ;
-   hsGeoGruoup.rotation.y += (2*Math.PI /60)*41 ;
+	if (vp.v_phase === "1_lets_spin" ) {
 
-	// model_hs.position.y += (Math.sin(r_radian) - Math.sin(r_radian-0.01))*8;
-	// model_pn.position.y += (Math.sin(r_radian) - Math.sin(r_radian-0.01))*8;
-	//for (let termNo=1; termNo <=termnokazu; termNo++ ) {
+	} else if (vp.v_phase === "2_more_spin") {
+		hsGeoGruoup.rotation.y += (2*Math.PI /60)*2;
+	} else if ( vp.v_phase === "3_led_explain") {
+		hsGeoGruoup.rotation.y += (2*Math.PI /60)*11 ;
+	} else if (vp.v_phase === "4_led_light_on"){
+		if (model_pn.visible ) {
+			model_pn.visible = 0;
+			render_count = 40;
+		} else {
+			renderer.autoClearColor = false;
+			for (let ledNo = 1 ; ledNo<=5; ledNo++) {
+				if (ledNo %3 ===1) { plane[ledNo].material.color = new THREE.Color(colorConf["red"]);}
+				if (ledNo %3 ===2) { plane[ledNo].material.color = new THREE.Color(colorConf["blue"]);}
+				if (ledNo %3 ===0) { plane[ledNo].material.color = new THREE.Color(colorConf["yellow"]);}
+				plane[ledNo].visible = 1;
+			}
+			render_count = "step4_done";
+		}
+
+		hsGeoGruoup.rotation.y += (2*Math.PI /60)*41 ;
+	} else {
+		if (render_count === "step4_done") {
+			render_count = Number(30);
+			initFormDefault();
+		}
+
+		for (let key in termsTree ) {
+			let tmpTerm = termsTree[key];
+
+			if (count % tmpTerm['oftenBunbo'] < tmpTerm['oftenBunshi']) {
+				plane[tmpTerm['ledNo']].material.color
+					= new THREE.Color(colorConf[tmpTerm['ledColor']]);
+				console.log(tmpTerm);
+			} else {
+				console.log(tmpTerm);
+				console.log(tmpTerm['ledNo']);
+				plane[tmpTerm['ledNo']].material.color
+					= new THREE.Color(colorConf['black']);
+			}
+
+		}
+		hsGeoGruoup.rotation.y += (2*Math.PI/60)*41 ;
+
+	}
+
 
 	// LEDの色の表示
-	for (let key in termsTree ) {
-		let tmpTerm = termsTree[key];
 
-		// if (count % tmpTerm['oftenBunbo'] < tmpTerm['oftenBunshi']) {
-		// 	plane[tmpTerm['ledNo']].material.color
-		// 		= new THREE.Color(colorConf[tmpTerm['ledColor']]);
-		// } else {
-		// 	plane[tmpTerm['ledNo']].material.color
-		// 		= new THREE.Color(colorConf['black']);
-		// }
-	}
 	count ++;
 
   renderer.render( scene_bg, camera_bg );
@@ -208,19 +233,18 @@ function main() {
 		requestAnimationFrame(main);
 	}
 
-
 }
 
 function initFormDefault () {
 	// 初期のform 表示用
-	for (let key in termsTree) {
-		let tmpTerm = termsTree[key];
+	for (let keys in termsTree) {
+		let tmpTerm = termsTree[keys];
 		// $("#tmpTerm .which_led[@vulue=" + tmpTerm["ledNo"] + "]").attr("checked","checked");
 		// $('"#'+'term1'+' .which_led'+'"').val(tmpTerm["ledNo"]);
-		$('#'+key+' .which_led').val(tmpTerm["ledNo"]);
-		$('#'+key+' .how_often_bunbo').val(tmpTerm["oftenBunbo"]);
-		$('#'+key+' .how_often_bunshi').val(tmpTerm["oftenBunshi"]);
-		$('#'+key+' .which_color').val(tmpTerm["ledColor"]);
+		$('#'+keys+' .which_led').val(tmpTerm["ledNo"]);
+		$('#'+keys+' .how_often_bunbo').val(tmpTerm["oftenBunbo"]);
+		$('#'+keys+' .how_often_bunshi').val(tmpTerm["oftenBunshi"]);
+		$('#'+keys+' .which_color').val(tmpTerm["ledColor"]);
 		// $("#term1 .which_led").val(3);
 	}
 
@@ -239,7 +263,10 @@ function initExecBtn() {
 
 		termsTree={};
 		$('.form_container').each(function(index, element){
+			console.log("hoge");
+			console.log(this);
 			let term_id = $(this).attr("id");
+			console.log(term_id);
 			termsTree[term_id] = {
 				'ledNo'
 					: Number($('#'+term_id+' .which_led').val()),
@@ -253,6 +280,7 @@ function initExecBtn() {
 		});
 
 		render_count = 0;
+		console.log(termsTree);
   })
 }
 
@@ -313,11 +341,17 @@ function initVueTerm () {
 
 	Vue.component('termComponent', {
 		template: '#term-component',
+		props: ["index", "term_id"],
 		methods: {
 			deleteTerm: function() {
-				this.$emit('delete-term',(this._uid - 1));//なぜかindexがうまく取れない
+				console.log(this.index);
+				this.$emit('delete-term',(this.index));//なぜかindexがうまく取れない
 			}
 		}
+		// },
+		// mounted: function () {
+		// 	// console.log(this.$ref.foo);
+		// }
 	});
 
 	let count = 5;//本当は、初期値は下のtermsの数にした方が良い
@@ -325,8 +359,11 @@ function initVueTerm () {
 		el: '#app',
 		data: {
 			terms:[
-				{id:1, content:"term1" },{id:2, content:"term2"},{id:3, content:"term3"},
-				{id:4, content:"term4"},{id:5, content:"term5"}
+				{id:1, content:"term1"},
+				{id:2, content:"term2"},
+				{id:3, content:"term3"},
+				{id:4, content:"term4"},
+				{id:5, content:"term5"}
 		 	]
 	 	},
 		methods: {
@@ -344,7 +381,6 @@ function initVueTerm () {
 			}
 		}
 	});
-
 }
 
 function initVuePhase() {
@@ -367,7 +403,6 @@ function initVuePhase() {
 			}
 		}
 	});
-
 	// vp.v_phase = "2_more_spin";
 }
 
