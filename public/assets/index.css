@@ -585,10 +585,25 @@ nav img {
 
 }
 
+#test_test {
+	position:absolute;
+	top:428px;
+	left:160px;
+
+}
+
 #top_cloud{
 	position:absolute;
 	top:390px;
 	left:40px;
+	width:931px;
+}
+
+#top_window{
+	position:absolute;
+	top:430px;
+	left:190px;
+	width:780px;
 }
 
 #logotoha {

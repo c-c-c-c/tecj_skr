@@ -38,14 +38,14 @@
 						<img src="./img/fukidashi_reverse.png" id="spinyart_fukidashi">
 						<div id="spinyart_talk_chara">
 							ようこそ!!<br>まずハンドスピナーを回してみよう！<br>
-							<a href="javascript:void(0)" @click="changePhase('2_more_spin')">　　　[　回す　]　　　</a>
+							<a href="javascript:void(0)" @click="changePhase('2_more_spin')"><img src="./img/btn_spin.png"></a>
 						</div>
 					</div>
 					<div v-if="v_phase === '2_more_spin'">
 						<img src="./img/fukidashi_reverse.png" id="spinyart_fukidashi">
 						<div id="spinyart_talk_chara">
 						もっと、もっともっと！<br>
-						<a href="javascript:void(0)" @click="changePhase('3_led_explain')">　　　[　　もっと回す　　　]</a>
+						<a href="javascript:void(0)" @click="changePhase('3_led_explain')"><img src="./img/btn_more_spin.png"></a>
 						</div>
 					</div>
 					<div v-else-if="v_phase === '3_led_explain'">
@@ -54,14 +54,14 @@
 							実はこのハンドスピナー、LEDライトが<br>付いてるんだ！<br>
 							<img src="./img/led_explain.png" width="70">
 							LEDスイッチを押すと、明かりが暗くなってライトが着くよ！
-							<a href="javascript:void(0)" @click="changePhase('4_led_light_on')">　[LEDスイッチON]　　　</a>
+							<a href="javascript:void(0)" @click="changePhase('4_led_light_on')"><img src="./img/btn_spin.png"></a>
 						</div>
 					</div>
 					<div v-else-if="v_phase === '4_led_light_on'">
 						<img src="./img/fukidashi_reverse.png" id="spinyart_fukidashi">
 						<div id="spinyart_talk_chara">
 							ほら光った！模様みたいに見えるのは、<br>目の｢残像」効果なんだ。<br>　次に点めつを押してみて！
-							<a href="javascript:void(0)" @click="changePhase('5_teach_how_to')">[ 点めつ ]</a>
+							<a href="javascript:void(0)" @click="changePhase('5_teach_how_to')"><img src="./img/btn_spin.png"></a>
 						</div>
 					</div>
 					<div v-else-if="v_phase === '5_teach_how_to'">
