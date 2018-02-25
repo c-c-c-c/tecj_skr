@@ -37,12 +37,12 @@
 					<div v-if="v_phase === '1_lets_spin' ">
 						<a href="javascript:void(0)" @click="changePhase('2_more_spin')"><img src="./img/btn_spin.png" class="btn_spinyart"></a>
 						<img src="./img/fukidashi_reverse.png" id="spinyart_fukidashi">
-						<div id="spinyart_talk_chara">
+						<div class="spinyart_talk_chara">
 							ようこそ!!<br>まずハンドスピナーを回してみよう！<br>
 						</div>
 					</div>
 					<div v-if="v_phase === '2_more_spin'">
-						<img src="./img/fukidashi_reverse.png" id="spinyart_fukidashi">
+						<img src="./img/fukidashi_reverse.png" class="spinyart_fukidashi">
 						<div id="spinyart_talk_chara">
 						もっと、<br>　もっともっと！<br>
 						<a href="javascript:void(0)" @click="changePhase('3_led_explain')"><img src="./img/btn_more_spin.png" class="btn_spinyart"></a>
@@ -50,7 +50,7 @@
 					</div>
 					<div v-else-if="v_phase === '3_led_explain'" class="phase3">
 						<img src="./img/fukidashi_reverse.png" id="spinyart_fukidashi" >
-						<div id="spinyart_talk_chara_big">
+						<div class="spinyart_talk_chara_big">
 							実はこのハンドスピナー、LEDライトが<br>付いてるんだ！<br>
 							LEDスイッチを押すと、明かりが暗くなってライトが着くよ！
 							<img src="./img/led_explain.png" class="led_explain">
@@ -66,7 +66,7 @@
 					</div>
 					<div v-else-if="v_phase === '5_teach_how_to'">
 						<img src="./img/fukidashi_reverse.png" id="spinyart_fukidashi" height="200px" width="500px">
-						<div id="spinyart_talk_chara_big2">
+						<div class="spinyart_talk_chara_big2">
 							今度は点線みたいになったね！<br>LEDが消える→着く→消えるを高速で…<br>
 							え？難しい？？とりあえず色んな「条件」を<br>　入れて、スゴイ模様を作ってみよう！
 						</div>
@@ -77,17 +77,17 @@
 
 
 	<section id="virtual_handspinner_area">
-		<div id = "window_bar"><img src="./img/tab_spinner.png" width="360"></div>
+		<div class = "window_bar"><img src="./img/tab_spinner.png" width="360"></div>
 
-		<div id= "main_window">
+		<div class= "main_window">
 
 		<!-- 送信ボタン(仮) -->
 				<div id="stage"></div>
-				<img src="./img/hs_infographic_LED.png" id="hs_infographic_LED">
+				<img src="./img/hs_infographic_LED.png" class="hs_infographic_LED">
 				<!-- <div  height="300" width="100" >aaa</div> -->
-				<div id ="app_container">
+				<div class ="app_container">
 					<div id="app">
-						<div id="two_btn"> <a href="javascript:void(0)"><img src="./img/exec_btn.png" id="exe_btn" width="200"></a>
+						<div class="two_btn"> <a href="javascript:void(0)"><img src="./img/exec_btn.png" id="exe_btn" width="200"></a>
 						<a href="javascript:void(0)" @click="addTerm"><img src="./img/add_term_btn.png" width="176"></a></div>
 						<term-component
 							@delete-term="deleteTermEmit"	v-for="(term, index ) in terms" v-bind:id="term.content" v-bind:index="index" v-bind:key="term.id" ></term-component>
@@ -97,7 +97,7 @@
 		</div> <!--wrapper閉じる -->
 	</section>
 
-	<footer>
+	<footer class="footer">
 		<div id= footer_wrapper>
 			<span class="footer_main_message">テック自由研究.jpの更新をチェック！</span><br>
 			<a href=""><i class="fa fa-facebook-square fa-spin" aria-hidden="true"></i>いいね！　</a>

@@ -602,13 +602,13 @@ nav img {
 	right:120px;
 } */
 
-#spinyart_talk_chara {
+.spinyart_talk_chara {
 	margin-top: -160px;
 	margin-right: 20px;
 	margin-left: 50px;
 }
 
-#spinyart_talk_chara_big {
+.spinyart_talk_chara_big {
 	margin-top: -180px;
 	margin-right: 20px;
 	margin-left: 40px;
@@ -621,7 +621,7 @@ nav img {
 	width:140px;
 }
 
-#spinyart_talk_chara_big2 {
+.spinyart_talk_chara_big2 {
 	margin-top: -170px;
 	margin-right: 10px;
 	margin-left: 48px;
@@ -634,14 +634,14 @@ nav img {
 	margin-left: 10px;
 }
 
-.phase3 #spinyart_fukidashi{
+.phase3 .spinyart_fukidashi{
 	height : 230px;
 	width : 800px;
 	margin-left:-230px;
 	margin-top:-30px;
 }
 
-.phase4 #spinyart_fukidashi{
+.phase4 .spinyart_fukidashi{
 	height : 260px;
 	width : 580px;
 	margin-top:-40px;
@@ -655,7 +655,7 @@ nav img {
 	/* margin-left: 200px; */
 }
 
-#main_window {
+.main_window {
 	background-color: #e9e9e9	;
 	padding: 40px;
 	height:920px;
@@ -672,14 +672,14 @@ nav img {
 	left : 40px;
 }
 
-#hs_infographic_LED {
+.hs_infographic_LED {
 	position:absolute;
 	top:460px;
 	left:40px;
 	width:400px;
 }
 
-#app_container {
+.app_container {
 	position:absolute;
 	right:40px;
 	top:40px;
@@ -688,7 +688,7 @@ nav img {
 	background-color: white;
 }
 
-#two_btn {
+.two_btn {
 	display:inline-block;
 	margin-bottom:20px;
 }
@@ -794,7 +794,7 @@ nav img {
 	 display: flex;
  } */
 
-#window_bar {
+.window_bar {
 	height:50px;
 	padding:10px;
 	width:auto;
@@ -806,7 +806,7 @@ nav img {
 }
 
 /* フッター */
-footer {
+.footer {
   margin-top: 50px;
   width: auto;
   height: 420px;
@@ -817,7 +817,7 @@ footer {
 	color: #ccc;
  }
 
- footer a {
+.footer a {
 	 color:#ccc;
  }
 

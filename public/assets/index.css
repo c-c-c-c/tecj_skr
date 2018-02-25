@@ -569,13 +569,13 @@ nav img {
 	height:930px;
 }
 
-#background_pc_monitor {
+.background_pc_monitor {
 	margin-top:20px;
 	margin-left: -200px;
 	position:relative;
 }
 
-#main_view {
+.main_view {
 	position:absolute;
 	top:22px;
 	left:62px;
@@ -589,12 +589,7 @@ nav img {
 
 
 
-#top_cloud{
-	position:absolute;
-	top:390px;
-	left:40px;
-	width:931px;
-}
+
 
 /* #top_window{
 	position:absolute;
@@ -609,7 +604,7 @@ nav img {
 	left:440px;
 } */
 
-#top_explain {
+.top_explain {
 	position:absolute;
 	top:570px;
 	left:240px;
@@ -637,17 +632,12 @@ nav img {
 	background: linear-gradient(transparent 75%, #fffe0a 60%);
 }
 
-#mozoushi {
-	position:absolute;
-	top:650px;
-	left:340px;
-}
 
 #folders {
 	position:relative;
 }
 
-#folders_img {
+.folders_img {
 	z-index: 10;
 	margin-left:100px;
 	/* position:relative;
@@ -656,45 +646,45 @@ nav img {
 }
 
 
-#supinyart_onfolder {
+.supinyart_onfolder {
 	margin-left : 90px;
 	margin-top: -100px;
 }
 
-#ojiro_onfolder {
+.ojiro_onfolder {
 	margin-left : 140px;
 	margin-top: -30px;
 }
 
-#tamairogame_onfolder {
+.tamairogame_onfolder {
 	margin-left : 130px;
 	margin-top:-30px;
 }
 
-#btn_hogosha {
+.btn_hogosha {
 	width:231px;
 	margin-left: auto;
 	margin-right:40px;
 }
 
 
-#folders_text	 {
+.folders_text	 {
 	position: relative;
 	font-size: 19px;
 	line-height: 1.7;
 }
 
-#folder_thema1 {
+.folder_thema1 {
 	position:absolute;
 	top: -124px;
 	left:140px;
 }
-#folder_thema2 {
+.folder_thema2 {
 	position:absolute;
 	top: -124px;
 	left:420px;
 }
-#folder_thema3 {
+.folder_thema3 {
 	position:absolute;
 	top: -124px;
 	left:700px;
@@ -712,29 +702,29 @@ nav img {
 	position:relative;
 }
 
-#sumaho1_bg {
+.sumaho1_bg {
 	position:absolute;
 }
 
-#spinyart_m {
+.spinyart_m {
 	position:absolute;
 	left:100px;
 	top:240px;
 }
 
-#spinyart_chara {
+.spinyart_chara {
 	position:absolute;
 	left:100px;
 	top:370px;
 }
 
-#handspinner_explanation {
+.handspinner_explanation {
 	position:absolute;
 	left:260px;
 	top:130px;
 }
 
-#btn_kuwashiku {
+.btn_kuwashiku {
 	position:absolute;
 	left:610px;
 	top:350px;
@@ -884,7 +874,7 @@ footer {
   height: 1px;
   border-top: dotted 1px #cdcdcd; }
 
-#footer_hr_area {
+.footer_hr_area {
   margin: 20px 0 20px 0; }
 
 .footer_logo {
