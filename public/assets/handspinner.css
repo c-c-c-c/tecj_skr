@@ -667,9 +667,6 @@ nav img {
 
 
 /* セレクトボックス */
-
-
-
 .box_selection select {
 	appearance:none;
 	-webkit-appearance: none;
@@ -678,10 +675,10 @@ nav img {
 	/* background: #eee; */
 	/* background: transparent; */
 	font-size: 16px;
-	font-weight: 400;
+	font-weight: 600;
 	padding: 0 4px;
 	width: 68px;
-	 /* background: #58B14C; */
+	border-radius: 10px 10px 10px 10px;
 }
 
 .box_selection {
@@ -689,10 +686,21 @@ nav img {
 	 /* -moz-border-radius: 10px 10px 10px 10px;
 	 -webkit-border-radius: 10px 10px 10px 10px;
 	 border-radius: 10px 10px 10px 10px; */
-	 margin: 10px 8px;
+	 margin: 8px 4px 12px 4px;
 	 /* background: transparent url("../img/arrow.png") no-repeat  10px center; */
-
 	 /* background: url("../img/arrow.png") right 50% no-repeat; */
+}
+
+.form_out_chara {
+	vertical-align: center;
+	font-weight: 400;
+	font-size:16px;
+	margin-top:16px;
+}
+
+.form_out_chara_x {
+	font-weight: 200;
+	font-size:14px;
 }
 
 /* .box_selection:after {
@@ -712,33 +720,40 @@ nav img {
 } */
 
 .wide_box {
-	width:96px;
+	width:92px;
 	height:40px;
 	background: transparent url("http://i62.tinypic.com/15xvbd5.png") no-repeat scroll 64px center;
+	background-size: 19px;
 }
 .wide_box select{
-	width:96px;
+	width:92px;
 	height:auto;
 }
 
 .thin_box {
-	width:70px;
+	width:66px;
 	height:40px;
-	background: transparent url("http://i62.tinypic.com/15xvbd5.png") no-repeat scroll 38px center;
+	background: transparent url("http://i62.tinypic.com/15xvbd5.png") no-repeat scroll 39px center;
+	background-size: 19px;
 }
 
 .thin_box select {
-	width:70px;
+	width:66px;
 	height: auto;
 }
 
 
 .form_container {
 	display:flex;
-	margin-top: 4px;
+	justify-content: space-around;
+	margin-top: 12px;
+	padding-top:3px;
+	padding-bottom:3px;
+	width:396px;
 	/* margin:30px 0px; */
-	background-color: #ee00ee;
-	/* background-image: url("../img/term_frame.png"); */
+	/* background-color: #ee00ee; */
+	background-image: url("../img/term_frame.png");
+	background-size: 396px;
  }
 
  /* #stage_explain_wrapper {
@@ -760,11 +775,17 @@ nav img {
 footer {
   margin-top: 50px;
   width: auto;
-  height: 400px;
-  background-color: #F2F2F2;
+  height: 420px;
+  background-color: #545454;
   border: solid 1px #ccc;
   font-weight: 400;
-  line-height: 2.2; }
+  line-height: 2.2;
+	color: #ccc;
+ }
+
+ footer a {
+	 color:#ccc;
+ }
 
 #footer_wrapper {
   text-align: center;
@@ -775,7 +796,8 @@ footer {
 
 .footer_attention_message {
   font-size: 8px;
-  margin-bottom: 40px; }
+  margin-bottom: 40px;
+ }
 
 .footer_hr {
   display: inline-block;
