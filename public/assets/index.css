@@ -713,7 +713,7 @@ nav img {
 #handspinner_explanation {
 	position:absolute;
 	left:260px;
-	top:130px
+	top:130px;
 }
 
 #btn_kuwashiku {
@@ -724,13 +724,74 @@ nav img {
 
 #content_soundwave {
 	margin-top: 115px;
-	margin-left:40px;
+	margin-left: 40px;
+	position: relative;
 }
+
+.ojiro_m {
+	position:absolute;
+	left:100px;
+	top:254px;
+}
+
+.ojiro_chara {
+	position:absolute;
+	left:130px;
+	top:360px;
+}
+
+.soundwave_explanation {
+	position:absolute;
+	left:262px;
+	top:150px
+}
+
+.img_oshiroscope {
+	position:absolute;
+	right:122px;
+	top: 160px;
+	width:100px;
+}
+
+.img_oshiroscope2 {
+	position:absolute;
+	right:122px;
+	top: 250px;
+	width:100px;
+}
+
 
 #content_circular {
 	margin-top: 115px;
 	margin-left:40px;
 	margin-bottom:140px;
+	position:relative;
+}
+
+.tamairogame_m {
+	position:absolute;
+	left:100px;
+	top:254px;
+}
+
+.tamairogame_chara {
+	position:absolute;
+	left:110px;
+	top:360px;
+}
+
+.img_enshuritsu {
+	position:absolute;
+	right:122px;
+	top: 128px;
+	width:90px;
+}
+
+.img_enshuritsu2 {
+	position:absolute;
+	right:122px;
+	top: 236px;
+	width:90px;
 }
 
 
