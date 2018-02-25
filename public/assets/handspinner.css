@@ -529,7 +529,8 @@ body {
  }
 
 
-#wrapper, #footer_wrapper {
+/* #wrapper, #footer_wrapper { */
+#wrapper {
   width: 1000px;
   margin: auto; }
 

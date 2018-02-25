@@ -514,7 +514,7 @@ textarea,
 
 body {
   font-family: 'Noto Sans Japanese',sans-serif;
-  font-weight: 200;
+  font-weight: 300;
   line-height: 1.9;
   /* color: #444; */
 
@@ -577,15 +577,18 @@ nav img {
 
 #main_view {
 	position:absolute;
-	top:5px;
-	left:40px;
+	top:22px;
+	left:62px;
+}
+
+.main_view {
+
 }
 
 #top_cloud{
 	position:absolute;
 	top:390px;
 	left:40px;
-
 }
 
 #logotoha {
@@ -598,7 +601,22 @@ nav img {
 	position:absolute;
 	top:550px;
 	left:340px;
-	line-height: 1.5;
+	line-height: 1.6;
+	font-size: 28px;
+	font-weight: 300;
+}
+
+.chara_demi_bold {
+	font-weight:400;
+}
+
+
+.chara_bold {
+	font-weight:600;
+}
+
+.chara_underlined {
+	background: linear-gradient(transparent 75%, #fffe0a 60%);
 }
 
 #mozoushi {
@@ -644,6 +662,8 @@ nav img {
 
 #folders_text	 {
 	position: relative;
+	font-size: 19px;
+	line-height: 1.7;
 }
 
 #folder_thema1 {
@@ -660,6 +680,7 @@ nav img {
 	position:absolute;
 	top: -130px;
 	left:680px;
+
 }
 
 
