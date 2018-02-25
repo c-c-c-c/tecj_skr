@@ -35,33 +35,33 @@
 			<div class="spinyart_talk vue_phase">
 
 					<div v-if="v_phase === '1_lets_spin' ">
+						<a href="javascript:void(0)" @click="changePhase('2_more_spin')"><img src="./img/btn_spin.png" class="btn_spinyart"></a>
 						<img src="./img/fukidashi_reverse.png" id="spinyart_fukidashi">
 						<div id="spinyart_talk_chara">
 							ようこそ!!<br>まずハンドスピナーを回してみよう！<br>
-							<a href="javascript:void(0)" @click="changePhase('2_more_spin')"><img src="./img/btn_spin.png"></a>
 						</div>
 					</div>
 					<div v-if="v_phase === '2_more_spin'">
 						<img src="./img/fukidashi_reverse.png" id="spinyart_fukidashi">
 						<div id="spinyart_talk_chara">
-						もっと、もっともっと！<br>
-						<a href="javascript:void(0)" @click="changePhase('3_led_explain')"><img src="./img/btn_more_spin.png"></a>
+						もっと、<br>　もっともっと！<br>
+						<a href="javascript:void(0)" @click="changePhase('3_led_explain')"><img src="./img/btn_more_spin.png" class="btn_spinyart"></a>
 						</div>
 					</div>
-					<div v-else-if="v_phase === '3_led_explain'">
-						<img src="./img/fukidashi_reverse.png" id="spinyart_fukidashi" height="300px" width="500px">
+					<div v-else-if="v_phase === '3_led_explain'" class="phase3">
+						<img src="./img/fukidashi_reverse.png" id="spinyart_fukidashi" >
 						<div id="spinyart_talk_chara_big">
 							実はこのハンドスピナー、LEDライトが<br>付いてるんだ！<br>
-							<img src="./img/led_explain.png" width="70">
 							LEDスイッチを押すと、明かりが暗くなってライトが着くよ！
-							<a href="javascript:void(0)" @click="changePhase('4_led_light_on')"><img src="./img/btn_spin.png"></a>
+							<img src="./img/led_explain.png" class="led_explain">
+							<a href="javascript:void(0)" @click="changePhase('4_led_light_on')"><img src="./img/btn_LEDon.png" class="btn_spinyart"></a>
 						</div>
 					</div>
-					<div v-else-if="v_phase === '4_led_light_on'">
+					<div v-else-if="v_phase === '4_led_light_on'" class="phase4">
 						<img src="./img/fukidashi_reverse.png" id="spinyart_fukidashi">
-						<div id="spinyart_talk_chara">
+						<div class="spinyart_talk_chara_phase4">
 							ほら光った！模様みたいに見えるのは、<br>目の｢残像」効果なんだ。<br>　次に点めつを押してみて！
-							<a href="javascript:void(0)" @click="changePhase('5_teach_how_to')"><img src="./img/btn_spin.png"></a>
+							<a href="javascript:void(0)" @click="changePhase('5_teach_how_to')"><img src="./img/btn_LEDon_off.png" class="btn_spinyart"></a>
 						</div>
 					</div>
 					<div v-else-if="v_phase === '5_teach_how_to'">

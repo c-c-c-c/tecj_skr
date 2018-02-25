@@ -514,7 +514,7 @@ textarea,
 
 body {
   font-family: 'Noto Sans Japanese',sans-serif;
-  font-weight: 200;
+  font-weight: 400;
   line-height: 1.9;
   /* color: #444; */
 
@@ -597,22 +597,28 @@ nav img {
 
 }
 
-#spinyart_fukidashi {
-	/* position:absolute; */
-	/* right:120px; */
-}
+/* #spinyart_fukidashi {
+	position:absolute;
+	right:120px;
+} */
 
 #spinyart_talk_chara {
-	margin-top: -150px;
+	margin-top: -160px;
 	margin-right: 20px;
-	margin-left: 40px;
+	margin-left: 50px;
 }
 
 #spinyart_talk_chara_big {
-	margin-top: -250px;
+	margin-top: -180px;
 	margin-right: 20px;
 	margin-left: 40px;
 	font-size: 18px;
+}
+
+.led_explain {
+	margin-top: -120px;
+	margin-left: -258px;
+	width:140px;
 }
 
 #spinyart_talk_chara_big2 {
@@ -620,6 +626,33 @@ nav img {
 	margin-right: 10px;
 	margin-left: 48px;
 	font-size: 18px;
+}
+
+.spinyart_talk_chara_phase4 {
+	margin-top: -220px;
+	margin-right: 20px;
+	margin-left: 10px;
+}
+
+.phase3 #spinyart_fukidashi{
+	height : 230px;
+	width : 800px;
+	margin-left:-230px;
+	margin-top:-30px;
+}
+
+.phase4 #spinyart_fukidashi{
+	height : 260px;
+	width : 580px;
+	margin-top:-40px;
+	margin-left:-70px;
+}
+
+.btn_spinyart {
+	position:absolute;
+	top: 122px;
+	right:80px;
+	/* margin-left: 200px; */
 }
 
 #main_window {
