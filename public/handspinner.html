@@ -18,7 +18,7 @@
 
       <nav>
         <a href="#"><img src="./img/nav_about.png"></img></a>
-        <a href="#"><img src="./img/nav_handspinner.png"></img></a>
+		    <a href="#"><img src="./img/sdcard_tensen.png"></img></a>
         <a href="#"><img src="./img/nav_wave.png"></img></a>
         <a href="#"><img src="./img/nav_circle.png"></img></a>
       </nav>
@@ -133,27 +133,28 @@
 
 	<!-- <div v-ref="foo" class="form_container" > -->
 	<div class="form_container">
-		<div class="box_selection">
+		<div class="box_selection wide_box">
 			<select class="which_led" name="which_led">
-				<option value="1" selected>LED[A]</option>
-				<option value="2">LED[B]</option>
-				<option value="3">LED[C]</option>
-				<option value="4">LED[D]</option>
-				<option value="5">LED[E]</option>
+				<option value="1" selected>LED(A)</option>
+				<option value="2">LED(B)</option>
+				<option value="3">LED(C)</option>
+				<option value="4">LED(D)</option>
+				<option value="5">LED(E)</option>
 			</select>
-		</div>は
-		<div class="box_selection">
+		</div>
+		<div class="form_out_chara">は</div>
+		<div class="box_selection wide_box">
 			<select class="how_often_bunbo" name="how_often_bunbo">
 				<option value="1" selected>ずっと</option>
-				<option value="2">２回のうち</option>
-				<option value="3">３回のうち</option>
-				<option value="4">４回のうち</option>
-				<option value="5">５回のうち</option>
-				<option value="6">６回のうち</option>
+				<option value="2">２回に</option>
+				<option value="3">３回に</option>
+				<option value="4">４回に</option>
+				<option value="5">５回に</option>
+				<option value="6">６回に</option>
 			</select>
 		</div>
 
-		<div class="box_selection">
+		<div class="box_selection thin_box">
 			<select class="how_often_bunshi" name="how_often_bunshi">
 				<option value="1" selected>１回</option>
 				<option value="2">２回</option>
@@ -163,19 +164,19 @@
 			</select>
 		</div>
 
-		<div class="box_selection">
+		<div class="box_selection thin_box">
 			<select class="which_color" name="which_color">
 				<option value="black" selected>オフ</option>
-				<option value="blue">青</option>
-				<option value="red">赤</option>
+				<option value="blue">青色</option>
+				<option value="red">赤色</option>
 				<option value="yellow">黄色</option>
 				<option value="green">緑色</option>
 				<option value="skyblue" >水色</option>
-				<option value="pink">ピンク色</option>
-				<option value="white">白</option>
+				<option value="pink">ﾋﾟﾝｸ</option>
+				<option value="white">白色</option>
 			</select>
 		</div>
-		<a href="#" @click.prevent="deleteTerm">消</a>
+		<a href="#" @click.prevent="deleteTerm">×</a>
 	</div>
 </script>
 

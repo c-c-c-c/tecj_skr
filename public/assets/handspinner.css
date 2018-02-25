@@ -663,7 +663,6 @@ nav img {
 #virtual_handspinner_area {
 	width:920px;
 	margin:auto;
-
 }
 
 
@@ -671,38 +670,75 @@ nav img {
 
 
 
-/* .spinyart_talk {
-	width : 500px;
-	height: auto;
-	background-color: #EEE ;
-	padding-left: 10px;
-	-moz-border-radius: 15px 15px 15px 15px;
-	-webkit-border-radius: 15px 15px 15px 15px;
-	border-radius: 15px 15px 15px 15px;
-} */
-
 .box_selection select {
-	 border: 0;
-	 color: #EEE;
-	 background: transparent;
-	 font-size: 18px;
-	 font-weight: 400;
-	 padding: 0px 4px;
-	 width: 88px;
-	 background: #58B14C;
-	 -webkit-appearance: none;}
+	appearance:none;
+	-webkit-appearance: none;
+	border:  1px solid #999;;
+	color: #333;
+	/* background: #eee; */
+	/* background: transparent; */
+	font-size: 16px;
+	font-weight: 400;
+	padding: 0 4px;
+	width: 68px;
+	 /* background: #58B14C; */
+}
 
 .box_selection {
 	 overflow:hidden;
-	 width:80px;
-	 -moz-border-radius: 15px 15px 15px 15px;
-	 -webkit-border-radius: 15px 15px 15px 15px;
-	 border-radius: 15px 15px 15px 15px;
-	 background: #58B14C url("http://i62.tinypic.com/15xvbd5.png") no-repeat scroll 100px center;}
+	 /* -moz-border-radius: 10px 10px 10px 10px;
+	 -webkit-border-radius: 10px 10px 10px 10px;
+	 border-radius: 10px 10px 10px 10px; */
+	 margin: 10px 8px;
+	 /* background: transparent url("../img/arrow.png") no-repeat  10px center; */
+
+	 /* background: url("../img/arrow.png") right 50% no-repeat; */
+}
+
+/* .box_selection:after {
+    content: "";
+    position: absolute;
+    display: block;
+    width: 0;
+    height: 0;
+    top: 50%;
+    right: .6em;
+    margin-top: -.2em;
+    border-width: .45em .3em;
+    border-style: solid;
+    border-color: #fff transparent transparent;
+    /* z-index: -1;
+    z-index: 100;
+} */
+
+.wide_box {
+	width:96px;
+	height:40px;
+	background: transparent url("http://i62.tinypic.com/15xvbd5.png") no-repeat scroll 64px center;
+}
+.wide_box select{
+	width:96px;
+	height:auto;
+}
+
+.thin_box {
+	width:70px;
+	height:40px;
+	background: transparent url("http://i62.tinypic.com/15xvbd5.png") no-repeat scroll 38px center;
+}
+
+.thin_box select {
+	width:70px;
+	height: auto;
+}
+
 
 .form_container {
 	display:flex;
 	margin-top: 4px;
+	/* margin:30px 0px; */
+	background-color: #ee00ee;
+	/* background-image: url("../img/term_frame.png"); */
  }
 
  /* #stage_explain_wrapper {
