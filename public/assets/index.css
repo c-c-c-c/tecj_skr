@@ -581,16 +581,13 @@ nav img {
 	left:62px;
 }
 
-.main_view {
-
-}
-
-#test_test {
+.top_window {
 	position:absolute;
 	top:428px;
 	left:160px;
-
 }
+
+
 
 #top_cloud{
 	position:absolute;
@@ -599,26 +596,32 @@ nav img {
 	width:931px;
 }
 
-#top_window{
+/* #top_window{
 	position:absolute;
 	top:430px;
 	left:190px;
 	width:780px;
-}
-
+} */
+/*
 #logotoha {
 	position:absolute;
-	top:470px;
+	top:468px;
 	left:440px;
-}
+} */
 
 #top_explain {
 	position:absolute;
-	top:550px;
-	left:340px;
-	line-height: 1.6;
+	top:570px;
+	left:240px;
+	line-height: 1.5;
+	letter-spacing: 2px;
 	font-size: 28px;
 	font-weight: 300;
+}
+
+.graph_icon {
+	margin-top: -18px;
+	margin-left: 12px;
 }
 
 .chara_demi_bold {
@@ -646,7 +649,7 @@ nav img {
 
 #folders_img {
 	z-index: 10;
-	margin-left:80px;
+	margin-left:100px;
 	/* position:relative;
 	width:1000px;
 	height:800px; */
@@ -654,7 +657,7 @@ nav img {
 
 
 #supinyart_onfolder {
-	margin-left : 70px;
+	margin-left : 90px;
 	margin-top: -100px;
 }
 
@@ -683,18 +686,18 @@ nav img {
 
 #folder_thema1 {
 	position:absolute;
-	top: -130px;
-	left:120px;
+	top: -124px;
+	left:140px;
 }
 #folder_thema2 {
 	position:absolute;
-	top: -130px;
-	left:400px;
+	top: -124px;
+	left:420px;
 }
 #folder_thema3 {
 	position:absolute;
-	top: -130px;
-	left:680px;
+	top: -124px;
+	left:700px;
 
 }
 
