@@ -91,7 +91,7 @@
 				<!-- <div  height="300" width="100" >aaa</div> -->
 				<div class ="app_container">
 					<div id="app">
-						<div class="two_btn"> <a href="javascript:void(0)"  class="btn_kuwashiku hover_border change-border01"><span class="change-border01__inner"><img src="./img/exec_btn.png" id="exe_btn" width="200"></span></a>
+						<div class="two_btn"><a href="javascript:void(0)"  class="btn_kuwashiku hover_border change-border01"><span class="change-border01__inner"><img src="./img/exec_btn.png" id="exe_btn" width="200"></span></a>
 						<a href="javascript:void(0)" @click="addTerm"  class="btn_kuwashiku hover_border change-border01"><span class="change-border01__inner"><img src="./img/add_term_btn.png" width="176"></a></span></div>
 						<term-component
 							@delete-term="deleteTermEmit"	v-for="(term, index ) in terms" v-bind:id="term.content" v-bind:index="index" v-bind:key="term.id" ></term-component>
