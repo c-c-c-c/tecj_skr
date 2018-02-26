@@ -547,10 +547,10 @@ header {
 	margin-top: 10px;}
   /* margin: 20px 30px 10px 0; } */
 
-nav {
+.nav {
 	margin-right:40px;
 }
-nav img {
+.nav img {
 	margin-left: 10px;
 	margin-top: 40px;
 }
@@ -737,29 +737,13 @@ nav img {
 	font-size:14px;
 }
 
-/* .box_selection:after {
-    content: "";
-    position: absolute;
-    display: block;
-    width: 0;
-    height: 0;
-    top: 50%;
-    right: .6em;
-    margin-top: -.2em;
-    border-width: .45em .3em;
-    border-style: solid;
-    border-color: #fff transparent transparent;
-    /* z-index: -1;
-    z-index: 100;
-} */
-
 .wide_box {
 	width:92px;
 	height:40px;
 	background: transparent url("http://i62.tinypic.com/15xvbd5.png") no-repeat scroll 64px center;
 	background-size: 19px;
 }
-.wide_box select{
+.wide_box select {
 	width:92px;
 	height:auto;
 }

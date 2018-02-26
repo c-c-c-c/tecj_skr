@@ -119,9 +119,10 @@ function initRender () {
 			// renderer.autoClearColor = "false";
 		hsGeoGruoup.add(model_hs);
 		for (let i=1;i <= 5; i++) {
-			let p_material = new THREE.MeshBasicMaterial( { side: THREE.DoubleSide} );
+			// let p_material = new THREE.MeshBasicMaterial( { side: THREE.DoubleSide} );
+			let p_material = new THREE.MeshPhongMaterial( );
 			plane[i] = new THREE.Mesh( p_geometry, p_material );
-		  plane[i].rotation.x = (Math.PI) / 2  ;
+		  plane[i].rotation.x = -(Math.PI) / 2  ;
 
 			//平面の位置を少しずつずらす。
 			plane[i].position.z =0.27*i + 1.2;
@@ -142,7 +143,7 @@ function initRender () {
 	  let bg_material = new THREE.MeshBasicMaterial({
 	    color: 0x000000,
 	    transparent: true,
-	    opacity: 0.01,
+	    opacity: 0.015,
 	  });
 
 	  let bg = new THREE.Mesh(bg_geometry, bg_material);
@@ -154,7 +155,7 @@ function initRender () {
 		camera.lookAt({x:0, y:0, z:0 });
 
 		// OrbitControls対応箇所
-		// controls = new THREE.OrbitControls(camera);
+		controls = new THREE.OrbitControls(camera, renderer.domElement);
 
 	  main();
 	});
@@ -167,9 +168,7 @@ let render_count = 0;
 function main() {
 
 	// OrbitControls対応箇所
-	// controls.update()
-  //hsGeoGruoup.rotation.y += 0.23 ;
-  // hsGeoGruoup.rotation.y += (2*Math.PI /30)*19.001 ;
+	controls.update()
 	if (vp.v_phase === "1_lets_spin" ) {
 
 	} else if (vp.v_phase === "2_more_spin") {
