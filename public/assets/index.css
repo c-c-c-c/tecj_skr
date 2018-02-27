@@ -547,22 +547,36 @@ body {
 	height:930px;
 }
 
-.background_pc_monitor {
+.background_pc_monitor_area {
 	margin-top:20px;
-	margin-left: -200px;
+	/* margin-left: -200px; */
 	position:relative;
+	margin-left: 40px;
+}
+
+.pc_background {
+	position:absolute;
+	top:18px;
+	left:-240px;
+}
+
+.pc_frame {
+	position:absolute;
+	top:4px;
+	left:-2px;
 }
 
 .main_view {
 	position:absolute;
-	top:22px;
-	left:62px;
+	top:12px;
+	left:34px;
 }
 
 .top_window {
 	position:absolute;
-	top:428px;
+	top:432px;
 	left:160px;
+	width:0;
 }
 
 
@@ -584,12 +598,13 @@ body {
 
 .top_explain {
 	position:absolute;
-	top:570px;
+	top:586px;
 	left:240px;
 	line-height: 1.5;
 	letter-spacing: 2px;
 	font-size: 28px;
 	font-weight: 300;
+	opacity: 0;
 }
 
 .graph_icon {
@@ -876,409 +891,44 @@ footer {
 
 /*
 /* アニメーション */
-/* .test_anime {
 
-  animation: 1200ms ease-out anime-bezier;
+
+.delay_show_anime {
+  animation: 2200ms ease-in delay-show-key;
 	animation-fill-mode: forwards;
-	margin-left: 150px;
-	margin-top: 170px;
-
 }
 
-@keyframes anime-bezier {
-  0%  {
-    transform: translate3d(0px, 0px, 0px);
-		width:20px;
-  }
-  0.8%  {
-    transform: translate3d(-4.67px, -5.47px, 0px);
-  }
-  1.6%  {
-    transform: translate3d(-8.92px, -10.91px, 0px);
-  }
-  2.4%  {
-    transform: translate3d(-12.77px, -16.33px, 0px);
-  }
-  3.2%  {
-    transform: translate3d(-16.27px, -21.69px, 0px);
-  }
-  4%  {
-    transform: translate3d(-19.46px, -27px, 0px);
-  }
-  4.8%  {
-    transform: translate3d(-22.36px, -32.25px, 0px);
-  }
-  5.6%  {
-    transform: translate3d(-25px, -37.42px, 0px);
-  }
-  6.4%  {
-    transform: translate3d(-27.42px, -42.51px, 0px);
-  }
-  7.19%  {
-    transform: translate3d(-29.61px, -47.45px, 0px);
-  }
-  8%  {
-    transform: translate3d(-31.68px, -52.42px, 0px);
-		width:20px;
-  }
-  8.79%  {
-    transform: translate3d(-33.54px, -57.17px, 0px);
-  }
-  9.6%  {
-    transform: translate3d(-35.31px, -61.94px, 0px);
-  }
-  10.4%  {
-    transform: translate3d(-36.95px, -66.54px, 0px);
-		width:20px;
-  }
-  11.2%  {
-    transform: translate3d(-38.48px, -71.02px, 0px);
-  }
-  12%  {
-    transform: translate3d(-39.93px, -75.4px, 0px);
-  }
-  12.8%  {
-    transform: translate3d(-41.31px, -79.65px, 0px);
-  }
-  13.6%  {
-    transform: translate3d(-42.63px, -83.79px, 0px);
-  }
-  14.39%  {
-    transform: translate3d(-43.9px, -87.75px, 0px);
-  }
-  15.2%  {
-    transform: translate3d(-45.16px, -91.69px, 0px);
-  }
-  16%  {
-    transform: translate3d(-46.38px, -95.46px, 0px);
-  }
-  16.8%  {
-    transform: translate3d(-47.59px, -99.11px, 0px);
-  }
-  17.59%  {
-    transform: translate3d(-48.78px, -102.59px, 0px);
-  }
-  18.39%  {
-    transform: translate3d(-49.98px, -106px, 0px);
-  }
-  19.2%  {
-    transform: translate3d(-51.2px, -109.32px, 0px);
-  }
-  20%  {
-    transform: translate3d(-52.41px, -112.48px, 0px);
-  }
-  20.8%  {
-    transform: translate3d(-53.64px, -115.52px, 0px);
-  }
-  21.6%  {
-    transform: translate3d(-54.89px, -118.44px, 0px);
-  }
-  22.4%  {
-    transform: translate3d(-56.17px, -121.24px, 0px);
-  }
-  23.2%  {
-    transform: translate3d(-57.46px, -123.93px, 0px);
-  }
-  24%  {
-    transform: translate3d(-58.79px, -126.5px, 0px);
-  }
-  24.8%  {
-    transform: translate3d(-60.14px, -128.97px, 0px);
-  }
-  25.6%  {
-    transform: translate3d(-61.52px, -131.32px, 0px);
-  }
-  26.4%  {
-    transform: translate3d(-62.93px, -133.57px, 0px);
-  }
-  27.2%  {
-    transform: translate3d(-64.38px, -135.71px, 0px);
-  }
-  28%  {
-    transform: translate3d(-65.85px, -137.76px, 0px);
-  }
-  28.79%  {
-    transform: translate3d(-67.33px, -139.68px, 0px);
-  }
-  29.6%  {
-    transform: translate3d(-68.89px, -141.55px, 0px);
-  }
-  30.4%  {
-    transform: translate3d(-70.45px, -143.3px, 0px);
-  }
-  31.2%  {
-    transform: translate3d(-72.04px, -144.96px, 0px);
-  }
-  32%  {
-    transform: translate3d(-73.65px, -146.53px, 0px);
-  }
-  32.8%  {
-    transform: translate3d(-75.29px, -148.02px, 0px);
-  }
-  33.6%  {
-    transform: translate3d(-76.95px, -149.43px, 0px);
-  }
-  34.4%  {
-    transform: translate3d(-78.64px, -150.75px, 0px);
-  }
-  35.19%  {
-    transform: translate3d(-80.32px, -151.99px, 0px);
-  }
-  36%  {
-    transform: translate3d(-82.06px, -153.18px, 0px);
-  }
-  36.79%  {
-    transform: translate3d(-83.77px, -154.27px, 0px);
-  }
-  37.6%  {
-    transform: translate3d(-85.54px, -155.32px, 0px);
-  }
-  38.4%  {
-    transform: translate3d(-87.3px, -156.29px, 0px);
-  }
-  39.2%  {
-    transform: translate3d(-89.07px, -157.19px, 0px);
-  }
-  40%  {
-    transform: translate3d(-90.84px, -158.04px, 0px);
-  }
-  40.79%  {
-    transform: translate3d(-92.59px, -158.82px, 0px);
-  }
-  41.6%  {
-    transform: translate3d(-94.39px, -159.56px, 0px);
-  }
-  42.4%  {
-    transform: translate3d(-96.17px, -160.25px, 0px);
-  }
-  43.2%  {
-    transform: translate3d(-97.94px, -160.88px, 0px);
-  }
-  44%  {
-    transform: translate3d(-99.71px, -161.46px, 0px);
-  }
-  44.8%  {
-    transform: translate3d(-101.47px, -162px, 0px);
-  }
-  45.6%  {
-    transform: translate3d(-103.21px, -162.5px, 0px);
-  }
-  46.4%  {
-    transform: translate3d(-104.95px, -162.96px, 0px);
-  }
-  47.2%  {
-    transform: translate3d(-106.67px, -163.38px, 0px);
-  }
-  48%  {
-    transform: translate3d(-108.38px, -163.76px, 0px);
-  }
-  48.8%  {
-    transform: translate3d(-110.07px, -164.11px, 0px);
-  }
-  49.6%  {
-    transform: translate3d(-111.74px, -164.43px, 0px);
-  }
-  50.4%  {
-    transform: translate3d(-113.39px, -164.71px, 0px);
-  }
-  51.2%  {
-    transform: translate3d(-115.01px, -164.97px, 0px);
-  }
-  52%  {
-    transform: translate3d(-116.61px, -165.21px, 0px);
-  }
-  52.8%  {
-    transform: translate3d(-118.18px, -165.41px, 0px);
-  }
-  53.6%  {
-    transform: translate3d(-119.73px, -165.6px, 0px);
-  }
-  54.4%  {
-    transform: translate3d(-121.24px, -165.76px, 0px);
-  }
-  55.2%  {
-    transform: translate3d(-122.73px, -165.91px, 0px);
-  }
-  56%  {
-    transform: translate3d(-124.18px, -166.03px, 0px);
-  }
-  56.8%  {
-    transform: translate3d(-125.6px, -166.14px, 0px);
-  }
-  57.59%  {
-    transform: translate3d(-126.97px, -166.24px, 0px);
-  }
-  58.4%  {
-    transform: translate3d(-128.34px, -166.32px, 0px);
-  }
-  59.2%  {
-    transform: translate3d(-129.66px, -166.39px, 0px);
-  }
-  60%  {
-    transform: translate3d(-130.94px, -166.44px, 0px);
-  }
-  60.8%  {
-    transform: translate3d(-132.18px, -166.48px, 0px);
-  }
-  61.6%  {
-    transform: translate3d(-133.39px, -166.52px, 0px);
-  }
-  62.4%  {
-    transform: translate3d(-134.56px, -166.54px, 0px);
-  }
-  63.2%  {
-    transform: translate3d(-135.7px, -166.56px, 0px);
-  }
-  64%  {
-    transform: translate3d(-136.79px, -166.57px, 0px);
-  }
-  64.8%  {
-    transform: translate3d(-137.85px, -166.58px, 0px);
-  }
-  65.6%  {
-    transform: translate3d(-138.86px, -166.58px, 0px);
-  }
-  66.4%  {
-    transform: translate3d(-139.84px, -166.57px, 0px);
-  }
-  67.2%  {
-    transform: translate3d(-140.78px, -166.56px, 0px);
-  }
-  68%  {
-    transform: translate3d(-141.68px, -166.55px, 0px);
-  }
-  68.8%  {
-    transform: translate3d(-142.55px, -166.53px, 0px);
-  }
-  69.59%  {
-    transform: translate3d(-143.36px, -166.51px, 0px);
-  }
-  70.39%  {
-    transform: translate3d(-144.15px, -166.49px, 0px);
-  }
-  71.2%  {
-    transform: translate3d(-144.91px, -166.47px, 0px);
-  }
-  72%  {
-    transform: translate3d(-145.63px, -166.44px, 0px);
+@keyframes delay-show-key {
+	0% {
+		/* display: none; */
+		/* overflow: hidden; */
+		opacity: 0;
+	}
 
-  }
-  72.8%  {
-    transform: translate3d(-146.31px, -166.42px, 0px);
-  }
-  73.59%  {
-    transform: translate3d(-146.94px, -166.39px, 0px);
-  }
-  74.4%  {
-    transform: translate3d(-147.56px, -166.37px, 0px);
-  }
-  75.2%  {
-    transform: translate3d(-148.13px, -166.34px, 0px);
-  }
-  76%  {
-    transform: translate3d(-148.67px, -166.32px, 0px);
-  }
-  76.8%  {
-    transform: translate3d(-149.18px, -166.29px, 0px);
-  }
-  77.6%  {
-    transform: translate3d(-149.65px, -166.27px, 0px);
-  }
-  78.4%  {
-    transform: translate3d(-150.1px, -166.24px, 0px);
-  }
-  79.2%  {
-    transform: translate3d(-150.51px, -166.22px, 0px);
-  }
-  80%  {
-    transform: translate3d(-150.89px, -166.2px, 0px);
-  }
-  80.8%  {
-    transform: translate3d(-151.25px, -166.18px, 0px);
-  }
-  81.59%  {
-    transform: translate3d(-151.57px, -166.16px, 0px);
-  }
-  82.4%  {
-    transform: translate3d(-151.88px, -166.14px, 0px);
-  }
-  83.2%  {
-    transform: translate3d(-152.15px, -166.13px, 0px);
-  }
-  84%  {
-    transform: translate3d(-152.4px, -166.11px, 0px);
-  }
-  84.8%  {
-    transform: translate3d(-152.63px, -166.1px, 0px);
-  }
-  85.6%  {
-    transform: translate3d(-152.84px, -166.08px, 0px);
-  }
-  86.4%  {
-    transform: translate3d(-153.02px, -166.07px, 0px);
-		width:800px;
-  }
-  87.2%  {
-    transform: translate3d(-153.18px, -166.06px, 0px);
-  }
-  88%  {
-    transform: translate3d(-153.33px, -166.05px, 0px);
-  }
-  88.8%  {
-    transform: translate3d(-153.45px, -166.04px, 0px);
-  }
-  89.6%  {
-    transform: translate3d(-153.56px, -166.03px, 0px);
-  }
-  90.4%  {
-    transform: translate3d(-153.66px, -166.03px, 0px);
-  }
-  91.2%  {
-    transform: translate3d(-153.74px, -166.02px, 0px);
-  }
-  92%  {
-    transform: translate3d(-153.8px, -166.02px, 0px);
-  }
-  92.8%  {
-    transform: translate3d(-153.86px, -166.02px, 0px);
-  }
-  93.6%  {
-    transform: translate3d(-153.9px, -166.01px, 0px);
-  }
-  94.4%  {
-    transform: translate3d(-153.94px, -166.01px, 0px);
-  }
-  95.19%  {
-    transform: translate3d(-153.96px, -166.01px, 0px);
-  }
-  96%  {
-    transform: translate3d(-153.98px, -166.01px, 0px);
-  }
-  96.8%  {
-    transform: translate3d(-153.99px, -166.01px, 0px);
-  }
-  97.6%  {
-    transform: translate3d(-154px, -166.01px, 0px);
-  }
-  98.4%  {
-    transform: translate3d(-154px, -166.01px, 0px);
-  }
-  100%  {
-    transform: translate3d(-154px, -166px, 0px);
-		width:702px;
-  }
-} */
+	80% {
+		/* display: none; */
+		/* overflow: hidden; */
+		opacity: 0;
+	}
+	100% {
+		/* display: show; */
+		/* overflow: visible; */
+		opacity: 1;
+	}
+}
+
 
 .getin_anime {
-  animation: 2200ms ease-in anime-bezier4;
+  animation: 1400ms ease-in anime-bezier4-key;
 	animation-fill-mode: forwards;
 	margin-left: -180px;
-	margin-top: 80px;
+	margin-top: 86px;
 }
 
-@keyframes anime-bezier4 {
+@keyframes anime-bezier4-key {
   0%  {
     transform: translate3d(0px, 0px, 0px);
+		width:20px;
   }
   1.61%  {
     transform: translate3d(10.99px, -89.98px, 0px);
@@ -1294,6 +944,7 @@ footer {
   }
   8.06%  {
     transform: translate3d(64.65px, -221.71px, 0px);
+		width:20px;
   }
   9.67%  {
     transform: translate3d(76.88px, -225.65px, 0px);
@@ -1429,6 +1080,7 @@ footer {
   }
   80.64%  {
     transform: translate3d(179.95px, -73.44px, 0px);
+		width:820px;
   }
   82.25%  {
     transform: translate3d(180.02px, -73.23px, 0px);
@@ -1462,9 +1114,10 @@ footer {
   }
   100%  {
     transform: translate3d(180.6px, -71.4px, 0px);
-  }
+		width: 702px;
+	}
 }
-
+/*
 @keyframes anime-bezier3 {
   0%  {
     transform: translate3d(0px, 0px, 0px);
@@ -1845,7 +1498,7 @@ footer {
 		width:702px;
   }
 }
- */
+
 
 
 .getin_anime {
@@ -2046,3 +1699,5 @@ footer {
 		width:720px;
   }
 }
+
+*/

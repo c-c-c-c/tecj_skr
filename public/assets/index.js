@@ -139,6 +139,8 @@ function animateInWindow() {
 	console.log('last');
 	var el = document.getElementById("animate_window");
 	el.className += " getin_anime";
+	var el2 = document.getElementById("top_explay_delay");
+	el2.className += " delay_show_anime";
 }
 
 //
@@ -162,7 +164,7 @@ window.onload = function () {
 	setTimeout(function () {
 		console.log('waiting');
 		animateInWindow();
-	}, 3000);
+	}, 0);
 
 	console.log("yeah yeah");
 	// $(countScroll());
