@@ -127,13 +127,46 @@
 //////////////////
 
 
+function animateInWindow () {
+
+	// let path = $.bezierCurve(0, 0).addPoint(400, 200).addPoint(0, 370);
+	// $("#animate_window").animate({
+  //   bezierPath: path
+ 	// }, 1, "easing");
+
+	// let el = document.getElementById("test_anime");
+	console.log('last');
+	let el = document.getElementById("animate_window");
+	el.className += " getin_anime";
+}
 
 
+//
+//
+// $(document).ready(function() {
+// 	console.log("foo");
+// 	$(window).fadeThis({speed: 600, distance: 4});
+// 	setTimeout( animateInWindow(), 30000);
+// 		console.log("yeah");
+// 	// $(countScroll());
+// 	// $(addHoverImgChange());
+// 	// initMovie();
+// });
 
-$(document).ready(function() {
-	$(window).fadeThis({speed: 600, distance: 4});
+
+window.onload =  ()=> {
+// $(document).ready(function() {
+	console.log("foo");
+	// $(window).fadeThis({speed: 600, distance: 4});
+	// setTimeout( animateInWindow(),300000);
+	setTimeout( ()=>{
+		console.log('waiting');
+		animateInWindow();
+	},3000);
+
+
+	console.log("yeah yeah");
 	// $(countScroll());
 	// $(addHoverImgChange());
 	// initMovie();
-
-});
+}
