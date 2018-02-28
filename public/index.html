@@ -21,10 +21,10 @@
       <img class="header_logo" src="./img/logo.png">
 
       <nav class="nav_position nav" >
-        <a href="#" class="hover_border change-border01 hover_color_yellow"><span class="change-border01__inner hover_color_yellow__inner"><img src="./img/nav_about.png"></span></a>
-        <a href="#" class="hover_border change-border01 hover_color_yellow"><span class="change-border01__inner hover_color_yellow__inner"><img src="./img/nav_handspinner.png"></span></a>
-        <a href="#" class="hover_border change-border01 hover_color_yellow"><span class="change-border01__inner hover_color_yellow__inner"><img src="./img/nav_wave.png"></span></a>
-        <a href="#" class="hover_border change-border01 hover_color_yellow"><span class="change-border01__inner hover_color_yellow__inner"><img src="./img/nav_circle.png"></span></a>
+        <a href="#animate_window" class="hover_border change-border01 hover_color_yellow"><span class="change-border01__inner hover_color_yellow__inner"><img src="./img/nav_about.png"></span></a>
+        <a href="#content_handspinner" class="hover_border change-border01 hover_color_yellow"><span class="change-border01__inner hover_color_yellow__inner"><img src="./img/nav_handspinner.png"></span></a>
+        <a href="#content_soundwave" class="hover_border change-border01 hover_color_yellow"><span class="change-border01__inner hover_color_yellow__inner"><img src="./img/nav_wave.png"></span></a>
+        <a href="#content_circular" class="hover_border change-border01 hover_color_yellow"><span class="change-border01__inner hover_color_yellow__inner"><img src="./img/nav_circle.png"></span></a>
       </nav>
 
     </header>
@@ -34,8 +34,7 @@
 				<img src="./img/PC0219.png" class="pc_background">
 
 				<div class="main_view movie">
-				<!-- <img src="./img/mainview_kari2.png"> -->
-					<iframe width="870" height="489" src="https://www.youtube.com/embed/xQBW2AO8n_4?loop=1&playlist=xQBW2AO8n_4&rel=0&autoplay=1&amp;controls=0&amp;showinfo=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+					<iframe width="870" height="489" src="https://www.youtube.com/embed/xQBW2AO8n_4?modestbranding=1&loop=1&playlist=xQBW2AO8n_4&rel=0&autoplay=1&controls=0&amp;showinfo=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 										<!-- <iframe width="853" height="480" src="https://www.youtube.com/embed/ngFKlWuuLqc?loop=1&playlist=ngFKlWuuLqc&rel=0&autoplay=1&amp;controls=0&amp;showinfo=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe> -->
 				</div>
 				<img src="./img/PC_frame.png" class="pc_frame">
@@ -55,7 +54,7 @@
 			<!-- ウィンドウ -->
 			<!-- <img src="./img/logotoha.png" id="logotoha"> -->
 			<img src="./img/window_new.png" class="top_window" id="animate_window">
-			<div class="top_explain" id="top_explay_delay">
+			<div class="top_explain" id="top_explain_delay">
 				インターネットで<span class="chara_bold chara_underlined">バーチャル実験</span><img src="./img/graph_icon.png" class="graph_icon"><br>スゴイ自由研究がカンタンにできるよ！
 			</div>
 			<!-- <img src="./img/mozoushi.png" id="mozoushi"> -->
@@ -81,8 +80,8 @@
 
 		</section>
 
-		<section id="content_handspinner">
-			<img src="./img/sumaho1_bg.png" class="sumaho1_bg" >
+		<section id="content_handspinner"><div  id="rumble-element">
+			<img src="./img/sumaho1_bg.png" class="sumaho1_bg">
 			<img src="./img/spinyart_m.png" class="spinyart_m">
 			<img src="./img/spinyart_chara.png" class="spinyart_chara">
 			<div class="handspinner_explanation">大人気のハンドスピナーとかんたんな<br><span class="chara_underlined">プログラミング</span>を使い、こんなキレイな模様が<br>つくれるよ。オリジナル模様をつくろ！<br>
@@ -90,7 +89,7 @@
 			</div>
 
 			<a href="./handspinner.html" class="btn_kuwashiku hover_border change-border01"><span class="change-border01__inner"><img src="./img/btn_kuwashiku.png" ></span></a>
-		</section>
+		</div></section>
 
 		<section id="content_soundwave">
 			<img src="./img/sumaho2_bg.png" class="sumaho2_bg">
@@ -127,7 +126,7 @@
 	</div>
 
 
-	<footer>
+	<footer class="footer">
 		<div id= footer_wrapper>
 			<span class="footer_main_message">テック自由研究.jpの更新をチェック！</span><br>
 			<a href=""><i class="fa fa-facebook-square fa-spin" aria-hidden="true"></i>いいね！　</a>
@@ -150,8 +149,9 @@
 <script src='./assets/three.min.js'></script>
 <script src="./assets/vue.js"></script>
 <script src='./assets/OrbitControls.js'></script>
-<script src='./assets/index.js'></script>
+<script src='./assets/jquery.jrumble.1.3.min.js'></script>
 <script src='./assets/jquery.fadethis.js'></script>
+<script src='./assets/index.js'></script>
 <script>
   $('a').smoothScroll();
 </script>

@@ -130,17 +130,10 @@
 
 function animateInWindow() {
 
-	// let path = $.bezierCurve(0, 0).addPoint(400, 200).addPoint(0, 370);
-	// $("#animate_window").animate({
-	//   bezierPath: path
-	// }, 1, "easing");
-
-	// let el = document.getElementById("test_anime");
-	console.log('last');
 	var el = document.getElementById("animate_window");
 	el.className += " getin_anime";
-	var el2 = document.getElementById("top_explay_delay");
-	el2.className += " delay_show_anime";
+	var ec = document.getElementById("top_explain_delay");
+	ec.className += " delay_show_anime";
 }
 
 //
@@ -157,18 +150,11 @@ function animateInWindow() {
 
 
 window.onload = function () {
-	// $(document).ready(function() {
-	console.log("foo");
 	// $(window).fadeThis({speed: 600, distance: 4});
 	// setTimeout( animateInWindow(),300000);
 	setTimeout(function () {
 		console.log('waiting');
 		animateInWindow();
 	}, 0);
-
-	console.log("yeah yeah");
-	// $(countScroll());
-	// $(addHoverImgChange());
-	// initMovie();
 };
 //# sourceMappingURL=index.js.map

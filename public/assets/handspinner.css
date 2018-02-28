@@ -560,7 +560,9 @@ body {
 	top:-80px;
 	right:40px;
 	width:156px;
-	transform: rotate(-30deg);
+	opacity: 0;
+	/* transform: rotate(-30deg); */
+
 }
 
 .spinyart_talk {
@@ -699,8 +701,8 @@ body {
 	 -webkit-border-radius: 10px 10px 10px 10px;
 	 border-radius: 10px 10px 10px 10px; */
 	 margin: 8px 4px 12px 4px;
-	 /* background: transparent url("../img/arrow.png") no-repeat  10px center; */
-	 /* background: url("../img/arrow.png") right 50% no-repeat; */
+	 background: transparent url("../img/arrow.png") no-repeat  10px center;
+	 /* background: url("../img/arrow3.png") right 50% no-repeat; */
 }
 
 .form_out_chara {
@@ -718,7 +720,8 @@ body {
 .wide_box {
 	width:92px;
 	height:40px;
-	background: transparent url("http://i62.tinypic.com/15xvbd5.png") no-repeat scroll 64px center;
+	/* background: transparent url("http://i62.tinypic.com/15xvbd5.png") no-repeat scroll 64px center; */
+	background: transparent url("../img/arrow3.png") no-repeat scroll 64px center;
 	background-size: 19px;
 }
 .wide_box select {
@@ -729,7 +732,7 @@ body {
 .thin_box {
 	width:66px;
 	height:40px;
-	background: transparent url("http://i62.tinypic.com/15xvbd5.png") no-repeat scroll 39px center;
+	background: transparent url("../img/arrow3.png") no-repeat scroll 42px center;
 	background-size: 19px;
 }
 
@@ -789,7 +792,7 @@ body {
 
 #footer_wrapper {
   text-align: center;
-  padding: 40px 0; }
+  padding: 40px 0 0 0; }
 
 .footer_main_message {
   font-size: 26px; }
@@ -817,3 +820,61 @@ body {
   margin-top: 20px;
   display: block;
   font-size: 9px; }
+
+
+	/* アニメーション */
+
+.getin_spin {
+		/* opacity:0; */
+		/* width:1px; */
+	  animation: 4000ms ease-out anime-spin-key;
+		animation-fill-mode: forwards;
+
+}
+
+	@keyframes anime-spin-key {
+		0%   {
+			transform: translate3d(-530px, 220px, 0px) rotate(0deg);
+			opacity:0;
+			width:280px;
+
+		}
+		45 % {
+			opacity:0.04;
+		}
+		50% {
+			opacity:1;
+			width:280px;
+		}
+
+
+	  60%  {
+			width:280px;
+	    /* left:-700px;
+			top:400px;
+			transform:rotate(0deg); */
+	    transform: translate3d(-530px, 220px, 0px) rotate(0deg);
+	    /* transform: rotateX(0deg); */
+			/* width:20px; */
+	  }
+
+	  70% {
+			transform: translate3d(-500px, 80px, 0px) rotate(-500deg);
+		}
+
+		80% {
+			transform: translate3d(-400px, -100px, 0px) rotate(-1100deg);
+		}
+
+		90% {
+			transform: translate3d(-200px, -70px, 0px) rotate(-1510deg);
+		}
+
+	  100%  {
+	    transform: translate3d(0px, 0px, 0px) rotate(-1820deg);
+			width:156px;
+			opacity:1;
+	    /* transform: rotate()-1000deg); */
+
+	  }
+	}

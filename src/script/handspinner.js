@@ -169,7 +169,7 @@ function main() {
 
 	// OrbitControls対応箇所
 	controls.update()
-	if (vp.v_phase === "1_lets_spin" ) {
+	if (vp.v_phase === "1_lets_spin" || vp.v_phase === "0_start_anime" ) {
 
 	} else if (vp.v_phase === "2_more_spin") {
 		hsGeoGruoup.rotation.y += (2*Math.PI /60)*2;
@@ -203,10 +203,7 @@ function main() {
 			if (count % tmpTerm['oftenBunbo'] < tmpTerm['oftenBunshi']) {
 				plane[tmpTerm['ledNo']].material.color
 					= new THREE.Color(colorConf[tmpTerm['ledColor']]);
-				console.log(tmpTerm);
 			} else {
-				console.log(tmpTerm);
-				console.log(tmpTerm['ledNo']);
 				plane[tmpTerm['ledNo']].material.color
 					= new THREE.Color(colorConf['black']);
 			}
@@ -387,12 +384,14 @@ function initVuePhase() {
 	vp = new Vue({
 		el: '.vue_phase',
 		data: {
-			v_phase : "1_lets_spin"
+			v_phase : "0_start_anime"
 			//フェイズは以下がある。
+			//(0) : 0_start_anime
 			//(1) : 1_lets_spin
 			//(2) : 2_more_spin
 			//(3) : 3_led_explain
 			//(4) : 4_led_light_on
+
 			//(5) : 5_teach_how_to
 		},
 		methods: {
@@ -405,6 +404,19 @@ function initVuePhase() {
 	// vp.v_phase = "2_more_spin";
 }
 
+function initAnimation() {
+
+	let el = document.getElementById("spinyart_img");
+	el.className += " getin_spin";
+	setTimeout( ()=>{
+		el.className += " getin_spin";
+		vp.v_phase = "1_lets_spin";
+		// animateInWindow();
+	},4500);
+
+
+}
+
 
 $(document).ready(function() {
 	// $(window).fadeThis({speed: 600, distance: 4});
@@ -414,6 +426,7 @@ $(document).ready(function() {
 	initVuePhase();
 	initFormDefault();
 	initExecBtn();
+	initAnimation();
 	$(initRender());
 
 });
