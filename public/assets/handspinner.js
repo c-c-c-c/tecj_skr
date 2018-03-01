@@ -207,7 +207,7 @@ function main() {
 			// console.log(key);
 			// メインの描画決定処理
 			if (count % tmpTerm['oftenBunbo'] < tmpTerm['oftenBunshi']) {
-				plane[tmpTerm['ledNo']].material.color = new THREE.Color(colorConf[tmpTerm['ledColor']]);
+				plane[tmpTerm['ledNo']].material.color = new THREE.Color(tmpTerm['ledColor']);
 				tmp_colored_led[tmpTerm['ledNo']] = 1;
 			} else if (tmp_colored_led[tmpTerm['ledNo']] !== 1) {
 				plane[tmpTerm['ledNo']].material.color = new THREE.Color(colorConf['black']);
@@ -339,7 +339,7 @@ function initVueTerm() {
 
 	Vue.component('termComponent', {
 		template: '#term-component',
-		props: ["index", "term_id"],
+		props: ["index", "term_id", "term"],
 		methods: {
 			deleteTerm: function deleteTerm() {
 				console.log(this.index);
@@ -357,6 +357,7 @@ function initVueTerm() {
 		data: {
 			terms: [{ id: 1, content: "term1" }, { id: 2, content: "term2" }, { id: 3, content: "term3" }, { id: 4, content: "term4" }, { id: 5, content: "term5" }]
 		},
+
 		methods: {
 			addTerm: function addTerm() {
 				count++;
@@ -409,11 +410,30 @@ function initAnimation() {
 	}, 4500);
 }
 
+function initColorPicker() {
+	for (var picker_cnt = 1; picker_cnt <= 5; picker_cnt++) {
+		makeColorPicker(picker_cnt);
+	}
+}
+
+function makeColorPicker(num) {
+	var picker_id = "picker" + num;
+	$('#' + picker_id).spectrum({
+		color: "#ffffff",
+		showPaletteOnly: true,
+		palette: [["#ffffff", "#000000", "#f44336", "#ff9800", "#ffeb3b", "#8bc34a", "#4caf50", "#03a9f4", "#2196f3"]]
+	});
+	// $('#' + picker_id ).spectrum({
+	// 	replacerClassName: 'picker_style'
+	// });
+}
+
 $(document).ready(function () {
 	// $(window).fadeThis({speed: 600, distance: 4});
 	// $(countScroll());
 	// $(addHoverImgChange());
 	initVueTerm();
+	initColorPicker();
 	initVuePhase();
 	initFormDefault();
 	initExecBtn();

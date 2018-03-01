@@ -6,14 +6,15 @@
   <link rel="stylesheet" href="./assets/reset.css">
   <link rel="stylesheet" href="./assets/common.css">
   <link rel="stylesheet" href="./assets/handspinner.css">
+	<link rel='stylesheet' href='./assets/spectrum.css'>
 	<link rel="icon" type="image/gif" href="./img/favicon.gif">
 	<link href="https://fonts.googleapis.com/earlyaccess/notosansjapanese.css" rel="stylesheet" />
 	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 </head>
 
 <body>
-
-
+<input type="text" id="picker">
+<!-- <input type="text" id="picker1"> -->
   <div id="wrapper">
 		<header>
       <a href="./index.html" class="hover_border change-border01 hover_color_yellow"><span class="change-border01__inner hover_color_yellow__inner"><img class="header_logo" src="./img/logo.png"></a>
@@ -40,7 +41,7 @@
 						<a href="javascript:void(0)" @click="changePhase('2_more_spin')"><img src="./img/btn_spin.png" class="btn_spinyart"></a>
 						<img src="./img/fukidashi_reverse.png" class="spinyart_fukidashi">
 						<div class="spinyart_talk_chara">
-							ようこそ!!<br>まずハンドスピナーを回してみよう！<br>
+							バーチャルハンドスピナｰの実験へ<br>ようこそ！まず…やっぱ回さないとね
 						</div>
 					</div>
 					<div v-if="v_phase === '2_more_spin'">
@@ -95,7 +96,7 @@
 						<div class="two_btn"><a href="javascript:void(0)"  class="btn_kuwashiku hover_border change-border01"><span class="change-border01__inner"><img src="./img/exec_btn.png" id="exe_btn" width="200"></span></a>
 						<a href="javascript:void(0)" @click="addTerm"  class="btn_kuwashiku hover_border change-border01"><span class="change-border01__inner"><img src="./img/add_term_btn.png" width="176"></a></span></div>
 						<term-component
-							@delete-term="deleteTermEmit"	v-for="(term, index ) in terms" v-bind:id="term.content" v-bind:index="index" v-bind:key="term.id" ></term-component>
+							@delete-term="deleteTermEmit"	v-for="(term, index ) in terms" v-bind:term="term" v-bind:id="term.content" v-bind:index="index" v-bind:key="term.id" ></term-component>
 						<!-- <term-component @delete-term="deleteTermEmit" v-for="(term, index ) in terms" v-bind:id="term.content" v-bind:index="index" v-bind:key="term.id" ></term-component> -->
 					</div>
 				</div>
@@ -124,6 +125,7 @@
 
 <script src="./assets/jquery-3.2.1.min.js"></script>
 <script src="./assets/jquery.smoothScroll.js"></script>
+<script src='./assets/spectrum.js'></script>
 <script src='./assets/three.min.js'></script>
 <script src="./assets/vue.js"></script>
 <script src='./assets/OrbitControls.js'></script>
@@ -169,7 +171,14 @@
 			</select>
 		</div>
 
-		<div class="box_selection thin_box">
+		<!-- <div class="box_selection"> -->
+		<div class="form_out_chara"> 色:</div><input type="text" class="which_color" v-bind:id="'picker' + term.id">
+		<!-- <div v-bind:id="term.id"> -->
+			<!-- <input type="text"> -->
+		<!-- </div> -->
+		<!-- </div> -->
+
+		<!-- <div class="box_selection thin_box">
 			<select class="which_color" name="which_color">
 				<option value="black" selected>オフ</option>
 				<option value="blue">青色</option>
@@ -180,7 +189,7 @@
 				<option value="pink">ﾋﾟﾝｸ</option>
 				<option value="white">白色</option>
 			</select>
-		</div>
+		</div> -->
 		<div class="form_out_chara_x"><a href="#" @click.prevent="deleteTerm">×</a></div>
 	</div>
 </script>

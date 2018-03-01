@@ -206,7 +206,7 @@ function main() {
 			// メインの描画決定処理
 			if (count % tmpTerm['oftenBunbo'] < tmpTerm['oftenBunshi']) {
 				plane[tmpTerm['ledNo']].material.color
-					= new THREE.Color(colorConf[tmpTerm['ledColor']]);
+					= new THREE.Color(tmpTerm['ledColor']);
 				tmp_colored_led[tmpTerm['ledNo']] = 1;
 			} else if (tmp_colored_led[tmpTerm['ledNo']] !== 1) {
 				plane[tmpTerm['ledNo']].material.color
@@ -286,6 +286,7 @@ function initExecBtn() {
 				'ledColor'
 					: $('#'+ term_id+' .which_color').val()
 			};
+
 		});
 
 		render_count = 0;
@@ -350,7 +351,7 @@ function initVueTerm () {
 
 	Vue.component('termComponent', {
 		template: '#term-component',
-		props: ["index", "term_id"],
+		props: ["index", "term_id","term"],
 		methods: {
 			deleteTerm: function() {
 				console.log(this.index);
@@ -375,6 +376,7 @@ function initVueTerm () {
 				{id:5, content:"term5"}
 		 	]
 	 	},
+
 		methods: {
 			addTerm: function() {
 				count++;
@@ -431,12 +433,33 @@ function initAnimation() {
 
 }
 
+function initColorPicker() {
+	for (let picker_cnt=1; picker_cnt <= 5; picker_cnt++ ) {
+		makeColorPicker(picker_cnt);
+	}
+}
+
+function makeColorPicker(num) {
+	let picker_id = "picker"+ num;
+	$('#' + picker_id ).spectrum({
+		color: "#ffffff",
+		showPaletteOnly: true,
+		palette: [
+			["#ffffff",  "#000000","#f44336", "#ff9800", "#ffeb3b", "#8bc34a", "#4caf50", "#03a9f4", "#2196f3"]
+		]
+	});
+	// $('#' + picker_id ).spectrum({
+	// 	replacerClassName: 'picker_style'
+	// });
+}
+
 
 $(document).ready(function() {
 	// $(window).fadeThis({speed: 600, distance: 4});
 	// $(countScroll());
 	// $(addHoverImgChange());
 	initVueTerm();
+	initColorPicker();
 	initVuePhase();
 	initFormDefault();
 	initExecBtn();

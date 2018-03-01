@@ -759,6 +759,11 @@ body {
 	background-size: 396px;
  }
 
+.picker_style {
+	/* border:  1px solid #999;
+	background-color: #FFF; */
+}
+
  /* #stage_explain_wrapper {
 	 display: flex;
  } */
