@@ -58,32 +58,32 @@ var modelPath = '../src/data/hs300k.json';
 var termsTree = {
 	term1: {
 		ledNo: 1,
-		oftenBunbo: 1,
+		oftenBunbo: 3,
 		oftenBunshi: 1,
 		ledColor: 'red'
 	},
 	term2: {
 		ledNo: 2,
-		oftenBunbo: 1,
+		oftenBunbo: 3,
 		oftenBunshi: 1,
-		ledColor: 'blue'
+		ledColor: 'red'
 	},
 	term3: {
 		ledNo: 3,
-		oftenBunbo: 2,
+		oftenBunbo: 3,
 		oftenBunshi: 1,
 		ledColor: 'red'
 	},
 	term4: {
 		ledNo: 4,
-		oftenBunbo: 1,
+		oftenBunbo: 3,
 		oftenBunshi: 1,
-		ledColor: 'blue'
+		ledColor: 'green'
 	},
 	term5: {
 		ledNo: 5,
-		oftenBunbo: 6,
-		oftenBunshi: 3,
+		oftenBunbo: 3,
+		oftenBunshi: 1,
 		ledColor: 'green'
 	}
 };
@@ -105,7 +105,7 @@ function initRender() {
 		model_hs.scale.set(scale_hs, scale_hs, scale_hs);
 		model_pn.scale.set(scale_hs * 1.05, scale_hs * 1.05, scale_hs * 1.05);
 		model_pn.material.color = new THREE.Color("#cccccc");
-		model_hs.material.opacity = 0.01;
+		model_hs.material.opacity = 0.003;
 		model_hs.material.transparent = true;
 
 		var p_geometry = new THREE.PlaneGeometry(0.2, 0.17);
@@ -142,7 +142,7 @@ function initRender() {
 		var bg_material = new THREE.MeshBasicMaterial({
 			color: 0x000000,
 			transparent: true,
-			opacity: 0.015
+			opacity: 0.012
 		});
 
 		var bg = new THREE.Mesh(bg_geometry, bg_material);
@@ -162,15 +162,16 @@ function initRender() {
 
 var count = 0;
 var render_count = 0;
+var count_three = 0;
 
 function main() {
 
 	// OrbitControls対応箇所
 	controls.update();
 	if (vp.v_phase === "1_lets_spin" || vp.v_phase === "0_start_anime") {} else if (vp.v_phase === "2_more_spin") {
-		hsGeoGruoup.rotation.y += 2 * Math.PI / 60 * 2;
+		hsGeoGruoup.rotation.y += 2 * Math.PI / 60;
 	} else if (vp.v_phase === "3_led_explain") {
-		hsGeoGruoup.rotation.y += 2 * Math.PI / 60 * 11;
+		hsGeoGruoup.rotation.y += 2 * Math.PI / 60 * 7;
 	} else if (vp.v_phase === "4_led_light_on") {
 		if (model_pn.visible) {
 			model_pn.visible = 0;
@@ -198,14 +199,17 @@ function main() {
 			render_count = Number(30);
 			initFormDefault();
 		}
+		//LED複数の条件を可能にするため、今回の描画で処理されたLEDを記録する。
+		var tmp_colored_led = {};
 
 		for (var key in termsTree) {
 			var tmpTerm = termsTree[key];
-			console.log(key);
-
+			// console.log(key);
+			// メインの描画決定処理
 			if (count % tmpTerm['oftenBunbo'] < tmpTerm['oftenBunshi']) {
 				plane[tmpTerm['ledNo']].material.color = new THREE.Color(colorConf[tmpTerm['ledColor']]);
-			} else {
+				tmp_colored_led[tmpTerm['ledNo']] = 1;
+			} else if (tmp_colored_led[tmpTerm['ledNo']] !== 1) {
 				plane[tmpTerm['ledNo']].material.color = new THREE.Color(colorConf['black']);
 			}
 		}
@@ -224,7 +228,14 @@ function main() {
 		render_count++;
 		main();
 	} else {
-		requestAnimationFrame(main);
+
+		count_three++;
+		if (count_three === 2) {
+			requestAnimationFrame(main);
+			count_three = 0;
+		} else {
+			main();
+		}
 	}
 }
 
@@ -257,8 +268,9 @@ function initExecBtn() {
 		$('.form_container').each(function (index, element) {
 
 			var term_id = $(this).attr("id");
-			var term_name = "term" + termsTree[term_id];
-			term_id = {
+			// let term_name ="term" + term_id;
+			// console.log(term_name);
+			termsTree[term_id] = {
 				'ledNo': Number($('#' + term_id + ' .which_led').val()),
 				'oftenBunbo': Number($('#' + term_id + ' .how_often_bunbo').val()),
 				'oftenBunshi': Number($('#' + term_id + ' .how_often_bunshi').val()),
@@ -348,7 +360,8 @@ function initVueTerm() {
 		methods: {
 			addTerm: function addTerm() {
 				count++;
-				this.terms.push({ id: count, content: count });
+				var term_id = "term" + count;
+				this.terms.push({ id: count, content: term_id });
 			},
 			// deleteTermEmit: function(index) {
 			deleteTermEmit: function deleteTermEmit(index) {
