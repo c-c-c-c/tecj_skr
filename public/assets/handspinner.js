@@ -108,7 +108,9 @@ function initRender() {
 		model_hs.material.opacity = 0.003;
 		model_hs.material.transparent = true;
 
-		var p_geometry = new THREE.PlaneGeometry(0.2, 0.17);
+		var p_geometry = new THREE.PlaneGeometry(0.2, 0.15);
+		// let p_geometry = new THREE.CircleGeometry( 0.13);
+		// let p_geometry = new THREE.SphereGeometry(0.1,16,16, 0, Math.PI*2, 0, Math.PI/2);
 		// p_geometry.rotation.y = (Math.PI) / 4  ;
 		hsGeoGruoup.add(model_pn);
 
@@ -193,7 +195,7 @@ function main() {
 			render_count = "step4_done";
 		}
 
-		hsGeoGruoup.rotation.y += 2 * Math.PI / 60 * 41;
+		// hsGeoGruoup.rotation.y += (2*Math.PI /60)*41 ;
 	} else {
 		if (render_count === "step4_done") {
 			render_count = Number(30);

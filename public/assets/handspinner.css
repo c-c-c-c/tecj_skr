@@ -512,6 +512,22 @@ textarea,
 [aria-disabled] {
   cursor: default; }
 
+
+/* 汎用のクラス */
+	.chara_demi_bold {
+		font-weight:400;
+	}
+
+
+	.chara_bold {
+		font-weight:600;
+	}
+
+	.chara_underlined {
+		background: linear-gradient(transparent 75%, #fffe0a 60%);
+	}
+	
+
 body {
   font-family: 'Noto Sans Japanese',sans-serif;
   font-weight: 400;

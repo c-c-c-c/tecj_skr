@@ -13,7 +13,6 @@
 </head>
 
 <body>
-<input type="text" id="picker">
 <!-- <input type="text" id="picker1"> -->
   <div id="wrapper">
 		<header>
@@ -41,21 +40,21 @@
 						<a href="javascript:void(0)" @click="changePhase('2_more_spin')"><img src="./img/btn_spin.png" class="btn_spinyart"></a>
 						<img src="./img/fukidashi_reverse.png" class="spinyart_fukidashi">
 						<div class="spinyart_talk_chara">
-							バーチャルハンドスピナｰの実験へ<br>ようこそ！まず…やっぱ回さないとね
+							ようこそバーチャル実験室へ<br>まず…<span class="chara_underlined">やっぱ回さないとね</span>
 						</div>
 					</div>
 					<div v-if="v_phase === '2_more_spin'">
 						<img src="./img/fukidashi_reverse.png" class="spinyart_fukidashi">
 						<div class="spinyart_talk_chara">
-						もっと、<br>　もっともっと！<br>
+						もっと、<br><span class="chara_bold">もっともっと！</span><br>
 						<a href="javascript:void(0)" @click="changePhase('3_led_explain')"><img src="./img/btn_more_spin.png" class="btn_spinyart"></a>
 						</div>
 					</div>
 					<div v-else-if="v_phase === '3_led_explain'" class="phase3">
 						<img src="./img/fukidashi_reverse.png" class="spinyart_fukidashi" >
 						<div class="spinyart_talk_chara_big">
-							実はこのハンドスピナー、LEDライトが<br>付いてるんだ！<br>
-							LEDスイッチを押すと、明かりが暗くなってライトが着くよ！
+							実はこのハンドスピナー、<span class="chara_underlined">LEDライト</span>が<br>付いてるんだ！<br>
+							LEDスイッチを押すと、<span class="chara_underlined">明かりが暗くなってライトが着くよ！</span>
 							<img src="./img/led_explain.png" class="led_explain">
 							<a href="javascript:void(0)" @click="changePhase('4_led_light_on')"><img src="./img/btn_LEDon.png" class="btn_spinyart"></a>
 						</div>
@@ -63,7 +62,7 @@
 					<div v-else-if="v_phase === '4_led_light_on'" class="phase4">
 						<img src="./img/fukidashi_reverse.png" class="spinyart_fukidashi">
 						<div class="spinyart_talk_chara_phase4">
-							ほら光った！模様みたいに見えるのは、<br>目の｢残像」効果なんだ。<br>　次に点めつを押してみて！
+							ほら光った！模様みたいに見えるのは、<br><class="chara_underlined">目の｢残像」効果</span>なんだ。<br>　次に点めつを押してみて！
 							<a href="javascript:void(0)" @click="changePhase('5_teach_how_to')"><img src="./img/btn_LEDon_off.png" class="btn_spinyart"></a>
 						</div>
 					</div>
@@ -71,7 +70,7 @@
 						<img src="./img/fukidashi_reverse.png" class="spinyart_fukidashi" height="200px" width="500px">
 						<div class="spinyart_talk_chara_big2">
 							今度は点線みたいになったね！<br>LEDが消える→着く→消えるを高速で…<br>
-							え？難しい？？とりあえず色んな「条件」を<br>　入れて、スゴイ模様を作ってみよう！
+							え？難しい？？とりあえず<span class="chara_underlined">色んな「条件」を<br>　入れて、スゴイ模様</span>を作ってみよう！
 						</div>
 					</div>
 				</div>
