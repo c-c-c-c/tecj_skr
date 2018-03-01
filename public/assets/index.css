@@ -529,6 +529,7 @@ body {
  }
 
 
+
 #wrapper, #footer_wrapper {
   width: 1000px;
   margin: auto; }
@@ -628,6 +629,7 @@ body {
 
 #folders {
 	position:relative;
+	height:580px;
 }
 
 .folders_img {
@@ -697,30 +699,71 @@ body {
 
 .sumaho1_bg {
 	position:absolute;
+	z-index: -1;
+}
+.display_area {
+	position:absolute;
+	top:32px;
+	height:386px;
+	/* padding-top: 24px; */
+	overflow: hidden;
+}
+.white_screen1 {
+	/* margin-top:-130px; */
+	margin-left: 56px;
+	margin-bottom: 0;
+}
+
+.display_after {
+	position:relative;
+	margin-left: 57px;
+	margin-top: 0px;
+
+}
+
+#inview_trigger1 {
+	/* position:absolute; */
+	margin-top:-200px;
 }
 
 .spinyart_m {
 	position:absolute;
-	left:100px;
-	top:240px;
+	left:50px;
+	top:220px;
 }
 
 .spinyart_chara {
 	position:absolute;
-	left:100px;
-	top:370px;
+	left:50px;
+	top:350px;
 }
 
 .handspinner_explanation {
 	position:absolute;
-	left:260px;
-	top:130px;
+	left:200px;
+	top:100px;
 }
 
-.btn_kuwashiku {
+.btn_kuwashiku1 {
+	position: absolute;
+	top:320px;
+	left:552px;
+}
+.btn_kuwashiku2 {
 	margin-left:610px;
 	margin-top:350px;
 }
+.btn_kuwashiku3 {
+	margin-left:610px;
+	margin-top:350px;
+}
+
+
+/* .btn_kuwashiku {
+	margin-left:610px;
+	margin-top:350px;
+} */
+
 
 
 #content_soundwave {
@@ -733,6 +776,18 @@ body {
 .sumaho2_bg {
 		position:absolute;
 }
+.black_screen2 {
+	position:absolute;
+	left:56px;
+	top:30px;
+}
+
+.white_screen2 {
+	position:absolute;
+	left:56px;
+	top:30px;
+}
+
 
 .ojiro_m {
 	position:absolute;
@@ -765,7 +820,10 @@ body {
 	top: 250px;
 	width:100px;
 }
-
+#inview_trigger2 {
+	position:absolute;
+	top:-200px;
+}
 
 #content_circular {
 	margin-top: 115px;

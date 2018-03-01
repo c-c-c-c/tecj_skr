@@ -70,34 +70,47 @@ function initVibration () {
 
 
 		$('#inview_trigger1').on('inview',function () {
-			$('#rumble-element1').trigger('startRumble');
-			setTimeout( ()=>{
-			 	console.log('waiting');
-				$('#rumble-element1').trigger('stopRumble');
-			},500);
+			// $('.white_screen1').css();
+			console.log("1");
+			$('.container').animate( { "margin-top" : "-386px"}, { duration: 1000, easing: 'swing', } );
+			// $('.white_screen1').animate( { "margin-top" : "-400px"}, { duration: 1000, easing: 'swing', } );
+			// $('.white_screen1').animate( { "opacity" : "0"}, { duration: 1000, easing: 'swing', } );
+
+
+			// $('.white_screen1').css( "margin-top" , "-400px");
+			// $("#clover_main").css("animation-duration", "0s");
+
 		});
 
 		$('#inview_trigger2').on('inview',function () {
-			$('#rumble-element2').trigger('startRumble');
+			$('.black_screen2').hide();
+
 			setTimeout( ()=>{
-				$('#rumble-element2').trigger('stopRumble');
+			 	console.log('waiting');
+				// $('#rumble-element2').trigger('stopRumble');
+				$('.white_screen2').animate( { "opacity" : "0"}, { duration: 1000, easing: 'swing', } );
 				setTimeout( ()=>{
-					$('#rumble-element2').trigger('startRumble');
-					setTimeout( ()=>{
-						$('#rumble-element2').trigger('stopRumble');
-					},150);
-				},400);
-			},150);
+					$('.white_screen2').hide();
 
-
+				},2000);
+			},1800);
+			// $('#rumble-element2').trigger('startRumble');
 		});
+
+
 
 		$('#inview_trigger3').on('inview',function () {
 			$('#rumble-element3').trigger('startRumble');
 			setTimeout( ()=>{
-				console.log('waiting');
 				$('#rumble-element3').trigger('stopRumble');
-			},200);
+				setTimeout( ()=>{
+					$('#rumble-element3').trigger('startRumble');
+					setTimeout( ()=>{
+						$('#rumble-element3').trigger('stopRumble');
+					},150);
+				},400);
+			},150);
+
 		});
 
 
