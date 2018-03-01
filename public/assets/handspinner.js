@@ -201,6 +201,7 @@ function main() {
 
 		for (var key in termsTree) {
 			var tmpTerm = termsTree[key];
+			console.log(key);
 
 			if (count % tmpTerm['oftenBunbo'] < tmpTerm['oftenBunshi']) {
 				plane[tmpTerm['ledNo']].material.color = new THREE.Color(colorConf[tmpTerm['ledColor']]);
@@ -254,11 +255,10 @@ function initExecBtn() {
 
 		termsTree = {};
 		$('.form_container').each(function (index, element) {
-			console.log("hoge");
-			console.log(this);
+
 			var term_id = $(this).attr("id");
-			console.log(term_id);
-			termsTree[term_id] = {
+			var term_name = "term" + termsTree[term_id];
+			term_id = {
 				'ledNo': Number($('#' + term_id + ' .which_led').val()),
 				'oftenBunbo': Number($('#' + term_id + ' .how_often_bunbo').val()),
 				'oftenBunshi': Number($('#' + term_id + ' .how_often_bunshi').val()),

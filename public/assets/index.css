@@ -629,7 +629,7 @@ body {
 
 #folders {
 	position:relative;
-	height:580px;
+	/* height:580px; */
 }
 
 .folders_img {
@@ -722,8 +722,8 @@ body {
 }
 
 #inview_trigger1 {
-	/* position:absolute; */
-	margin-top:-200px;
+	position:absolute;
+	top:340px;
 }
 
 .spinyart_m {
@@ -822,7 +822,7 @@ body {
 }
 #inview_trigger2 {
 	position:absolute;
-	top:-200px;
+	top:380px;
 }
 
 #content_circular {

@@ -62,58 +62,55 @@ function animateInWindow () {
 	ec.className += " delay_show_anime";
 }
 
-// スマホのバイブ処理
-function initVibration () {
-		$('#rumble-element1').jrumble();
-		$('#rumble-element2').jrumble();
-		$('#rumble-element3').jrumble();
+function initVibration() {
+	$('#rumble-element1').jrumble();
+	$('#rumble-element2').jrumble();
+	$('#rumble-element3').jrumble();
+
+	$('#inview_trigger1').on('inview', function () {
+		// $('.white_screen1').css();
+		console.log("1");
+		$('.container').animate({ "margin-top": "-386px" }, { duration: 1000, easing: 'swing' });
+		// $('.white_screen1').animate( { "margin-top" : "-400px"}, { duration: 1000, easing: 'swing', } );
+		// $('.white_screen1').animate( { "opacity" : "0"}, { duration: 1000, easing: 'swing', } );
 
 
-		$('#inview_trigger1').on('inview',function () {
-			// $('.white_screen1').css();
-			console.log("1");
-			$('.container').animate( { "margin-top" : "-386px"}, { duration: 1000, easing: 'swing', } );
-			// $('.white_screen1').animate( { "margin-top" : "-400px"}, { duration: 1000, easing: 'swing', } );
-			// $('.white_screen1').animate( { "opacity" : "0"}, { duration: 1000, easing: 'swing', } );
+		// $('.white_screen1').css( "margin-top" , "-400px");
+		// $("#clover_main").css("animation-duration", "0s");
+	});
 
+	$('#inview_trigger2').on('inview', function () {
+		$('.black_screen2').hide();
 
-			// $('.white_screen1').css( "margin-top" , "-400px");
-			// $("#clover_main").css("animation-duration", "0s");
+		setTimeout(function () {
+			console.log('waiting');
+			// $('#rumble-element2').trigger('stopRumble');
+			$('.white_screen2').animate({ "opacity": "0" }, { duration: 1000, easing: 'swing' });
+			setTimeout(function () {
+				$('.white_screen2').hide();
+			}, 1700);
+		}, 1200);
+		// $('#rumble-element2').trigger('startRumble');
+	});
 
-		});
+	let vibr_cnt = 0;
+	$('#inview_trigger3').on('inview', function () {
+		if ( vibr_cnt === 0 ) {
 
-		$('#inview_trigger2').on('inview',function () {
-			$('.black_screen2').hide();
-
-			setTimeout( ()=>{
-			 	console.log('waiting');
-				// $('#rumble-element2').trigger('stopRumble');
-				$('.white_screen2').animate( { "opacity" : "0"}, { duration: 1000, easing: 'swing', } );
-				setTimeout( ()=>{
-					$('.white_screen2').hide();
-
-				},2000);
-			},1800);
-			// $('#rumble-element2').trigger('startRumble');
-		});
-
-
-
-		$('#inview_trigger3').on('inview',function () {
 			$('#rumble-element3').trigger('startRumble');
-			setTimeout( ()=>{
+			setTimeout(function () {
 				$('#rumble-element3').trigger('stopRumble');
-				setTimeout( ()=>{
+				setTimeout(function () {
 					$('#rumble-element3').trigger('startRumble');
-					setTimeout( ()=>{
+					setTimeout(function () {
 						$('#rumble-element3').trigger('stopRumble');
-					},150);
-				},400);
-			},150);
+					}, 250);
+				}, 500);
+			}, 280);
 
-		});
-
-
+		}
+		vibr_cnt = 1;
+	});
 }
 
 

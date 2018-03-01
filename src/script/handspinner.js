@@ -199,6 +199,7 @@ function main() {
 
 		for (let key in termsTree ) {
 			let tmpTerm = termsTree[key];
+			console.log(key);
 
 			if (count % tmpTerm['oftenBunbo'] < tmpTerm['oftenBunshi']) {
 				plane[tmpTerm['ledNo']].material.color
@@ -259,11 +260,10 @@ function initExecBtn() {
 
 		termsTree={};
 		$('.form_container').each(function(index, element){
-			console.log("hoge");
-			console.log(this);
+
 			let term_id = $(this).attr("id");
-			console.log(term_id);
-			termsTree[term_id] = {
+			let term_name ="term" + termsTree[term_id];
+			term_id = {
 				'ledNo'
 					: Number($('#'+term_id+' .which_led').val()),
 				'oftenBunbo'

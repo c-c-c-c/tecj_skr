@@ -62,7 +62,6 @@ function animateInWindow() {
 	ec.className += " delay_show_anime";
 }
 
-// スマホのバイブ処理
 function initVibration() {
 	$('#rumble-element1').jrumble();
 	$('#rumble-element2').jrumble();
@@ -89,22 +88,27 @@ function initVibration() {
 			$('.white_screen2').animate({ "opacity": "0" }, { duration: 1000, easing: 'swing' });
 			setTimeout(function () {
 				$('.white_screen2').hide();
-			}, 2000);
-		}, 1800);
+			}, 1700);
+		}, 1200);
 		// $('#rumble-element2').trigger('startRumble');
 	});
 
+	var vibr_cnt = 0;
 	$('#inview_trigger3').on('inview', function () {
-		$('#rumble-element3').trigger('startRumble');
-		setTimeout(function () {
-			$('#rumble-element3').trigger('stopRumble');
+		if (vibr_cnt === 0) {
+
+			$('#rumble-element3').trigger('startRumble');
 			setTimeout(function () {
-				$('#rumble-element3').trigger('startRumble');
+				$('#rumble-element3').trigger('stopRumble');
 				setTimeout(function () {
-					$('#rumble-element3').trigger('stopRumble');
-				}, 150);
-			}, 400);
-		}, 150);
+					$('#rumble-element3').trigger('startRumble');
+					setTimeout(function () {
+						$('#rumble-element3').trigger('stopRumble');
+					}, 250);
+				}, 500);
+			}, 280);
+		}
+		vibr_cnt = 1;
 	});
 }
 
