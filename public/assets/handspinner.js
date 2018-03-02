@@ -36,11 +36,11 @@ document.getElementById('stage').appendChild(renderer.domElement);
 var scene = new THREE.Scene();
 var camera = new THREE.PerspectiveCamera(70, WIDTH / HEIGHT, 1, 100);
 //light
-light = new THREE.DirectionalLight(0xffffff, 1.2);
+light = new THREE.DirectionalLight(0xffffff, 1);
 light.position.set(0, 200, 80);
 scene.add(light);
-// ambient = new THREE.AmbientLight(0x404040);
-// scene.add(ambient);
+ambient = new THREE.AmbientLight(0x404040);
+scene.add(ambient);
 
 //背景の定義
 var scene_bg = new THREE.Scene();
@@ -195,7 +195,7 @@ function main() {
 			render_count = "step4_done";
 		}
 
-		hsGeoGruoup.rotation.y += (2*Math.PI /60)*41 ;
+		// hsGeoGruoup.rotation.y += (2*Math.PI /60)*41 ;
 	} else {
 		if (render_count === "step4_done") {
 			render_count = Number(30);
