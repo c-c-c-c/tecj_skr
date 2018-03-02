@@ -2,10 +2,11 @@ var WIDTH = 800;
 var HEIGHT = 800;
 let c_radian = 0;
 let r_radian = 0;
-let light;
-let ambient;
+let lightOn;
+let lightOff;
 var hsGeoGroupOn = new THREE.Group();
 var hsGeoGroupOff = new THREE.Group();
+var globalHsGroupOff = new THREE.Group();
 
 var model_hs;
 var model_pn;
@@ -42,13 +43,12 @@ var sceneOn = new THREE.Scene();
 var sceneOff = new THREE.Scene();
 var camera = new THREE.PerspectiveCamera( 70, WIDTH / HEIGHT, 1, 100 );
 //light
-light = new THREE.DirectionalLight(0xffffff, 1);
-light.position.set(0, 200, 80);
-sceneOff.add(light);
-sceneOn.add(light);
-ambient = new THREE.AmbientLight(0x404040);
-sceneOff.add(ambient);
-sceneOn.add(ambient);
+lightOn = new THREE.DirectionalLight(0xffffff, 1);
+lightOff = new THREE.DirectionalLight(0xffffff, 1);
+lightOn.position.set(0, 200, 80);
+lightOff.position.set(0, 200, 80);
+sceneOn.add(lightOn);
+sceneOff.add(lightOff);
 //背景の定義
 var scene_bg = new THREE.Scene();
 var camera_bg = new THREE.OrthographicCamera(0, WIDTH, HEIGHT, 0, 0, 1000);
@@ -62,12 +62,12 @@ let modelPath = '../src/data/hs300k.json'
 ////////////
 //初期カラー
 //////////
-var termsTree = {
+var termsTree1 = {
 	term1 : {
 		ledNo : 1,
-		oftenBunbo : 3,
+		oftenBunbo : 2,
 		oftenBunshi: 1,
-		ledColor : 'red'
+		ledColor : 'blue'
 	},
 	term2 : {
 		ledNo : 2,
@@ -77,7 +77,40 @@ var termsTree = {
 	},
 	term3 : {
 		ledNo : 3,
-		oftenBunbo : 3,
+		oftenBunbo : 2,
+		oftenBunshi: 1,
+		ledColor : 'red'
+	},
+	term4 : {
+		ledNo : 4,
+		oftenBunbo : 1,
+		oftenBunshi: 1,
+		ledColor : 'green'
+	},
+	term5 : {
+		ledNo : 5,
+		oftenBunbo : 5,
+		oftenBunshi: 3,
+		ledColor : 'green'
+	}
+}
+
+var termsTree2 = {
+	term1 : {
+		ledNo : 1,
+		oftenBunbo : 1,
+		oftenBunshi: 1,
+		ledColor : 'blue'
+	},
+	term2 : {
+		ledNo : 2,
+		oftenBunbo : 1,
+		oftenBunshi : 1,
+		ledColor : 'red'
+	},
+	term3 : {
+		ledNo : 3,
+		oftenBunbo : 2,
 		oftenBunshi: 1,
 		ledColor : 'red'
 	},
@@ -89,20 +122,51 @@ var termsTree = {
 	},
 	term5 : {
 		ledNo : 5,
-		oftenBunbo : 3,
-		oftenBunshi: 1,
+		oftenBunbo : 5,
+		oftenBunshi: 2,
 		ledColor : 'green'
 	}
 }
 
-
+var termsTree3 = {
+	term1 : {
+		ledNo : 1,
+		oftenBunbo : 2,
+		oftenBunshi: 1,
+		ledColor : 'blue'
+	},
+	term2 : {
+		ledNo : 2,
+		oftenBunbo : 1,
+		oftenBunshi : 1,
+		ledColor : 'red'
+	},
+	term3 : {
+		ledNo : 3,
+		oftenBunbo : 2,
+		oftenBunshi: 1,
+		ledColor : 'red'
+	},
+	term4 : {
+		ledNo : 4,
+		oftenBunbo : 3,
+		oftenBunshi: 1,
+		ledColor : 'green'
+	},
+	term5 : {
+		ledNo : 5,
+		oftenBunbo : 2,
+		oftenBunshi: 1,
+		ledColor : 'green'
+	}
+}
 
 function initRender () {
 	loader.load(modelPath, (geo, mat) => {
 		let hsGroupOn = new THREE.Group();
 		let hsGroupOff = new THREE.Group();
 
-		for (let hs_num=0 ; hs_num<3 ;hs_num++ ) {
+		for (let hs_num=0 ; hs_num<9 ;hs_num++ ) {
 
 			let geometry = geo;
 			let material = mat;
@@ -118,7 +182,9 @@ function initRender () {
 
 			model_hs.scale.set(scale_hs, scale_hs, scale_hs);
 			model_pn.scale.set(scale_hs*1.05, scale_hs*1.05, scale_hs*1.05);
-			model_pn.material.color = new THREE.Color("#cccccc");
+			let randColor = Math.random() * 0xffffff
+ 			model_pn.material.color = new THREE.Color(randColor);
+
 			model_hs.material.opacity =0.13;
 			model_hs.material.transparent = true;
 
@@ -129,8 +195,10 @@ function initRender () {
 
 			///////
 			// 場所をずらす
-			model_pn.position.y = hs_num * 10;
-			model_hs.position.y = hs_num * 10;
+			model_pn.position.y = hs_num * 3;
+			// model_pn.position.x = hs_num * 1.6;
+			model_hs.position.y = hs_num * 3;
+			// model_hs.position.x = hs_num * 1.6;
 
 
 			// ハンドスピナーとLEDライト５個をグループに
@@ -139,17 +207,31 @@ function initRender () {
 				// renderer.preserveDrawingBuffer = "true";
 				// renderer.autoClearColor = "false";
 			hsGroupOn.add(model_pn);
-			hsGroupOff.add(model_hs);
-
+			globalHsGroupOff.add(model_hs);
 			hsGeoGroupOn.add(hsGroupOn);
-			hsGeoGroupOff.add(hsGroupOff);
+			hsGeoGroupOff.add(globalHsGroupOff);
+
+			let randColorConf = {}
+			for (let ledNo = 1; ledNo <= 5; ledNo++  ) {
+				randColorConf[ledNo] = Math.random() * 0xffffff;
+			}
+
 
 			for (let shamFrame=1 ; shamFrame <=60 ; shamFrame++) {
 
 				let planeGroup = new THREE.Group()
 				for (let keyNo=1;keyNo <= 5; keyNo++) {
+					let termsTree;
+					if (hs_num%3 === 1) {
+						termsTree = termsTree1;
+					} else if (hs_num%3 === 2) {
+						termsTree = termsTree2;
+					} else {
+						termsTree = termsTree3;
+					}
+
 					let tmpTerm = termsTree['term'+keyNo];
-					console.log(tmpTerm);
+
 					// let p_material = new THREE.MeshBasicMaterial( { side: THREE.DoubleSide} );
 					let p_material = new THREE.MeshPhongMaterial( );
 					plane[keyNo] = new THREE.Mesh( p_geometry, p_material );
@@ -166,18 +248,17 @@ function initRender () {
 					let tmp_colored_led = {};
 					if (shamFrame % tmpTerm['oftenBunbo'] < tmpTerm['oftenBunshi']) {
 						plane[tmpTerm['ledNo']].material.color
-							= new THREE.Color(tmpTerm['ledColor']);
+							= new THREE.Color(randColorConf[tmpTerm['ledNo']]);
 						// tmp_colored_led[tmpTerm['ledNo']] = 1;
-						console.log(tmpTerm['ledColor']);
 					// } else if (tmp_colored_led[tmpTerm['ledNo']] !== 1) {
 					} else {
 						plane[tmpTerm['ledNo']].material.color
-							// = new THREE.Color(colorConf['blue']);
-							= new THREE.Color('#ff0000');
-
+							= new THREE.Color(colorConf['black']);
 					}
 				  // 先ほどのboxをグループに追加
-					plane[keyNo].position.y = hs_num * 10 +0.45;
+					plane[keyNo].position.y = hs_num * 6;
+					// plane[keyNo].position.x = hs_num * 1.6;
+
 					// plane[keyNo].rotation.y = (2*Math.PI /60) * shamFrame;
 				  planeGroup.add(plane[keyNo]);
 					//hsGeoGruoup.add(model_pn);
@@ -190,7 +271,7 @@ function initRender () {
 
 		}
 		//cameraの位置を設定
-		camera.position.set(0, 100, 0);
+		camera.position.set(0, 50, 20);
 		camera.lookAt({x:0, y:0, z:0 });
 
 
@@ -237,6 +318,14 @@ function main() {
 		// 追記
 		// model_pn.visible = 0;
 	renderer.autoClearColor = true;
+	hsGeoGroupOn.rotation.y += (2*Math.PI /60)*9.4 ;
+	globalHsGroupOff.rotation.y += (2*Math.PI /60)*5 ;
+
+	hsGeoGroupOff.position.y = Math.sin(count/90)*10;
+	hsGeoGroupOff.position.x = 3;
+
+	hsGeoGroupOn.position.y = Math.sin(count/90)*10;
+	hsGeoGroupOn.position.x = 3;
 		// for (let ledNo = 1 ; ledNo<=5; ledNo++) {
 		// 	if (ledNo %3 ===1) { plane[ledNo].material.color = new THREE.Color(colorConf["red"]);}
 		// 	if (ledNo %3 ===2) { plane[ledNo].material.color = new THREE.Color(colorConf["blue"]);}
@@ -276,77 +365,35 @@ function main() {
 
 	count ++;
 
-	// 開発ライト切り替え
-  // renderer.render( sceneOn, camera );
-  renderer.render( sceneOff, camera );
+	// 開発切り替え
+  renderer.render( sceneOn, camera );
+  // renderer.render( sceneOff, camera );
 
 	// 初期表示
-	if (render_count < 60) {
-		render_count++;
-		main();
-	} else {
-
-		count_three ++ ;
-		if (count_three === 2) {
-			requestAnimationFrame(main);
-			count_three = 0;
-		} else {
-			main();
-		}
-
-	}
-
-}
-
-function initFormDefault () {
-	// 初期のform 表示用
-	for (let keys in termsTree) {
-		let tmpTerm = termsTree[keys];
-		// $("#tmpTerm .which_led[@vulue=" + tmpTerm["ledNo"] + "]").attr("checked","checked");
-		// $('"#'+'term1'+' .which_led'+'"').val(tmpTerm["ledNo"]);
-		$('#'+keys+' .which_led').val(tmpTerm["ledNo"]);
-		$('#'+keys+' .how_often_bunbo').val(tmpTerm["oftenBunbo"]);
-		$('#'+keys+' .how_often_bunshi').val(tmpTerm["oftenBunshi"]);
-		$('#'+keys+' .which_color').val(tmpTerm["ledColor"]);
-		// $("#term1 .which_led").val(3);
-	}
+	requestAnimationFrame(main);
+	// if (render_count < 60) {
+	// 	render_count++;
+	// 	main();
+	// } else {
+	//
+	// 	count_three ++ ;
+	// 	if (count_three === 2) {
+	// 		requestAnimationFrame(main);
+	// 		count_three = 0;
+	// 	} else {
+	// 		main();
+	// 	}
+	//
+	// }
 
 }
+
+
 
 ////////////////////////
 //条件を反映ボタンを押すとき
 ////////////////////////
-function initExecBtn() {
-  $('#exe_btn').click(function() {
-    // 分母
-		//初期化
-		for (let i=1 ; i <= 5; i++) {
-			plane[i].material.color = new THREE.Color(colorConf['black']);
-		}
 
-		termsTree={};
-		$('.form_container').each(function(index, element){
-
-			let term_id = $(this).attr("id");
-			// let term_name ="term" + term_id;
-			// console.log(term_name);
-			termsTree[term_id] = {
-				'ledNo'
-					: Number($('#'+term_id+' .which_led').val()),
-				'oftenBunbo'
-					: Number($('#'+ term_id+' .how_often_bunbo').val()),
-				'oftenBunshi'
-					: Number($('#'+ term_id+' .how_often_bunshi').val()),
-				'ledColor'
-					: $('#'+ term_id+' .which_color').val()
-			};
-
-		});
-
-		render_count = 0;
-
-  })
-}
 
 
 /////////////////////
