@@ -13,6 +13,7 @@
 </head>
 
 <body>
+
 <!-- <input type="text" id="picker1"> -->
   <div id="wrapper">
 		<header>
@@ -34,13 +35,13 @@
 		<section id ="spinyart_talk_area">
 
 			<img class="spinyart" src="./img/spinyart.png" id=spinyart_img>
-			<div class="spinyart_talk vue_phase">
+			 <div class="spinyart_talk vue_phase" >
 
 					<div v-if="v_phase === '1_lets_spin' ">
 						<a href="javascript:void(0)" @click="changePhase('2_more_spin')"><img src="./img/btn_spin.png" class="btn_spinyart"></a>
 						<img src="./img/fukidashi_reverse.png" class="spinyart_fukidashi">
 						<div class="spinyart_talk_chara">
-							ようこそバーチャル実験室へ<br>まず…<span class="chara_underlined">やっぱ回さないとね</span>
+							ようこそバーチャル実験室へ<br>まず…<span class="chara_bold chara_underlined">やっぱ回さないとね</span>
 						</div>
 					</div>
 					<div v-if="v_phase === '2_more_spin'">
@@ -62,22 +63,23 @@
 					<div v-else-if="v_phase === '4_led_light_on'" class="phase4">
 						<img src="./img/fukidashi_reverse.png" class="spinyart_fukidashi">
 						<div class="spinyart_talk_chara_phase4">
-							ほら光った！模様みたいに見えるのは、<br><class="chara_underlined">目の｢残像」効果</span>なんだ。<br>　次に点めつを押してみて！
+							ほら光った！模様みたいに見えるのは、<br><span class="chara_underlined">目の｢残像」効果</span>なんだ。<br>　次に点めつを押してみて！
 							<a href="javascript:void(0)" @click="changePhase('5_teach_how_to')"><img src="./img/btn_LEDon_off.png" class="btn_spinyart"></a>
 						</div>
 					</div>
 					<div v-else-if="v_phase === '5_teach_how_to'">
 						<img src="./img/fukidashi_reverse.png" class="spinyart_fukidashi" height="200px" width="500px">
 						<div class="spinyart_talk_chara_big2">
-							今度は点線みたいになったね！<br>LEDが消える→着く→消えるを高速で…<br>
-							え？難しい？？とりあえず<span class="chara_underlined">色んな「条件」を<br>　入れて、スゴイ模様</span>を作ってみよう！
+							今度は点線みたいになったね！<br>これ下の<span class="chara_underlined">条件によって、<br>
+							プログラミング制御</span>されてるんだ！<br><span class="chara_bold">法則を見つけキレイな模様を作ろ</span>
+
 						</div>
 					</div>
-				</div>
+				 </div>
 
 		</section>
 
-
+</div>
 	<section id="virtual_handspinner_area">
 		<div class = "window_bar"><img src="./img/tab_spinner.png" width="360"></div>
 
@@ -91,16 +93,22 @@
 				<img src="./img/hs_infographic_LED.png" class="hs_infographic_LED">
 				<!-- <div  height="300" width="100" >aaa</div> -->
 				<div class ="app_container">
-					<div id="app">
-						<div class="two_btn"><a href="javascript:void(0)"  class="btn_kuwashiku hover_border change-border01"><span class="change-border01__inner"><img src="./img/exec_btn.png" id="exe_btn" width="200"></span></a>
-						<a href="javascript:void(0)" @click="addTerm"  class="btn_kuwashiku hover_border change-border01"><span class="change-border01__inner"><img src="./img/add_term_btn.png" width="176"></a></span></div>
-						<term-component
-							@delete-term="deleteTermEmit"	v-for="(term, index ) in terms" v-bind:term="term" v-bind:id="term.content" v-bind:index="index" v-bind:key="term.id" ></term-component>
-						<!-- <term-component @delete-term="deleteTermEmit" v-for="(term, index ) in terms" v-bind:id="term.content" v-bind:index="index" v-bind:key="term.id" ></term-component> -->
+					<div class="app">
+					<!-- <div v-if="v_phase === '5_teach_how_to' "> -->
+						<div v-if="term_phase !== 'term_show' ">
+							<img src="./img/invisible.png" class="invisible">
+						</div>
+
+							<div class="two_btn"><a href="javascript:void(0)"  class="btn_kuwashiku hover_border change-border01"><span class="change-border01__inner"><img src="./img/exec_btn.png" id="exe_btn" width="200"></span></a>
+							<a href="javascript:void(0)" @click="addTerm"  class="btn_kuwashiku hover_border change-border01"><span class="change-border01__inner"><img src="./img/add_term_btn.png" width="176"></a></span></div>
+							<term-component
+								@delete-term="deleteTermEmit"	v-for="(term, index ) in terms" v-bind:term="term" v-bind:id="term.content" v-bind:index="index" v-bind:key="term.id" ></term-component>
+							<!-- <term-component @delete-term="deleteTermEmit" v-for="(term, index ) in terms" v-bind:id="term.content" v-bind:index="index" v-bind:key="term.id" ></term-component> -->
+
 					</div>
 				</div>
 		</div> <!--wrapper閉じる -->
-	</section></div>
+	</section>
 
 	<footer class="footer">
 		<div id= footer_wrapper>

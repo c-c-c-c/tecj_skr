@@ -12,6 +12,7 @@ var controls;
 var plane = {};
 
 var vp = {}; //グローバルなフェイズ管理
+var vm = {};
 
 const colorConf = {
 	'red': '#ff0000', 'yellow': '#f0f000', 'green': '#00e000', 'skyblue': '#00ffff',
@@ -58,31 +59,31 @@ var termsTree = {
 		ledNo : 1,
 		oftenBunbo : 3,
 		oftenBunshi: 1,
-		ledColor : 'red'
+		ledColor : '#ff0000'
 	},
 	term2 : {
 		ledNo : 2,
 		oftenBunbo : 3,
 		oftenBunshi : 1,
-		ledColor : 'red'
+		ledColor : '#ff0000'
 	},
 	term3 : {
 		ledNo : 3,
 		oftenBunbo : 3,
 		oftenBunshi: 1,
-		ledColor : 'red'
+		ledColor : '#ff0000'
 	},
 	term4 : {
 		ledNo : 4,
 		oftenBunbo : 3,
 		oftenBunshi: 1,
-		ledColor : 'green'
+		ledColor : '#00e000'
 	},
 	term5 : {
 		ledNo : 5,
 		oftenBunbo : 3,
 		oftenBunshi: 1,
-		ledColor : 'green'
+		ledColor : '#00e000'
 	}
 }
 
@@ -108,7 +109,7 @@ function initRender () {
 		model_hs.material.opacity =0.003;
 		model_hs.material.transparent = true;
 
-		let p_geometry = new THREE.PlaneGeometry( 0.2, 0.15);
+		let p_geometry = new THREE.PlaneGeometry( 0.2, 0.17);
 		// let p_geometry = new THREE.CircleGeometry( 0.13);
 		// let p_geometry = new THREE.SphereGeometry(0.1,16,16, 0, Math.PI*2, 0, Math.PI/2);
 		// p_geometry.rotation.y = (Math.PI) / 4  ;
@@ -131,7 +132,7 @@ function initRender () {
 			//画面に対する奥行き方向は変更なしで2
 			plane[i].position.y =0.39;
 
-			plane[i].material.color = new THREE.Color(colorConf['dark']);
+			plane[i].material.color = new THREE.Color("#335500");
 			plane[i].visible = 0;
 		  // 先ほどのboxをグループに追加
 		  hsGeoGruoup.add(plane[i]);
@@ -185,15 +186,15 @@ function main() {
 		} else {
 			renderer.autoClearColor = false;
 			for (let ledNo = 1 ; ledNo<=5; ledNo++) {
-				if (ledNo %3 ===1) { plane[ledNo].material.color = new THREE.Color(colorConf["red"]);}
-				if (ledNo %3 ===2) { plane[ledNo].material.color = new THREE.Color(colorConf["blue"]);}
-				if (ledNo %3 ===0) { plane[ledNo].material.color = new THREE.Color(colorConf["yellow"]);}
+				if (ledNo %3 ===1) { plane[ledNo].material.color = new THREE.Color('#ff0000');}
+				if (ledNo %3 ===2) { plane[ledNo].material.color = new THREE.Color('#0000ff');}
+				if (ledNo %3 ===0) { plane[ledNo].material.color = new THREE.Color('#00e000');}
 				plane[ledNo].visible = 1;
 			}
 			render_count = "step4_done";
 		}
 
-		// hsGeoGruoup.rotation.y += (2*Math.PI /60)*41 ;
+		 hsGeoGruoup.rotation.y += (2*Math.PI /60)*41 ;
 	} else {
 		if (render_count === "step4_done") {
 			render_count = Number(30);
@@ -212,7 +213,7 @@ function main() {
 				tmp_colored_led[tmpTerm['ledNo']] = 1;
 			} else if (tmp_colored_led[tmpTerm['ledNo']] !== 1) {
 				plane[tmpTerm['ledNo']].material.color
-					= new THREE.Color(colorConf['black']);
+					= new THREE.Color('#000000');
 			}
 
 		}
@@ -256,6 +257,8 @@ function initFormDefault () {
 		$('#'+keys+' .how_often_bunbo').val(tmpTerm["oftenBunbo"]);
 		$('#'+keys+' .how_often_bunshi').val(tmpTerm["oftenBunshi"]);
 		$('#'+keys+' .which_color').val(tmpTerm["ledColor"]);
+		let led_id = keys.slice(4);
+		makeColorPicker(led_id, tmpTerm["ledColor"]);
 		// $("#term1 .which_led").val(3);
 	}
 
@@ -269,7 +272,7 @@ function initExecBtn() {
     // 分母
 		//初期化
 		for (let i=1 ; i <= 5; i++) {
-			plane[i].material.color = new THREE.Color(colorConf['black']);
+			plane[i].material.color = new THREE.Color('#000000');
 		}
 
 		termsTree={};
@@ -288,7 +291,8 @@ function initExecBtn() {
 				'ledColor'
 					: $('#'+ term_id+' .which_color').val()
 			};
-
+			console.log($('#'+ term_id+' .which_color').val());
+			console.log()
 		});
 
 		render_count = 0;
@@ -367,8 +371,8 @@ function initVueTerm () {
 	});
 
 	let count = 5;//本当は、初期値は下のtermsの数にした方が良い
-	var vm = new Vue({
-		el: '#app',
+	vm = new Vue({
+		el: '.app',
 		data: {
 			terms:[
 				{id:1, content:"term1"},
@@ -376,16 +380,20 @@ function initVueTerm () {
 				{id:3, content:"term3"},
 				{id:4, content:"term4"},
 				{id:5, content:"term5"}
-		 	]
+		 	],
+			term_phase : "not_show"
 	 	},
-
 		methods: {
-			addTerm: function() {
+			addTerm: function(index) {
 				count++;
 				let term_id= "term"+count;
 				this.terms.push(
 					{id:count, content:term_id}
 				);
+				setTimeout( ()=>{
+					makeColorPicker(count);
+				},100);
+				console.log(count);
 			},
 			// deleteTermEmit: function(index) {
 			deleteTermEmit: function(index) {
@@ -416,6 +424,9 @@ function initVuePhase() {
 			changePhase (nextPhase) {
 				vp.v_phase = nextPhase;
 				console.log("phase"+nextPhase);
+				if (nextPhase === "5_teach_how_to") {
+					vm.term_phase = "term_show";
+				}
 			}
 		}
 	});
@@ -435,19 +446,23 @@ function initAnimation() {
 
 }
 
-function initColorPicker() {
-	for (let picker_cnt=1; picker_cnt <= 5; picker_cnt++ ) {
-		makeColorPicker(picker_cnt);
-	}
-}
+// function initColorPicker() {
+// 	for (let picker_cnt=1; picker_cnt <= 5; picker_cnt++ ) {
+// 		makeColorPicker(picker_cnt);
+// 	}
+// }
 
-function makeColorPicker(num) {
+function makeColorPicker(num, defaultColor) {
 	let picker_id = "picker"+ num;
+	console.log(picker_id);
+	defaultColor = defaultColor ? defaultColor : "#FFFFFF";
+
 	$('#' + picker_id ).spectrum({
-		color: "#ffffff",
+		color: defaultColor,
 		showPaletteOnly: true,
 		palette: [
-			["#ffffff",  "#000000","#f44336", "#ff9800", "#ffeb3b", "#8bc34a", "#4caf50", "#03a9f4", "#2196f3"]
+			["#ffffff",  "#000000","#ff0000",'#ff99ff',"#a422ff","#0000ff","#00ffff",
+			 "#22ff85", "#00e000", "#ff9800", "#f0f000" ]
 		]
 	});
 	// $('#' + picker_id ).spectrum({
@@ -461,11 +476,13 @@ $(document).ready(function() {
 	// $(countScroll());
 	// $(addHoverImgChange());
 	initVueTerm();
-	initColorPicker();
-	initVuePhase();
-	initFormDefault();
-	initExecBtn();
+	// initColorPicker();
 	initAnimation();
+	initFormDefault();
+	initVuePhase();
+	initExecBtn();
+
 	$(initRender());
+
 
 });

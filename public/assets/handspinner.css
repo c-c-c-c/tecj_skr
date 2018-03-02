@@ -526,7 +526,7 @@ textarea,
 	.chara_underlined {
 		background: linear-gradient(transparent 75%, #fffe0a 60%);
 	}
-	
+
 
 body {
   font-family: 'Noto Sans Japanese',sans-serif;
@@ -673,6 +673,15 @@ body {
 	top:460px;
 	left:40px;
 	width:400px;
+}
+
+.invisible {
+	position:relative;
+	width:400px;
+	height:420px;
+	margin-top :-50px;
+	margin-bottom : -420px;
+	z-index:10;
 }
 
 .app_container {
