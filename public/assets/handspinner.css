@@ -851,6 +851,10 @@ body {
   display: block;
   font-size: 9px; }
 
+.in_modal {
+	margin:40px;
+	font-size: 24px;
+}
 
 	/* アニメーション */
 

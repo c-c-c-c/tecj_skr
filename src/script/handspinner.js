@@ -471,6 +471,16 @@ function makeColorPicker(num, defaultColor) {
 }
 
 
+function initModal ( ) {
+	$('#modal-default').iziModal();
+	$(document).on('click', '.open-default', function (event) {
+		event.preventDefault();
+		$('#modal-default').iziModal('open');
+		console.log("click");
+	});
+
+}
+
 $(document).ready(function() {
 	// $(window).fadeThis({speed: 600, distance: 4});
 	// $(countScroll());
@@ -481,7 +491,7 @@ $(document).ready(function() {
 	initFormDefault();
 	initVuePhase();
 	initExecBtn();
-
+	initModal();
 	$(initRender());
 
 
