@@ -258,6 +258,17 @@ function initFormDefault() {
 	}
 }
 
+function initFormWatch() {
+	$('.how_often_bunbo').change(function () {
+		console.log('foo');
+		// let how_often = $("#fruits option:selected").val();
+		console.log($('.how_often_bunbo').val());
+		console.log($('.how_often_bunbo').parent().val());
+		// console.log(this);
+		// console.log(this.val());
+	});
+}
+
 ////////////////////////
 //条件を反映ボタンを押すとき
 ////////////////////////
@@ -464,6 +475,7 @@ $(document).ready(function () {
 	initFormDefault();
 	initVuePhase();
 	initExecBtn();
+	initFormWatch();
 	initModal();
 	$(initRender());
 });
