@@ -8,9 +8,9 @@
   "scripts": {
     "build": "npm run style:build & npm run script:build",
     "watch": "npm run style:watch & npm run script:watch",
-    "style:watch": "node-sass --include-path src/style --include-path node_modules -wr ./src/style -o ./public/assets",
-    "style:build": "node-sass --include-path src/style --include-path node_modules ./src/style -o ./public/assets",
-    "script:watch": "babel ./src/script -w -s --out-dir ./public/assets",
-    "script:build": "babel ./src/script -s --out-dir ./public/assets"
+    "style:watch": "node-sass --include-path src/style --include-path node_modules -wr ./src/style -o ./docs/assets",
+    "style:build": "node-sass --include-path src/style --include-path node_modules ./src/style -o ./docs/assets",
+    "script:watch": "babel ./src/script -w -s --out-dir ./docs/assets",
+    "script:build": "babel ./src/script -s --out-dir ./docs/assets"
   }
 }

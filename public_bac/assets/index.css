@@ -1,0 +1,1761 @@
+/*! sanitize.css v5.0.0 | CC0 License | github.com/jonathantneal/sanitize.css */
+/* Document (https://html.spec.whatwg.org/multipage/semantics.html#semantics)
+   ========================================================================== */
+/**
+ * 1. Remove repeating backgrounds in all browsers (opinionated).
+ * 2. Add box sizing inheritence in all browsers (opinionated).
+ */
+*,
+::before,
+::after {
+  background-repeat: no-repeat;
+  /* 1 */
+  box-sizing: inherit;
+  /* 2 */ }
+
+/**
+ * 1. Add text decoration inheritance in all browsers (opinionated).
+ * 2. Add vertical alignment inheritence in all browsers (opinionated).
+ */
+::before,
+::after {
+  text-decoration: inherit;
+  /* 1 */
+  vertical-align: inherit;
+  /* 2 */ }
+
+/**
+ * 1. Add border box sizing in all browsers (opinionated).
+ * 2. Add the default cursor in all browsers (opinionated).
+ * 3. Prevent font size adjustments after orientation changes in IE and iOS.
+ */
+html {
+  box-sizing: border-box;
+  /* 1 */
+  cursor: default;
+  /* 2 */
+  -ms-text-size-adjust: 100%;
+  /* 3 */
+  -webkit-text-size-adjust: 100%;
+  /* 3 */ }
+
+/* Sections (https://html.spec.whatwg.org/multipage/semantics.html#sections)
+   ========================================================================== */
+/**
+ * Add the correct display in IE 9-.
+ */
+article,
+aside,
+footer,
+header,
+nav,
+section {
+  display: block; }
+
+/**
+ * Remove the margin in all browsers (opinionated).
+ */
+body {
+  margin: 0; }
+
+/**
+ * Correct the font size and margin on `h1` elements within `section` and
+ * `article` contexts in Chrome, Firefox, and Safari.
+ */
+h1 {
+  font-size: 2em;
+  margin: .67em 0; }
+
+/* Grouping content (https://html.spec.whatwg.org/multipage/semantics.html#grouping-content)
+   ========================================================================== */
+/**
+ * Add the correct display in IE 9-.
+ * 1. Add the correct display in IE.
+ */
+figcaption,
+figure,
+main {
+  /* 1 */
+  display: block; }
+
+/**
+ * Add the correct margin in IE 8.
+ */
+figure {
+  margin: 1em 40px; }
+
+/**
+ * 1. Add the correct box sizing in Firefox.
+ * 2. Show the overflow in Edge and IE.
+ */
+hr {
+  box-sizing: content-box;
+  /* 1 */
+  height: 0;
+  /* 1 */
+  overflow: visible;
+  /* 2 */ }
+
+/**
+ * Remove the list style on navigation lists in all browsers (opinionated).
+ */
+nav ol,
+nav ul {
+  list-style: none; }
+
+/**
+ * 1. Correct the inheritance and scaling of font size in all browsers.
+ * 2. Correct the odd `em` font sizing in all browsers.
+ */
+pre {
+  font-family: monospace, monospace;
+  /* 1 */
+  font-size: 1em;
+  /* 2 */ }
+
+/* Text-level semantics (https://html.spec.whatwg.org/multipage/semantics.html#text-level-semantics)
+   ========================================================================== */
+/**
+ * 1. Remove the gray background on active links in IE 10.
+ * 2. Remove gaps in links underline in iOS 8+ and Safari 8+.
+ */
+a {
+  background-color: transparent;
+  /* 1 */
+  -webkit-text-decoration-skip: objects;
+  /* 2 */ }
+
+/**
+ * 1. Remove the bottom border in Firefox 39-.
+ * 2. Add the correct text decoration in Chrome, Edge, IE, Opera, and Safari.
+ */
+abbr[title] {
+  border-bottom: none;
+  /* 1 */
+  text-decoration: underline;
+  /* 2 */
+  text-decoration: underline dotted;
+  /* 2 */ }
+
+/**
+ * Prevent the duplicate application of `bolder` by the next rule in Safari 6.
+ */
+b,
+strong {
+  font-weight: inherit; }
+
+/**
+ * Add the correct font weight in Chrome, Edge, and Safari.
+ */
+b,
+strong {
+  font-weight: bolder; }
+
+/**
+ * 1. Correct the inheritance and scaling of font size in all browsers.
+ * 2. Correct the odd `em` font sizing in all browsers.
+ */
+code,
+kbd,
+samp {
+  font-family: monospace, monospace;
+  /* 1 */
+  font-size: 1em;
+  /* 2 */ }
+
+/**
+ * Add the correct font style in Android 4.3-.
+ */
+dfn {
+  font-style: italic; }
+
+/**
+ * Add the correct background and color in IE 9-.
+ */
+mark {
+  background-color: #ffff00;
+  color: #000000; }
+
+/**
+ * Add the correct font size in all browsers.
+ */
+small {
+  font-size: 80%; }
+
+/**
+ * Prevent `sub` and `sup` elements from affecting the line height in
+ * all browsers.
+ */
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline; }
+
+sub {
+  bottom: -.25em; }
+
+sup {
+  top: -.5em; }
+
+/*
+ * Remove the text shadow on text selections (opinionated).
+ * 1. Restore the coloring undone by defining the text shadow (opinionated).
+ */
+::-moz-selection {
+  background-color: #b3d4fc;
+  /* 1 */
+  color: #000000;
+  /* 1 */
+  text-shadow: none; }
+
+::selection {
+  background-color: #b3d4fc;
+  /* 1 */
+  color: #000000;
+  /* 1 */
+  text-shadow: none; }
+
+/* Embedded content (https://html.spec.whatwg.org/multipage/embedded-content.html#embedded-content)
+   ========================================================================== */
+/*
+ * Change the alignment on media elements in all browers (opinionated).
+ */
+audio,
+canvas,
+iframe,
+img,
+svg,
+video {
+  vertical-align: middle; }
+
+/**
+ * Add the correct display in IE 9-.
+ */
+audio,
+video {
+  display: inline-block; }
+
+/**
+ * Add the correct display in iOS 4-7.
+ */
+audio:not([controls]) {
+  display: none;
+  height: 0; }
+
+/**
+ * Remove the border on images inside links in IE 10-.
+ */
+img {
+  border-style: none; }
+
+/**
+ * Change the fill color to match the text color in all browsers (opinionated).
+ */
+svg {
+  fill: currentColor; }
+
+/**
+ * Hide the overflow in IE.
+ */
+svg:not(:root) {
+  overflow: hidden; }
+
+/* Tabular data (https://html.spec.whatwg.org/multipage/tables.html#tables)
+   ========================================================================== */
+/**
+ * Collapse border spacing
+ */
+table {
+  border-collapse: collapse; }
+
+/* Forms (https://html.spec.whatwg.org/multipage/forms.html#forms)
+   ========================================================================== */
+/**
+ * Remove the margin in Firefox and Safari.
+ */
+button,
+input,
+optgroup,
+select,
+textarea {
+  margin: 0; }
+
+/**
+ * Inherit styling in all browsers (opinionated).
+ */
+button,
+input,
+select,
+textarea {
+  background-color: transparent;
+  color: inherit;
+  font-size: inherit;
+  line-height: inherit; }
+
+/**
+ * Show the overflow in IE.
+ * 1. Show the overflow in Edge.
+ */
+button,
+input {
+  /* 1 */
+  overflow: visible; }
+
+/**
+ * Remove the inheritance of text transform in Edge, Firefox, and IE.
+ * 1. Remove the inheritance of text transform in Firefox.
+ */
+button,
+select {
+  /* 1 */
+  text-transform: none; }
+
+/**
+ * 1. Prevent a WebKit bug where (2) destroys native `audio` and `video`
+ *    controls in Android 4.
+ * 2. Correct the inability to style clickable types in iOS and Safari.
+ */
+button,
+html [type="button"],
+[type="reset"],
+[type="submit"] {
+  -webkit-appearance: button;
+  /* 2 */ }
+
+/**
+ * Remove the inner border and padding in Firefox.
+ */
+button::-moz-focus-inner,
+[type="button"]::-moz-focus-inner,
+[type="reset"]::-moz-focus-inner,
+[type="submit"]::-moz-focus-inner {
+  border-style: none;
+  padding: 0; }
+
+/**
+ * Restore the focus styles unset by the previous rule.
+ */
+button:-moz-focusring,
+[type="button"]:-moz-focusring,
+[type="reset"]:-moz-focusring,
+[type="submit"]:-moz-focusring {
+  outline: 1px dotted ButtonText; }
+
+/**
+ * 1. Correct the text wrapping in Edge and IE.
+ * 2. Correct the color inheritance from `fieldset` elements in IE.
+ * 3. Remove the padding so developers are not caught out when they zero out
+ *    `fieldset` elements in all browsers.
+ */
+legend {
+  box-sizing: border-box;
+  /* 1 */
+  color: inherit;
+  /* 2 */
+  display: table;
+  /* 1 */
+  max-width: 100%;
+  /* 1 */
+  padding: 0;
+  /* 3 */
+  white-space: normal;
+  /* 1 */ }
+
+/**
+ * 1. Add the correct display in IE 9-.
+ * 2. Add the correct vertical alignment in Chrome, Firefox, and Opera.
+ */
+progress {
+  display: inline-block;
+  /* 1 */
+  vertical-align: baseline;
+  /* 2 */ }
+
+/**
+ * 1. Remove the default vertical scrollbar in IE.
+ * 2. Change the resize direction on textareas in all browsers (opinionated).
+ */
+textarea {
+  overflow: auto;
+  /* 1 */
+  resize: vertical;
+  /* 2 */ }
+
+/**
+ * 1. Add the correct box sizing in IE 10-.
+ * 2. Remove the padding in IE 10-.
+ */
+[type="checkbox"],
+[type="radio"] {
+  box-sizing: border-box;
+  /* 1 */
+  padding: 0;
+  /* 2 */ }
+
+/**
+ * Correct the cursor style of increment and decrement buttons in Chrome.
+ */
+[type="number"]::-webkit-inner-spin-button,
+[type="number"]::-webkit-outer-spin-button {
+  height: auto; }
+
+/**
+ * 1. Correct the odd appearance in Chrome and Safari.
+ * 2. Correct the outline style in Safari.
+ */
+[type="search"] {
+  -webkit-appearance: textfield;
+  /* 1 */
+  outline-offset: -2px;
+  /* 2 */ }
+
+/**
+ * Remove the inner padding and cancel buttons in Chrome and Safari on macOS.
+ */
+[type="search"]::-webkit-search-cancel-button,
+[type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none; }
+
+/**
+ * 1. Correct the inability to style clickable types in iOS and Safari.
+ * 2. Change font properties to `inherit` in Safari.
+ */
+::-webkit-file-upload-button {
+  -webkit-appearance: button;
+  /* 1 */
+  font: inherit;
+  /* 2 */ }
+
+/* Interactive elements (https://html.spec.whatwg.org/multipage/forms.html#interactive-elements)
+   ========================================================================== */
+/*
+ * Add the correct display in IE 9-.
+ * 1. Add the correct display in Edge, IE, and Firefox.
+ */
+details,
+menu {
+  display: block; }
+
+/*
+ * Add the correct display in all browsers.
+ */
+summary {
+  display: list-item; }
+
+/* Scripting (https://html.spec.whatwg.org/multipage/scripting.html#scripting-3)
+   ========================================================================== */
+/**
+ * Add the correct display in IE 9-.
+ */
+canvas {
+  display: inline-block; }
+
+/**
+ * Add the correct display in IE.
+ */
+template {
+  display: none; }
+
+/* User interaction (https://html.spec.whatwg.org/multipage/interaction.html#editing)
+   ========================================================================== */
+/*
+ * Remove the tapping delay on clickable elements (opinionated).
+ * 1. Remove the tapping delay in IE 10.
+ */
+a,
+area,
+button,
+input,
+label,
+select,
+summary,
+textarea,
+[tabindex] {
+  -ms-touch-action: manipulation;
+  /* 1 */
+  touch-action: manipulation; }
+
+/**
+ * Add the correct display in IE 10-.
+ */
+[hidden] {
+  display: none; }
+
+/* ARIA (https://w3c.github.io/html-aria/)
+   ========================================================================== */
+/**
+ * Change the cursor on busy elements (opinionated).
+ */
+[aria-busy="true"] {
+  cursor: progress; }
+
+/*
+ * Change the cursor on control elements (opinionated).
+ */
+[aria-controls] {
+  cursor: pointer; }
+
+/*
+ * Change the display on visually hidden accessible elements (opinionated).
+ */
+[aria-hidden="false"][hidden]:not(:focus) {
+  clip: rect(0, 0, 0, 0);
+  display: inherit;
+  position: absolute; }
+
+/*
+ * Change the cursor on disabled, not-editable, or otherwise
+ * inoperable elements (opinionated).
+ */
+[aria-disabled] {
+  cursor: default; }
+
+body {
+  font-family: 'Noto Sans Japanese',sans-serif;
+  font-weight: 300;
+  line-height: 1.9;
+  /* color: #444; */
+
+  font-size: 20px;
+  letter-spacing: 1px;
+	background-image: url("../img/bg_repeat_tiny.png");
+	background-repeat: repeat;
+	/* background-attachment: fixed; */
+	background-position: bottom;
+
+
+ }
+
+
+
+#wrapper, #footer_wrapper {
+  width: 1000px;
+  margin: auto; }
+
+/* #wrapper {
+		height:1000px;
+} */
+
+
+
+
+/* メインビュー */
+#monitor_cloud {
+	position:relative;
+	width:1000px;
+	height:930px;
+}
+
+.background_pc_monitor_area {
+	margin-top:20px;
+	/* margin-left: -200px; */
+	position:relative;
+	margin-left: 40px;
+}
+
+.pc_background {
+	position:absolute;
+	top:18px;
+	left:-240px;
+}
+
+.pc_frame {
+	position:absolute;
+	top:4px;
+	left:-2px;
+}
+
+.main_view {
+	position:absolute;
+	top:12px;
+	left:34px;
+}
+
+.top_window {
+	position:absolute;
+	top:432px;
+	left:160px;
+	width:0;
+}
+
+
+
+
+
+/* #top_window{
+	position:absolute;
+	top:430px;
+	left:190px;
+	width:780px;
+} */
+/*
+#logotoha {
+	position:absolute;
+	top:468px;
+	left:440px;
+} */
+
+.top_explain {
+	position:absolute;
+	top:586px;
+	left:240px;
+	line-height: 1.5;
+	letter-spacing: 2px;
+	font-size: 28px;
+	font-weight: 300;
+	opacity: 0;
+}
+
+.graph_icon {
+	margin-top: -18px;
+	margin-left: 12px;
+}
+
+.chara_demi_bold {
+	font-weight:400;
+}
+
+
+.chara_bold {
+	font-weight:600;
+}
+
+.chara_underlined {
+	background: linear-gradient(transparent 75%, #fffe0a 60%);
+}
+
+
+#folders {
+	position:relative;
+	/* height:580px; */
+}
+
+.folders_img {
+	z-index: 10;
+	margin-left:100px;
+	/* position:relative;
+	width:1000px;
+	height:800px; */
+}
+
+
+.supinyart_onfolder {
+	margin-left : 90px;
+	margin-top: -100px;
+}
+
+.ojiro_onfolder {
+	margin-left : 140px;
+	margin-top: -30px;
+}
+
+.tamairogame_onfolder {
+	margin-left : 130px;
+	margin-top:-30px;
+}
+
+.btn_hogosha {
+	width:231px;
+	margin-left: auto;
+	margin-right:40px;
+}
+
+
+.folders_text	 {
+	position: relative;
+	font-size: 19px;
+	line-height: 1.7;
+}
+
+.folder_thema1 {
+	position:absolute;
+	top: -124px;
+	left:140px;
+}
+.folder_thema2 {
+	position:absolute;
+	top: -124px;
+	left:420px;
+}
+.folder_thema3 {
+	position:absolute;
+	top: -124px;
+	left:700px;
+
+}
+
+
+
+/* ハンドスピナーアート */
+
+#content_handspinner {
+	margin-top:80px;
+	margin-left:40px;
+	height:449px;
+	position:relative;
+}
+
+.sumaho1_bg {
+	position:absolute;
+	z-index: -1;
+}
+.display_area {
+	position:absolute;
+	top:32px;
+	height:386px;
+	/* padding-top: 24px; */
+	overflow: hidden;
+}
+.white_screen1 {
+	/* margin-top:-130px; */
+	margin-left: 56px;
+	margin-bottom: 0;
+}
+
+.display_after {
+	position:relative;
+	margin-left: 57px;
+	margin-top: 0px;
+
+}
+
+#inview_trigger1 {
+	position:absolute;
+	top:340px;
+}
+
+.spinyart_m {
+	position:absolute;
+	left:50px;
+	top:220px;
+}
+
+.spinyart_chara {
+	position:absolute;
+	left:50px;
+	top:350px;
+}
+
+.handspinner_explanation {
+	position:absolute;
+	left:200px;
+	top:100px;
+}
+
+.btn_kuwashiku1 {
+	position: absolute;
+	top:320px;
+	left:552px;
+}
+.btn_kuwashiku2 {
+	margin-left:610px;
+	margin-top:350px;
+}
+.btn_kuwashiku3 {
+	margin-left:610px;
+	margin-top:350px;
+}
+
+
+/* .btn_kuwashiku {
+	margin-left:610px;
+	margin-top:350px;
+} */
+
+
+
+#content_soundwave {
+	margin-top: 115px;
+	margin-left: 40px;
+	height:449px;
+	position: relative;
+}
+
+.sumaho2_bg {
+		position:absolute;
+}
+.black_screen2 {
+	position:absolute;
+	left:56px;
+	top:30px;
+}
+
+.white_screen2 {
+	position:absolute;
+	left:56px;
+	top:30px;
+}
+
+
+.ojiro_m {
+	position:absolute;
+	left:100px;
+	top:254px;
+}
+
+.ojiro_chara {
+	position:absolute;
+	left:130px;
+	top:360px;
+}
+
+.soundwave_explanation {
+	position:absolute;
+	left:262px;
+	top:150px
+}
+
+.img_oshiroscope {
+	position:absolute;
+	right:122px;
+	top: 160px;
+	width:100px;
+}
+
+.img_oshiroscope2 {
+	position:absolute;
+	right:122px;
+	top: 250px;
+	width:100px;
+}
+#inview_trigger2 {
+	position:absolute;
+	top:380px;
+}
+
+#content_circular {
+	margin-top: 115px;
+	margin-left:40px;
+	margin-bottom:140px;
+	height:449px;
+	position:relative;
+}
+
+.sumaho3_bg {
+		position:absolute;
+}
+
+.tamairogame_m {
+	position:absolute;
+	left:100px;
+	top:254px;
+}
+
+.tamairogame_chara {
+	position:absolute;
+	left:110px;
+	top:360px;
+}
+
+.img_enshuritsu {
+	position:absolute;
+	right:122px;
+	top: 128px;
+	width:90px;
+}
+
+.img_enshuritsu2 {
+	position:absolute;
+	right:122px;
+	top: 236px;
+	width:90px;
+}
+
+
+/* #characters {
+	position:relative;
+	top: 120px;
+}
+
+#supinyart_onfolder {
+	position:absolute;
+	left : 70px;
+	top : -10px;
+}
+
+#ojiro_onfolder {
+	position:absolute;
+	left : 350px;
+	top:26px;
+}
+
+#tamairogame_onfolder {
+	position:absolute;
+	left : 630px;
+	top:20px;
+} */
+
+
+/* なぜかPCの右側がうまく表示されなかった
+ #background_pc_monitor {
+	height:900px;
+	margin-left: -200px;
+	background-image: url("../img/PC0219.png");
+	background-repeat: no-repeat;
+} */
+
+
+
+
+/* フッター */
+.footer {
+  margin-top: 50px;
+  width: auto;
+  height: 420px;
+  background-color: #545454;
+  border: solid 1px #ccc;
+  font-weight: 400;
+  line-height: 2.2;
+	color: #ccc;
+ }
+
+ footer a {
+	 color:#ccc;
+ }
+
+#footer_wrapper {
+  text-align: center;
+  padding: 40px 0 0 0; }
+
+.footer_main_message {
+  font-size: 26px; }
+
+.footer_attention_message {
+  font-size: 8px;
+  margin-bottom: 40px;
+ }
+
+.footer_hr {
+  display: inline-block;
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  border-top: dotted 1px #cdcdcd; }
+
+.footer_hr_area {
+  margin: 20px 0 20px 0; }
+
+.footer_logo {
+  margin-top: 20px; }
+
+.copyright {
+  margin-top: 20px;
+  display: block;
+  font-size: 9px; }
+
+
+/*
+/* アニメーション */
+
+
+.delay_show_anime {
+  animation: 1800ms ease-in delay-show-key;
+	animation-fill-mode: forwards;
+}
+
+@keyframes delay-show-key {
+	0% {
+		/* display: none; */
+		/* overflow: hidden; */
+		opacity: 0;
+	}
+
+	80% {
+		/* display: none; */
+		/* overflow: hidden; */
+		opacity: 0;
+	}
+	100% {
+		/* display: show; */
+		/* overflow: visible; */
+		opacity: 1;
+	}
+}
+
+
+.getin_anime {
+  animation: 1400ms ease-in anime-bezier4-key;
+	animation-fill-mode: forwards;
+	margin-left: -180px;
+	margin-top: 86px;
+}
+
+@keyframes anime-bezier4-key {
+  0%  {
+    transform: translate3d(0px, 0px, 0px);
+		width:20px;
+  }
+  1.61%  {
+    transform: translate3d(10.99px, -89.98px, 0px);
+  }
+  3.22%  {
+    transform: translate3d(24.03px, -149.65px, 0px);
+  }
+  4.83%  {
+    transform: translate3d(37.79px, -187.6px, 0px);
+  }
+  6.45%  {
+    transform: translate3d(51.56px, -210.19px, 0px);
+  }
+  8.06%  {
+    transform: translate3d(64.65px, -221.71px, 0px);
+		width:20px;
+  }
+  9.67%  {
+    transform: translate3d(76.88px, -225.65px, 0px);
+  }
+  11.29%  {
+    transform: translate3d(88.19px, -224.39px, 0px);
+  }
+  12.9%  {
+    transform: translate3d(98.39px, -219.67px, 0px);
+  }
+  14.51%  {
+    transform: translate3d(107.58px, -212.75px, 0px);
+  }
+  16.12%  {
+    transform: translate3d(115.8px, -204.52px, 0px);
+  }
+  17.74%  {
+    transform: translate3d(123.17px, -195.55px, 0px);
+  }
+  19.35%  {
+    transform: translate3d(129.68px, -186.39px, 0px);
+  }
+  20.96%  {
+    transform: translate3d(135.46px, -177.31px, 0px);
+  }
+  22.58%  {
+    transform: translate3d(140.6px, -168.44px, 0px);
+  }
+  24.19%  {
+    transform: translate3d(145.12px, -160.03px, 0px);
+  }
+  25.8%  {
+    transform: translate3d(149.12px, -152.1px, 0px);
+  }
+  27.41%  {
+    transform: translate3d(152.65px, -144.7px, 0px);
+  }
+  29.03%  {
+    transform: translate3d(155.8px, -137.79px, 0px);
+  }
+  30.64%  {
+    transform: translate3d(158.56px, -131.46px, 0px);
+  }
+  32.25%  {
+    transform: translate3d(161.01px, -125.65px, 0px);
+  }
+  33.87%  {
+    transform: translate3d(163.19px, -120.32px, 0px);
+  }
+  35.48%  {
+    transform: translate3d(165.11px, -115.48px, 0px);
+  }
+  37.09%  {
+    transform: translate3d(166.81px, -111.09px, 0px);
+  }
+  38.7%  {
+    transform: translate3d(168.32px, -107.1px, 0px);
+  }
+  40.32%  {
+    transform: translate3d(169.67px, -103.48px, 0px);
+  }
+  41.93%  {
+    transform: translate3d(170.86px, -100.22px, 0px);
+  }
+  43.54%  {
+    transform: translate3d(171.92px, -97.28px, 0px);
+  }
+  45.16%  {
+    transform: translate3d(172.86px, -94.61px, 0px);
+  }
+  46.77%  {
+    transform: translate3d(173.7px, -92.22px, 0px);
+  }
+  48.38%  {
+    transform: translate3d(174.44px, -90.08px, 0px);
+  }
+  50%  {
+    transform: translate3d(175.11px, -88.13px, 0px);
+  }
+  51.61%  {
+    transform: translate3d(175.7px, -86.4px, 0px);
+  }
+  53.22%  {
+    transform: translate3d(176.22px, -84.84px, 0px);
+  }
+  54.83%  {
+    transform: translate3d(176.69px, -83.44px, 0px);
+  }
+  56.45%  {
+    transform: translate3d(177.11px, -82.18px, 0px);
+  }
+  58.06%  {
+    transform: translate3d(177.48px, -81.06px, 0px);
+  }
+  59.67%  {
+    transform: translate3d(177.81px, -80.05px, 0px);
+  }
+  61.29%  {
+    transform: translate3d(178.11px, -79.14px, 0px);
+  }
+  62.9%  {
+    transform: translate3d(178.38px, -78.33px, 0px);
+  }
+  64.51%  {
+    transform: translate3d(178.61px, -77.6px, 0px);
+  }
+  66.12%  {
+    transform: translate3d(178.82px, -76.95px, 0px);
+  }
+  67.74%  {
+    transform: translate3d(179.01px, -76.37px, 0px);
+  }
+  69.35%  {
+    transform: translate3d(179.18px, -75.84px, 0px);
+  }
+  70.96%  {
+    transform: translate3d(179.33px, -75.38px, 0px);
+  }
+  72.58%  {
+    transform: translate3d(179.47px, -74.96px, 0px);
+  }
+  74.19%  {
+    transform: translate3d(179.58px, -74.58px, 0px);
+  }
+  75.8%  {
+    transform: translate3d(179.69px, -74.25px, 0px);
+  }
+  77.41%  {
+    transform: translate3d(179.79px, -73.95px, 0px);
+  }
+  79.03%  {
+    transform: translate3d(179.87px, -73.68px, 0px);
+  }
+  80.64%  {
+    transform: translate3d(179.95px, -73.44px, 0px);
+		width:820px;
+  }
+  82.25%  {
+    transform: translate3d(180.02px, -73.23px, 0px);
+  }
+  83.87%  {
+    transform: translate3d(180.08px, -73.03px, 0px);
+  }
+  85.48%  {
+    transform: translate3d(180.13px, -72.86px, 0px);
+  }
+  87.09%  {
+    transform: translate3d(180.18px, -72.71px, 0px);
+  }
+  88.7%  {
+    transform: translate3d(180.23px, -72.57px, 0px);
+  }
+  90.32%  {
+    transform: translate3d(180.27px, -72.45px, 0px);
+  }
+  91.93%  {
+    transform: translate3d(180.3px, -72.34px, 0px);
+  }
+  93.54%  {
+    transform: translate3d(180.33px, -72.24px, 0px);
+  }
+  95.16%  {
+    transform: translate3d(180.36px, -72.15px, 0px);
+  }
+  96.77%  {
+    transform: translate3d(180.38px, -72.07px, 0px);
+  }
+  100%  {
+    transform: translate3d(180.6px, -71.4px, 0px);
+		width: 702px;
+	}
+}
+/*
+@keyframes anime-bezier3 {
+  0%  {
+    transform: translate3d(0px, 0px, 0px);
+  }
+  1.61%  {
+    transform: translate3d(4.71px, -44.16px, 0px);
+  }
+  3.22%  {
+    transform: translate3d(10.55px, -82.86px, 0px);
+  }
+  4.83%  {
+    transform: translate3d(17.31px, -116.57px, 0px);
+  }
+  6.45%  {
+    transform: translate3d(24.81px, -145.91px, 0px);
+  }
+  8.06%  {
+    transform: translate3d(32.8px, -170.93px, 0px);
+  }
+  9.67%  {
+    transform: translate3d(41.15px, -192.23px, 0px);
+  }
+  11.29%  {
+    transform: translate3d(49.78px, -210.25px, 0px);
+  }
+  12.9%  {
+    transform: translate3d(58.48px, -225.11px, 0px);
+  }
+  14.51%  {
+    transform: translate3d(67.2px, -237.22px, 0px);
+  }
+  16.12%  {
+    transform: translate3d(75.86px, -246.89px, 0px);
+  }
+  17.74%  {
+    transform: translate3d(84.43px, -254.4px, 0px);
+  }
+  19.35%  {
+    transform: translate3d(92.76px, -259.9px, 0px);
+  }
+  20.96%  {
+    transform: translate3d(100.86px, -263.67px, 0px);
+  }
+  22.58%  {
+    transform: translate3d(108.73px, -265.92px, 0px);
+  }
+  24.19%  {
+    transform: translate3d(116.25px, -266.81px, 0px);
+  }
+  25.8%  {
+    transform: translate3d(123.44px, -266.53px, 0px);
+  }
+  27.41%  {
+    transform: translate3d(130.3px, -265.24px, 0px);
+  }
+  29.03%  {
+    transform: translate3d(136.86px, -263.05px, 0px);
+  }
+  30.64%  {
+    transform: translate3d(143.02px, -260.14px, 0px);
+  }
+  32.25%  {
+    transform: translate3d(148.83px, -256.61px, 0px);
+  }
+  33.87%  {
+    transform: translate3d(154.33px, -252.53px, 0px);
+  }
+  35.48%  {
+    transform: translate3d(159.45px, -248.07px, 0px);
+  }
+  37.09%  {
+    transform: translate3d(164.24px, -243.28px, 0px);
+  }
+  38.7%  {
+    transform: translate3d(168.71px, -238.24px, 0px);
+  }
+  40.32%  {
+    transform: translate3d(172.89px, -232.99px, 0px);
+  }
+  41.93%  {
+    transform: translate3d(176.75px, -227.66px, 0px);
+  }
+  43.54%  {
+    transform: translate3d(180.32px, -222.27px, 0px);
+  }
+  45.16%  {
+    transform: translate3d(183.64px, -216.85px, 0px);
+  }
+  46.77%  {
+    transform: translate3d(186.68px, -211.5px, 0px);
+  }
+  48.38%  {
+    transform: translate3d(189.48px, -206.23px, 0px);
+  }
+  50%  {
+    transform: translate3d(192.07px, -201.04px, 0px);
+  }
+  51.61%  {
+    transform: translate3d(194.43px, -196.02px, 0px);
+  }
+  53.22%  {
+    transform: translate3d(196.59px, -191.17px, 0px);
+  }
+  54.83%  {
+    transform: translate3d(198.55px, -186.51px, 0px);
+  }
+  56.45%  {
+    transform: translate3d(200.36px, -182.02px, 0px);
+  }
+  58.06%  {
+    transform: translate3d(201.99px, -177.78px, 0px);
+  }
+  59.67%  {
+    transform: translate3d(203.47px, -173.77px, 0px);
+  }
+  61.29%  {
+    transform: translate3d(204.82px, -169.97px, 0px);
+  }
+  62.9%  {
+    transform: translate3d(206.02px, -166.43px, 0px);
+  }
+  64.51%  {
+    transform: translate3d(207.11px, -163.13px, 0px);
+  }
+  66.12%  {
+    transform: translate3d(208.09px, -160.08px, 0px);
+  }
+  67.74%  {
+    transform: translate3d(208.97px, -157.25px, 0px);
+  }
+  69.35%  {
+    transform: translate3d(209.75px, -154.68px, 0px);
+  }
+  70.96%  {
+    transform: translate3d(210.44px, -152.34px, 0px);
+  }
+  72.58%  {
+    transform: translate3d(211.05px, -150.21px, 0px);
+  }
+  74.19%  {
+    transform: translate3d(211.59px, -148.32px, 0px);
+  }
+  75.8%  {
+    transform: translate3d(212.06px, -146.64px, 0px);
+  }
+  77.41%  {
+    transform: translate3d(212.47px, -145.16px, 0px);
+  }
+  79.03%  {
+    transform: translate3d(212.82px, -143.86px, 0px);
+  }
+  80.64%  {
+    transform: translate3d(213.11px, -142.75px, 0px);
+  }
+  82.25%  {
+    transform: translate3d(213.36px, -141.8px, 0px);
+  }
+  83.87%  {
+    transform: translate3d(213.57px, -141.01px, 0px);
+  }
+  85.48%  {
+    transform: translate3d(213.74px, -140.36px, 0px);
+  }
+  87.09%  {
+    transform: translate3d(213.88px, -139.84px, 0px);
+  }
+  88.7%  {
+    transform: translate3d(213.98px, -139.43px, 0px);
+  }
+  90.32%  {
+    transform: translate3d(214.06px, -139.13px, 0px);
+  }
+  91.93%  {
+    transform: translate3d(214.12px, -138.91px, 0px);
+  }
+  93.54%  {
+    transform: translate3d(214.16px, -138.76px, 0px);
+  }
+  95.16%  {
+    transform: translate3d(214.18px, -138.67px, 0px);
+  }
+  96.77%  {
+    transform: translate3d(214.19px, -138.62px, 0px);
+  }
+  100%  {
+    transform: translate3d(214.2px, -138.6px, 0px);
+  }
+}
+
+@keyframes anime-bezier2 {
+  0%  {
+    transform: translate3d(0px, 0px, 0px);
+		width:20px;
+	}
+  1.61%  {
+    transform: translate3d(2.99px, -43.01px, 0px);
+  }
+  3.22%  {
+    transform: translate3d(7.73px, -81.04px, 0px);
+  }
+  4.83%  {
+    transform: translate3d(13.95px, -114.5px, 0px);
+  }
+  6.45%  {
+    transform: translate3d(21.48px, -143.97px, 0px);
+  }
+  8.06%  {
+    transform: translate3d(30px, -169.45px, 0px);
+  }
+  9.67%  {
+    transform: translate3d(39.36px, -191.46px, 0px);
+  }
+  11.29%  {
+    transform: translate3d(49.47px, -210.44px, 0px);
+  }
+  12.9%  {
+    transform: translate3d(60.05px, -226.44px, 0px);
+  }
+  14.51%  {
+    transform: translate3d(71.03px, -239.87px, 0px);
+  }
+  16.12%  {
+    transform: translate3d(82.28px, -250.96px, 0px);
+  }
+  17.74%  {
+    transform: translate3d(93.78px, -260.02px, 0px);
+  }
+  19.35%  {
+    transform: translate3d(105.29px, -267.15px, 0px);
+  }
+  20.96%  {
+    transform: translate3d(116.8px, -272.59px, 0px);
+  }
+  22.58%  {
+    transform: translate3d(128.32px, -276.58px, 0px);
+  }
+  24.19%  {
+    transform: translate3d(139.63px, -279.21px, 0px);
+  }
+  25.8%  {
+    transform: translate3d(150.77px, -280.68px, 0px);
+  }
+  27.41%  {
+    transform: translate3d(161.69px, -281.14px, 0px);
+  }
+  29.03%  {
+    transform: translate3d(172.41px, -280.71px, 0px);
+  }
+  30.64%  {
+    transform: translate3d(182.78px, -279.51px, 0px);
+  }
+  32.25%  {
+    transform: translate3d(192.83px, -277.66px, 0px);
+  }
+  33.87%  {
+    transform: translate3d(202.6px, -275.25px, 0px);
+  }
+  35.48%  {
+    transform: translate3d(211.97px, -272.38px, 0px);
+  }
+  37.09%  {
+    transform: translate3d(220.97px, -269.15px, 0px);
+  }
+  38.7%  {
+    transform: translate3d(229.6px, -265.61px, 0px);
+  }
+  40.32%  {
+    transform: translate3d(237.9px, -261.82px, 0px);
+  }
+  41.93%  {
+    transform: translate3d(245.77px, -257.89px, 0px);
+  }
+  43.54%  {
+    transform: translate3d(253.25px, -253.84px, 0px);
+  }
+  45.16%  {
+    transform: translate3d(260.41px, -249.7px, 0px);
+  }
+  46.77%  {
+    transform: translate3d(267.14px, -245.56px, 0px);
+  }
+  48.38%  {
+    transform: translate3d(273.5px, -241.44px, 0px);
+  }
+  50%  {
+    transform: translate3d(279.52px, -237.35px, 0px);
+  }
+  51.61%  {
+    transform: translate3d(285.16px, -233.36px, 0px);
+  }
+  53.22%  {
+    transform: translate3d(290.44px, -229.48px, 0px);
+  }
+  54.83%  {
+    transform: translate3d(295.38px, -225.73px, 0px);
+  }
+  56.45%  {
+    transform: translate3d(300.01px, -222.09px, 0px);
+  }
+  58.06%  {
+    transform: translate3d(304.29px, -218.65px, 0px);
+  }
+  59.67%  {
+    transform: translate3d(308.26px, -215.37px, 0px);
+  }
+  61.29%  {
+    transform: translate3d(311.95px, -212.25px, 0px);
+  }
+  62.9%  {
+    transform: translate3d(315.33px, -209.35px, 0px);
+  }
+  64.51%  {
+    transform: translate3d(318.42px, -206.63px, 0px);
+  }
+  66.12%  {
+    transform: translate3d(321.25px, -204.11px, 0px);
+  }
+  67.74%  {
+    transform: translate3d(323.84px, -201.76px, 0px);
+  }
+  69.35%  {
+    transform: translate3d(326.17px, -199.63px, 0px);
+  }
+  70.96%  {
+    transform: translate3d(328.26px, -197.68px, 0px);
+  }
+  72.58%  {
+    transform: translate3d(330.15px, -195.92px, 0px);
+  }
+  74.19%  {
+    transform: translate3d(331.82px, -194.34px, 0px);
+  }
+  75.8%  {
+    transform: translate3d(333.29px, -192.93px, 0px);
+  }
+  77.41%  {
+    transform: translate3d(334.58px, -191.7px, 0px);
+  }
+  79.03%  {
+    transform: translate3d(335.7px, -190.61px, 0px);
+  }
+  80.64%  {
+    transform: translate3d(336.66px, -189.68px, 0px);
+  }
+  82.25%  {
+    transform: translate3d(337.47px, -188.89px, 0px);
+  }
+  83.87%  {
+    transform: translate3d(338.15px, -188.22px, 0px);
+  }
+  85.48%  {
+    transform: translate3d(338.7px, -187.68px, 0px);
+		width:800px;
+  }
+  87.09%  {
+    transform: translate3d(339.15px, -187.24px, 0px);
+  }
+  88.7%  {
+    transform: translate3d(339.49px, -186.9px, 0px);
+  }
+  90.32%  {
+    transform: translate3d(339.75px, -186.64px, 0px);
+  }
+  91.93%  {
+    transform: translate3d(339.94px, -186.46px, 0px);
+  }
+  93.54%  {
+    transform: translate3d(340.06px, -186.34px, 0px);
+  }
+  95.16%  {
+    transform: translate3d(340.14px, -186.26px, 0px);
+  }
+  96.77%  {
+    transform: translate3d(340.18px, -186.22px, 0px);
+  }
+  100%  {
+    transform: translate3d(340.2px, -186.2px, 0px);
+		width:702px;
+  }
+}
+
+
+
+.getin_anime {
+  animation: 1000ms ease-out anime-bezier3;
+	animation-fill-mode: forwards;
+	margin-left: -240px;
+	margin-top: 150px;
+}
+
+@keyframes anime-bezier3 {
+  0%  {
+    transform: translate3d(0px, 0px, 0px);
+		width:20px;
+  }
+  1.61%  {
+    transform: translate3d(12.83px, -92.96px, 0px);
+  }
+  3.22%  {
+    transform: translate3d(30.1px, -159.53px, 0px);
+  }
+  4.83%  {
+    transform: translate3d(49.09px, -206.12px, 0px);
+  }
+  6.45%  {
+    transform: translate3d(68.27px, -237.82px, 0px);
+  }
+  8.06%  {
+    transform: translate3d(86.43px, -258.01px, 0px);
+  }
+  9.67%  {
+    transform: translate3d(103.17px, -269.83px, 0px);
+  }
+  11.29%  {
+    transform: translate3d(118.34px, -275.51px, 0px);
+  }
+  12.9%  {
+    transform: translate3d(131.71px, -276.68px, 0px);
+  }
+  14.51%  {
+    transform: translate3d(143.43px, -274.67px, 0px);
+  }
+  16.12%  {
+    transform: translate3d(153.64px, -270.47px, 0px);
+  }
+  17.74%  {
+    transform: translate3d(162.51px, -264.76px, 0px);
+  }
+  19.35%  {
+    transform: translate3d(170.1px, -258.17px, 0px);
+  }
+  20.96%  {
+    transform: translate3d(176.61px, -251.08px, 0px);
+  }
+  22.58%  {
+    transform: translate3d(182.23px, -243.75px, 0px);
+  }
+  24.19%  {
+    transform: translate3d(187px, -236.48px, 0px);
+  }
+  25.8%  {
+    transform: translate3d(191.08px, -229.37px, 0px);
+  }
+  27.41%  {
+    transform: translate3d(194.58px, -222.54px, 0px);
+  }
+  29.03%  {
+    transform: translate3d(197.58px, -216.02px, 0px);
+  }
+  30.64%  {
+    transform: translate3d(200.14px, -209.92px, 0px);
+  }
+  32.25%  {
+    transform: translate3d(202.34px, -204.22px, 0px);
+  }
+  33.87%  {
+    transform: translate3d(204.24px, -198.9px, 0px);
+  }
+  35.48%  {
+    transform: translate3d(205.86px, -194.02px, 0px);
+  }
+  37.09%  {
+    transform: translate3d(207.26px, -189.54px, 0px);
+  }
+  38.7%  {
+    transform: translate3d(208.47px, -185.43px, 0px);
+  }
+  40.32%  {
+    transform: translate3d(209.52px, -181.66px, 0px);
+  }
+  41.93%  {
+    transform: translate3d(210.43px, -178.24px, 0px);
+  }
+  43.54%  {
+    transform: translate3d(211.22px, -175.14px, 0px);
+  }
+  45.16%  {
+    transform: translate3d(211.91px, -172.31px, 0px);
+  }
+  46.77%  {
+    transform: translate3d(212.51px, -169.76px, 0px);
+  }
+  48.38%  {
+    transform: translate3d(213.03px, -167.46px, 0px);
+  }
+  50%  {
+    transform: translate3d(213.5px, -165.37px, 0px);
+  }
+  51.61%  {
+    transform: translate3d(213.9px, -163.49px, 0px);
+  }
+  53.22%  {
+    transform: translate3d(214.25px, -161.8px, 0px);
+  }
+  54.83%  {
+    transform: translate3d(214.56px, -160.28px, 0px);
+  }
+  56.45%  {
+    transform: translate3d(214.84px, -158.9px, 0px);
+  }
+  58.06%  {
+    transform: translate3d(215.08px, -157.67px, 0px);
+  }
+  59.67%  {
+    transform: translate3d(215.29px, -156.57px, 0px);
+  }
+  61.29%  {
+    transform: translate3d(215.48px, -155.57px, 0px);
+  }
+  62.9%  {
+    transform: translate3d(215.65px, -154.68px, 0px);
+  }
+  64.51%  {
+    transform: translate3d(215.8px, -153.88px, 0px);
+  }
+  66.12%  {
+    transform: translate3d(215.93px, -153.16px, 0px);
+  }
+  67.74%  {
+    transform: translate3d(216.04px, -152.51px, 0px);
+  }
+  69.35%  {
+    transform: translate3d(216.15px, -151.94px, 0px);
+  }
+  70.96%  {
+    transform: translate3d(216.24px, -151.42px, 0px);
+  }
+  72.58%  {
+    transform: translate3d(216.32px, -150.95px, 0px);
+  }
+  74.19%  {
+    transform: translate3d(216.39px, -150.54px, 0px);
+  }
+  75.8%  {
+    transform: translate3d(216.46px, -150.17px, 0px);
+  }
+  77.41%  {
+    transform: translate3d(216.52px, -149.84px, 0px);
+  }
+  79.03%  {
+    transform: translate3d(216.57px, -149.54px, 0px);
+  }
+  80.64%  {
+    transform: translate3d(216.61px, -149.27px, 0px);
+  }
+  82.25%  {
+    transform: translate3d(216.65px, -149.03px, 0px);
+  }
+  83.87%  {
+    transform: translate3d(216.69px, -148.82px, 0px);
+  }
+  85.48%  {
+    transform: translate3d(216.72px, -148.63px, 0px);
+  }
+  87.09%  {
+    transform: translate3d(216.75px, -148.46px, 0px);
+		width:820px;
+  }
+  88.7%  {
+    transform: translate3d(216.78px, -148.3px, 0px);
+  }
+  90.32%  {
+    transform: translate3d(216.8px, -148.17px, 0px);
+  }
+  91.93%  {
+    transform: translate3d(216.82px, -148.04px, 0px);
+  }
+  93.54%  {
+    transform: translate3d(216.84px, -147.93px, 0px);
+  }
+  95.16%  {
+    transform: translate3d(216.86px, -147.84px, 0px);
+  }
+  96.77%  {
+    transform: translate3d(216.87px, -147.75px, 0px);
+  }
+  100%  {
+    transform: translate3d(217px, -147px, 0px);
+		width:720px;
+  }
+}
+
+*/
