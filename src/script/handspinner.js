@@ -48,7 +48,7 @@ var camera_bg = new THREE.OrthographicCamera(0, WIDTH, HEIGHT, 0, 0, 1000);
 
 //JSONをロード
 let loader = new THREE.JSONLoader();　　
-let modelPath = '../src/data/hs300k.json'
+let modelPath = './data/hs300k.json'
 // modelPath = "https://s3-us-west-2.amazonaws.com/s.cdpn.io/1538236/hs300k.json";
 
 ////////////
