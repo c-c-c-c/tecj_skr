@@ -87,9 +87,11 @@ var termsTree = {
 		oftenBunshi: 1,
 		ledColor: '#00e000'
 	}
-};
+	////////////
+	//レンダリング初期表示
+	//////////
 
-function initRender() {
+};function initRender() {
 	loader.load(modelPath, function (geo, mat) {
 		var geometry = geo;
 		var material = mat;
@@ -163,12 +165,15 @@ function initRender() {
 	});
 }
 
+////////////
+//再帰処理
+//////////
+
 var count = 0;
 var render_count = 0;
 var count_three = 0;
 
 function main() {
-
 	// OrbitControls対応箇所
 	controls.update();
 	if (vp.v_phase === "1_lets_spin" || vp.v_phase === "0_start_anime") {} else if (vp.v_phase === "2_more_spin") {
@@ -220,9 +225,7 @@ function main() {
 	}
 
 	// LEDの色の表示
-
 	count++;
-
 	renderer.render(scene_bg, camera_bg);
 	renderer.render(scene, camera);
 
@@ -231,7 +234,6 @@ function main() {
 		render_count++;
 		main();
 	} else {
-
 		count_three++;
 		if (count_three === 2) {
 			requestAnimationFrame(main);
@@ -257,16 +259,49 @@ function initFormDefault() {
 		// $("#term1 .which_led").val(3);
 	}
 }
+////////////////////////
+//formの分子分母をウォッチ
+////////////////////////
 
-function initFormWatch() {
+function initFormWatch(newTermId) {
 	$('.how_often_bunbo').change(function () {
 		console.log('foo');
+		// let test_val = $(this).val();
+		var termId = $(this).parent().parent().attr("id");
+		// attr("id");
+		console.log($(this).val());
+		var bunboVal = Number($(this).val());
+		// 一度全て削除する
+		$('#' + termId + ' .how_often_bunshi').children().remove();
+
+		for (var i = 1; i < bunboVal; i++) {
+			// $('#'+termId+' .how_often_bunshi').append($('<option value='i'>'回'</option>'));
+			$('#' + termId + ' .how_often_bunshi').append($('<option>').attr({ value: i }).text(i + '回'));
+		}
+		// ずっとのとき
+		console.log(bunboVal === 1);
+
+		if (bunboVal === 1) {
+			console.log('came');
+			$('#' + termId + ' .how_often_bunshi').append($('<option>').attr({ value: 1 }).text('- '));
+		}
+
 		// let how_often = $("#fruits option:selected").val();
-		console.log($('.how_often_bunbo').val());
-		console.log($('.how_often_bunbo').parent().val());
+		// console.log($('.how_often_bunbo').val());
+		// console.log($('.how_often_bunbo').parent().val());
+		// console.log($('.how_often_bunbo').parent());
+		// let tmp_val = $('.how_often_bunbo').parent().parent();
+		//
+		// console.log(JSON.stringify(tmp_val));
+		// console.log(tmp_val[0]);
 		// console.log(this);
 		// console.log(this.val());
 	});
+
+	if (newTermId) {
+		$('#' + newTermId + ' .how_often_bunshi').children().remove();
+		$('#' + newTermId + ' .how_often_bunshi').append($('<option>').attr({ value: 1 }).text('- '));
+	}
 }
 
 ////////////////////////
@@ -383,6 +418,7 @@ function initVueTerm() {
 				this.terms.push({ id: count, content: term_id });
 				setTimeout(function () {
 					makeColorPicker(count);
+					initFormWatch(term_id);
 				}, 100);
 				console.log(count);
 			},
