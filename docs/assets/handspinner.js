@@ -61,31 +61,31 @@ var termsTree = {
 		ledNo: 1,
 		oftenBunbo: 3,
 		oftenBunshi: 1,
-		ledColor: '#ff0000'
+		ledColor: '#ff9800'
 	},
 	term2: {
 		ledNo: 2,
-		oftenBunbo: 3,
+		oftenBunbo: 2,
 		oftenBunshi: 1,
-		ledColor: '#ff0000'
+		ledColor: '#ff99ff'
 	},
 	term3: {
 		ledNo: 3,
 		oftenBunbo: 3,
 		oftenBunshi: 1,
-		ledColor: '#ff0000'
+		ledColor: '#ffffff'
 	},
 	term4: {
 		ledNo: 4,
-		oftenBunbo: 3,
+		oftenBunbo: 2,
 		oftenBunshi: 1,
-		ledColor: '#00e000'
+		ledColor: '#00ffff'
 	},
 	term5: {
 		ledNo: 5,
 		oftenBunbo: 3,
 		oftenBunshi: 1,
-		ledColor: '#00e000'
+		ledColor: '#22ff85'
 	}
 	////////////
 	//レンダリング初期表示
