@@ -14,6 +14,9 @@ var controls;
 var plane = {};
 
 var vp = {}; //グローバルなフェイズ管理
+// 桜用
+
+
 var vm = {};
 
 var colorConf = {
@@ -57,35 +60,144 @@ var modelPath = './data/hs300k.json';
 //初期カラー
 //////////
 var termsTree = {
+	// term1 : {
+	// 	ledNo : 1,
+	// 	oftenBunbo : 12,
+	// 	oftenBunshi: 11,
+	// 	ledColor : '#ff99ff'
+	// },
+	// term2 : {
+	// 	ledNo : 2,
+	// 	oftenBunbo : 12,
+	// 	oftenBunshi :10,
+	// 	ledColor : '#ff99ff'
+	// },
+	// term3 : {
+	// 	ledNo : 3,
+	// 	oftenBunbo : 12,
+	// 	oftenBunshi: 9,
+	// 	ledColor : '#ff99ff'
+	// },
+	// term4 : {
+	// 	ledNo : 4,
+	// 	oftenBunbo : 12,
+	// 	oftenBunshi: 8,
+	// 	ledColor : '#ff99ff'
+	// },
+	// term5 : {
+	// 	ledNo : 5,
+	// 	oftenBunbo : 12,
+	// 	oftenBunshi: 7,
+	// 	ledColor : '#ff99ff'
+	// },
+	// term6 : {
+	// 	ledNo : 1,
+	// 	oftenBunbo : 12,
+	// 	oftenBunshi: 1,
+	// 	ledColor : '#000000'
+	// },
+	// term7 : {
+	// 	ledNo : 2,
+	// 	oftenBunbo : 12,
+	// 	oftenBunshi: 2,
+	// 	ledColor : '#000000'
+	// },
+	// term8 : {
+	// 	ledNo : 3,
+	// 	oftenBunbo : 12,
+	// 	oftenBunshi: 3,
+	// 	ledColor : '#000000'
+	// },
+	// term9 : {
+	// 	ledNo : 4,
+	// 	oftenBunbo : 12,
+	// 	oftenBunshi: 4,
+	// 	ledColor : '#000000'
+	// },
+	// term10 : {
+	// 	ledNo : 5,
+	// 	oftenBunbo : 12,
+	// 	oftenBunshi: 5,
+	// 	ledColor : '#000000'
+	// },
 	term1: {
 		ledNo: 1,
-		oftenBunbo: 3,
+		oftenBunbo: 1,
 		oftenBunshi: 1,
-		ledColor: '#ff9800'
+		ledColor: '#ff78ff'
 	},
 	term2: {
 		ledNo: 2,
-		oftenBunbo: 2,
-		oftenBunshi: 1,
+		oftenBunbo: 12,
+		oftenBunshi: 11,
 		ledColor: '#ff99ff'
 	},
 	term3: {
 		ledNo: 3,
-		oftenBunbo: 3,
-		oftenBunshi: 1,
-		ledColor: '#ffffff'
+		oftenBunbo: 12,
+		oftenBunshi: 10,
+		ledColor: '#ff99ff'
 	},
 	term4: {
 		ledNo: 4,
-		oftenBunbo: 2,
-		oftenBunshi: 1,
-		ledColor: '#00ffff'
+		oftenBunbo: 12,
+		oftenBunshi: 9,
+		ledColor: '#ff99ff'
 	},
 	term5: {
 		ledNo: 5,
-		oftenBunbo: 3,
+		oftenBunbo: 12,
+		oftenBunshi: 8,
+		ledColor: '#ffaaff'
+	},
+	term6: {
+		ledNo: 2,
+		oftenBunbo: 12,
 		oftenBunshi: 1,
-		ledColor: '#22ff85'
+		ledColor: '#000000'
+	},
+	term7: {
+		ledNo: 3,
+		oftenBunbo: 12,
+		oftenBunshi: 2,
+		ledColor: '#000000'
+	},
+	term8: {
+		ledNo: 4,
+		oftenBunbo: 12,
+		oftenBunshi: 3,
+		ledColor: '#000000'
+	},
+
+	term9: {
+		ledNo: 5,
+		oftenBunbo: 12,
+		oftenBunshi: 7,
+		ledColor: '#000000'
+	},
+	term10: {
+		ledNo: 5,
+		oftenBunbo: 12,
+		oftenBunshi: 5,
+		ledColor: '#ffaaff'
+	},
+	term11: {
+		ledNo: 5,
+		oftenBunbo: 12,
+		oftenBunshi: 4,
+		ledColor: '#000000'
+	},
+	term12: {
+		ledNo: 1,
+		oftenBunbo: 12,
+		oftenBunshi: 7,
+		ledColor: '#ffc700'
+	},
+	term13: {
+		ledNo: 1,
+		oftenBunbo: 12,
+		oftenBunshi: 4,
+		ledColor: '#ff78ff'
 	}
 	////////////
 	//レンダリング初期表示
@@ -221,7 +333,8 @@ function main() {
 				plane[tmpTerm['ledNo']].material.color = new THREE.Color('#000000');
 			}
 		}
-		hsGeoGruoup.rotation.y += 2 * Math.PI / 60 * 41;
+		hsGeoGruoup.rotation.y += 2 * Math.PI / 60 * 13;
+		// hsGeoGruoup.rotation.y += (2*Math.PI/60)*41 ;
 	}
 
 	// LEDの色の表示
@@ -242,6 +355,9 @@ function main() {
 			main();
 		}
 	}
+
+	var cameraZ = 1 * Math.cos(count / 200) + 1.1;
+	camera.position.set(0, 6, cameraZ);
 }
 
 function initFormDefault() {
@@ -404,11 +520,11 @@ function initVueTerm() {
 			// }
 		} });
 
-	var count = 5; //本当は、初期値は下のtermsの数にした方が良い
+	var count = 11; //本当は、初期値は下のtermsの数にした方が良い
 	vm = new Vue({
 		el: '.app',
 		data: {
-			terms: [{ id: 1, content: "term1" }, { id: 2, content: "term2" }, { id: 3, content: "term3" }, { id: 4, content: "term4" }, { id: 5, content: "term5" }],
+			terms: [{ id: 1, content: "term1" }, { id: 2, content: "term2" }, { id: 3, content: "term3" }, { id: 4, content: "term4" }, { id: 5, content: "term5" }, { id: 6, content: "term6" }, { id: 7, content: "term7" }, { id: 8, content: "term8" }, { id: 9, content: "term9" }, { id: 10, content: "term10" }, { id: 11, content: "term11" }, { id: 12, content: "term12" }, { id: 13, content: "term13" }],
 			term_phase: "not_show"
 		},
 		methods: {
@@ -457,7 +573,6 @@ function initVuePhase() {
 			}
 		}
 	});
-	// vp.v_phase = "2_more_spin";
 }
 
 function initAnimation() {
@@ -466,16 +581,12 @@ function initAnimation() {
 	el.className += " getin_spin";
 	setTimeout(function () {
 		el.className += " getin_spin";
-		vp.v_phase = "1_lets_spin";
+		vp.v_phase = "4_led_light_on";
+		// 桜用
+
 		// animateInWindow();
 	}, 4500);
 }
-
-// function initColorPicker() {
-// 	for (let picker_cnt=1; picker_cnt <= 5; picker_cnt++ ) {
-// 		makeColorPicker(picker_cnt);
-// 	}
-// }
 
 function makeColorPicker(num, defaultColor) {
 	var picker_id = "picker" + num;
@@ -484,12 +595,24 @@ function makeColorPicker(num, defaultColor) {
 
 	$('#' + picker_id).spectrum({
 		color: defaultColor,
-		showPaletteOnly: true,
+		showPalette: true,
+		preferredFormat: "hex",
+		showInput: true,
 		palette: [["#ffffff", "#000000", "#ff0000", '#ff99ff', "#a422ff", "#0000ff", "#00ffff", "#22ff85", "#00e000", "#ff9800", "#f0f000"]]
 	});
 	// $('#' + picker_id ).spectrum({
 	// 	replacerClassName: 'picker_style'
 	// });
+}
+
+function initSakura() {
+	setTimeout(function () {
+
+		vp.v_phase = "5_teach_how_to";
+		// 桜用
+
+		// animat
+	}, 4550);
 }
 
 function initModal() {
@@ -508,6 +631,7 @@ $(document).ready(function () {
 	initVueTerm();
 	// initColorPicker();
 	initAnimation();
+	initSakura();
 	initFormDefault();
 	initVuePhase();
 	initExecBtn();
